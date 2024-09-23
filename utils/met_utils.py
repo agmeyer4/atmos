@@ -12,6 +12,7 @@ import re
 sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 from configs.met_config import MetConfig
 from utils import df_utils
+from utils import datetime_utils
 
 class MetHandler(MetConfig):
     def __init__(self,config_mode='default'):
@@ -21,11 +22,19 @@ class MetHandler(MetConfig):
         if dtr is None:
             if start_dt is None or end_dt is None:
                 raise ValueError("Either a DateTimeRange object or both start_dt and end_dt must be provided.")
-            dtr = DateTimeRange(start_dt, end_dt, tz)
+            dtr = datetime_utils.DateTimeRange(start_dt, end_dt, tz)
         
         if met_type == 'vaisala_tph':
             vtph = VaisalaTPH(data_path)
             df = vtph.load_df_in_range(dtr)
+            df = self.standardize(df)
+            if df.index.tz != dtr.tz:
+                df.index = df.index.tz_convert(dtr.tz)
+            df = df.loc[dtr.start_dt:dtr.end_dt]
+            return df
+        elif met_type == 'lanl_zeno':
+            zeno = LANLZeno(data_path)
+            df = zeno.load_df_in_range(dtr)
             df = self.standardize(df)
             if df.index.tz != dtr.tz:
                 df.index = df.index.tz_convert(dtr.tz)
@@ -65,6 +74,8 @@ class GGGMetHandler():
 
         if self.met_type == 'vaisala_tph':
             file_ext = '_vtph.txt'
+        elif self.met_type == 'lanl_zeno':
+            file_ext = '_zeno.txt'
         else:
             file_ext = '.txt'
         
@@ -72,9 +83,9 @@ class GGGMetHandler():
         if os.path.exists(full_fname) and not overwrite:
             raise FileExistsError(f"File already exists: {full_fname}")
 
-        if len(day_df.dropna()) == 0:
+        day_df = day_df.dropna()
+        if len(day_df) == 0:
             return
-
         with open(full_fname,'w') as f:
             day_df.to_csv(f,sep=',',index = False)
 
@@ -170,3 +181,76 @@ class VaisalaTPH():
             }
         except (IndexError, ValueError):
             return None
+
+
+class LANLZeno():
+    raw_file_pattern = re.compile(r'weather-\d{4}-\d{2}-\d{2}\.txt')
+    tz = pytz.timezone('UTC')
+
+    def __init__(self,data_path):
+        self.data_path = data_path
+
+    def load_df_in_range(self,dtr):
+        in_tz = dtr.tz
+        if in_tz != self.tz:
+            new_dtr = dtr.new_tz(self.tz)
+        else:
+            new_dtr = dtr
+
+        dates = new_dtr.get_dates_in_range()
+        data = []
+        for date in dates:
+            fname = self.create_raw_fname(date)
+            try:
+                df = self.load_df_from_raw_file(fname)
+            except FileNotFoundError:
+                continue
+            data.append(df)
+
+        return pd.concat(data)
+
+    def create_raw_fname(self,date):
+        return f'weather-{date.strftime("%Y-%m-%d")}.txt'
+
+    def load_df_from_raw_file(self,fname,alternate_path=None,offsets = {'pres': -0.2}):
+        if alternate_path:
+            full_filepath = os.path.join(alternate_path,fname)
+        else:
+            full_filepath = os.path.join(self.data_path,fname)
+        if not self.raw_file_pattern.match(os.path.basename(full_filepath)):
+            raise ValueError(f'Invalid file name: {full_filepath}')
+        with open(full_filepath,'r') as f:
+            lines = f.readlines()
+
+        data = []
+        for line in lines:
+            parsed_data = self.parse_line(line)
+            if parsed_data:
+                data.append(parsed_data)
+        df = pd.DataFrame(data)
+        for key in offsets.keys():
+            df[key] = df[key] + offsets[key]
+        return df
+        
+    def parse_line(self,line):
+        line = line.strip()
+        if len(line)==0:
+            return None
+        splitline = line.split(',')
+        try:
+            datestr = splitline[1]
+            timestr = splitline[2]
+            dt = datetime.datetime.strptime(f'{datestr} {timestr}','%y/%m/%d %H:%M:%S')
+            dt = pytz.utc.localize(dt).astimezone(self.tz)
+            p = float(splitline[12])
+            t = float(splitline[10])
+            rh = float(splitline[11])
+            return {
+            'dt': dt,
+            'pres': p,
+            'temp': t,
+            'rh': rh
+            }
+        except (IndexError, ValueError):
+            return None
+        
