@@ -19,9 +19,32 @@ import re
 
 #Import local dependencies
 sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
-from configs.met_config import MetConfig
 from utils import df_utils
 from utils import datetime_utils
+
+class MetConfig:
+    """Configuration for met tools.
+
+    Attributes:
+        default_vars (dict): Dictionary containing the default variables for meteorological data.
+    """
+
+    def __init__(self,config_mode = 'default'):
+        if config_mode == 'default':
+            self.default_vars = {
+                'et': {'description': 'Epoch time -- seconds since 1970-01-01 00:00:00 UTC', 'units': 's', 'dtype':'float'},
+                'dt': {'description': 'Date time', 'units': 'na', 'dtype':'datetime.datetime'},
+                'pres': {'description': 'Atmospheric Pressure','units': 'hPa', 'dtype':'float'},
+                'temp': {'description': 'Temperature','units': 'C', 'dtype':'float'},
+                'rh': {'description': 'Relative Humidity','units': '%', 'dtype':'float'},
+                'ws': {'description': 'Wind Speed','units': 'm/s', 'dtype':'float'},
+                'wd': {'description': 'Wind Direction (clockwise from N)','units': 'degrees', 'dtype':'float'},
+                'u': {'description': 'u component of wind (>0 = from west)','units': 'm/s', 'dtype':'float'},
+                'v': {'description': 'v component of wind (>0 = from south)','units': 'm/s', 'dtype':'float'},
+                'w': {'description': 'w component of wind (>0 = upward)','units': 'm/s', 'dtype':'float'},
+            }   
+        else:
+            raise ValueError("Invalid config_mode. Only have 'default' set up right now.")
 
 class MetHandler(MetConfig):
     """Parent class for handling meteorological data.
@@ -60,7 +83,9 @@ class MetHandler(MetConfig):
             if start_dt is None or end_dt is None: #If both start_dt and end_dt are not provided
                 raise ValueError("Either a DateTimeRange object or both start_dt and end_dt must be provided.")
             dtr = datetime_utils.DateTimeRange(start_dt, end_dt, tz) #Create a DateTimeRange object
-        
+        if not os.path.isdir(data_path): #If the data path isn't a dir
+            raise ValueError(f"Invalid data path: {data_path}") #Raise an error
+
         if met_type == 'vaisala_tph': #If the meteorological data is Vaisala TPH
             vtph = VaisalaTPH(data_path) #Create a VaisalaTPH object
             df = vtph.load_df_in_range(dtr) #Load the data in the specified datetime range
@@ -77,6 +102,8 @@ class MetHandler(MetConfig):
                 df.index = df.index.tz_convert(dtr.tz)
             df = df.loc[dtr.start_dt:dtr.end_dt]
             return df
+        else:
+            raise ValueError("Invalid met_type. Only have 'vaisala_tph' and 'lanl_zeno' set up right now.")
 
     def standardize(self,df):
         """Standardize the meteorological data.
