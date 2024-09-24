@@ -102,6 +102,14 @@ class MetHandler(MetConfig):
                 df.index = df.index.tz_convert(dtr.tz)
             df = df.loc[dtr.start_dt:dtr.end_dt]
             return df
+        elif met_type == 'ggg': #If the meteorological data is GGG
+            ggg = GGGMetHandler()
+            df = ggg.load_df_in_range(data_path,dtr)
+            df = self.standardize(df)
+            if df.index.tz != dtr.tz:
+                df.index = df.index.tz_convert(dtr.tz)
+            df = df.loc[dtr.start_dt:dtr.end_dt]
+            return df
         else:
             raise ValueError("Invalid met_type. Only have 'vaisala_tph' and 'lanl_zeno' set up right now.")
 
@@ -128,12 +136,12 @@ class MetHandler(MetConfig):
         return df
 
 class GGGMetHandler():
-    """Class for handling meteorological data for GGG.
+    """Class for handling meteorological data for GGG. It is intended to be used either to transform data standardized by MetHandler and
+    write daily GGG meteorological files, or to read in GGG style met files and transform them into a standardized dataframe.
 
     Attributes:
-        df (pd.DataFrame): Dataframe containing the meteorological data. This should be a dataframe "standardized" by the MetHandler class.
-        met_type (str): Type of meteorological data. Options are 'vaisala_tph' and 'lanl_zeno'.
-        ggg_df (pd.DataFrame): Dataframe prepared for GGG.
+        ggg_column_map (dict): Dictionary mapping the default column names to the GGG column names.
+        ggg_column_order (list): Order of the columns in the GGG file.
     """
 
     #Map the default column names (in MetHandler) to the GGG column names
@@ -145,9 +153,79 @@ class GGGMetHandler():
         'wd': 'WDIR',
     }
     ggg_column_order = ['UTCDate','UTCTime','Pout','Tout','RH','WSPD','WDIR'] #Order of the columns in the GGG file
+    tz = pytz.timezone('UTC') #Timezone of GGG data
+    raw_file_pattern = re.compile(r'\d{8}[_\.]\w+\.txt') # Regular expression pattern for the raw file name -- e.g. 20210101_vtph.txt or 20210101.WBB.txt
+
 
     def __init__(self):
         pass
+
+    def load_df_in_range(self,data_path,dtr=None,start_dt=None,end_dt=None,tz='UTC'):
+        in_tz = dtr.tz #Timezone of the input DateTimeRange object
+        if in_tz != self.tz : #If the timezone of the DateTimeRange object is not UTC
+            new_dtr = dtr.new_tz(self.tz) #Create a new DateTimeRange object with the timezone set to UTC
+        else:
+            new_dtr = dtr #Otherwise, use the input DateTimeRange object
+
+        dates = new_dtr.get_dates_in_range() #Get the dates in the specified datetime range
+        data = [] #List to store the dataframes
+        for date in dates: #Iterate over the dates
+            fname = self.create_raw_fname(date,data_path) #Create the raw file name
+            if fname is None: #If the file name is None
+                continue #Skip to the next date
+            try:
+                df = self.load_df_from_raw_file(fname,data_path) #Load the dataframe from the raw file
+            except FileNotFoundError: #If the file is not found
+                continue #Skip to the next date
+            data.append(df) #Append the dataframe to the list
+
+        return pd.concat(data) #Concatenate the dataframes
+    
+    def create_raw_fname(self,date,data_path):
+        """Create the raw file name for a given date, using the files in the data path provided.
+
+        Args:
+            date (datetime.datetime): Date for which to create the raw file name.
+            data_path (str): Path to the ggg data.
+
+        Returns:
+            str: Raw file name.
+        """
+        matching_dates = [] #List to store the matching dates
+        for fname in os.listdir(data_path):
+            if fname.startswith(date.strftime('%Y%m%d')) and self.raw_file_pattern.match(fname): #If the file name matches the date and the pattern
+                matching_dates.append(fname) #Append the file name to the list
+        if len(matching_dates)>1:
+            raise ValueError(f"Multiple files found for date {date.strftime('%Y%m%d')}: {matching_dates}")
+        elif len(matching_dates)==0:
+            print(f'Warning: no file found for date {date.strftime("%Y%m%d")}')
+            return None
+        else:
+            return matching_dates[0]    
+    
+    def load_df_from_raw_file(self,fname,data_path):
+        """Load the GGG meteorological data from a raw file.
+
+        Args:
+            fname (str): Raw file name. Just the name.
+            data_path (str): Path to the GGG meteorological data.
+
+        Returns:
+            pd.DataFrame: Dataframe containing the GGG meteorological data.
+
+        Raises:
+            ValueError: If the file name is invalid.
+        """
+
+        full_filepath = os.path.join(data_path,fname) #Create the full file path using the self.data_path
+        if not self.raw_file_pattern.match(os.path.basename(full_filepath)): #If t he file name is invalid
+            raise ValueError(f'Invalid file name: {full_filepath}') #Raise an error
+
+        df = pd.read_csv(full_filepath) #Read the CSV file
+        df['dt'] = pd.to_datetime(df['UTCDate']+df['UTCTime'],format='%y/%m/%d%H:%M:%S').dt.tz_localize('UTC')
+        df = df.drop(columns = ['UTCDate','UTCTime'])
+        df = df.rename(columns={v: k for k, v in self.ggg_column_map.items()})
+        return df
 
     def write_daily_ggg_met_files(self,df,met_type,write_path,overwrite=False):
         """Write daily GGG meteorological files.
