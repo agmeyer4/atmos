@@ -59,7 +59,7 @@ class MetHandler(MetConfig):
 
         super().__init__(config_mode)
     
-    def load_data_in_range(self,met_type,data_path,dtr=None,start_dt=None,end_dt=None,tz='UTC'):
+    def load_stddata_in_range(self,met_type,data_path,dtr=None,start_dt=None,end_dt=None,tz='UTC'):
         """Load meteorological data in a specified datetime range.
         
         You can provide either a DateTimeRange object or both start_dt and end_dt.
@@ -87,31 +87,24 @@ class MetHandler(MetConfig):
             raise ValueError(f"Invalid data path: {data_path}") #Raise an error
 
         if met_type == 'vaisala_tph': #If the meteorological data is Vaisala TPH
-            vtph = VaisalaTPH(data_path) #Create a VaisalaTPH object
-            df = vtph.load_df_in_range(dtr) #Load the data in the specified datetime range
-            df = self.standardize(df) #Standardize the dataframe
-            if df.index.tz != dtr.tz:  #If the timezone of the dataframe does not match the timezone of the DateTimeRange object
-                df.index = df.index.tz_convert(dtr.tz) #Convert the timezone of the dataframe
-            df = df.loc[dtr.start_dt:dtr.end_dt] #Filter the dataframe to the specified datetime range
-            return df
+            mettypehandler = VaisalaTPH(data_path) #Create a VaisalaTPH object
         elif met_type == 'lanl_zeno': #If the meteorological data is LANL Zeno
-            zeno = LANLZeno(data_path)
-            df = zeno.load_df_in_range(dtr)
-            df = self.standardize(df)
-            if df.index.tz != dtr.tz:
-                df.index = df.index.tz_convert(dtr.tz)
-            df = df.loc[dtr.start_dt:dtr.end_dt]
-            return df
+            mettypehandler = LANLZeno(data_path) #Create a LANLZeno object
         elif met_type == 'ggg': #If the meteorological data is GGG
-            ggg = GGGMetHandler()
-            df = ggg.load_df_in_range(data_path,dtr)
-            df = self.standardize(df)
-            if df.index.tz != dtr.tz:
-                df.index = df.index.tz_convert(dtr.tz)
-            df = df.loc[dtr.start_dt:dtr.end_dt]
-            return df
+            mettypehandler = GGGMetHandler('loader',data_path) #Create a GGGMetHandler object
         else:
-            raise ValueError("Invalid met_type. Only have 'vaisala_tph' and 'lanl_zeno' set up right now.")
+            raise ValueError("Invalid met_type. Only have 'vaisala_tph', 'lanl_zeno', and 'ggg' set up right now.")
+        
+        df = mettypehandler.load_df_in_range(dtr) #Load the data in the specified datetime range
+        if len(df) == 0: #If there is no data
+            print('Warning: No data found in specified datetime range.') #Print a warning
+            return df
+        df = self.standardize(df) #Standardize the dataframe
+        if df.index.tz != dtr.tz:  #If the timezone of the dataframe does not match the timezone of the DateTimeRange object
+            df.index = df.index.tz_convert(dtr.tz) #Convert the timezone of the dataframe
+        df = df.loc[dtr.start_dt:dtr.end_dt] #Filter the dataframe to the specified datetime range
+        return df
+    
 
     def standardize(self,df):
         """Standardize the meteorological data.
@@ -134,7 +127,7 @@ class MetHandler(MetConfig):
         if extra_columns: #If there are extra columns
             print(f"Warning: Extra columns in DataFrame that are not in default_vars: {extra_columns}") #Print a warning
         return df
-
+    
 class GGGMetHandler():
     """Class for handling meteorological data for GGG. It is intended to be used either to transform data standardized by MetHandler and
     write daily GGG meteorological files, or to read in GGG style met files and transform them into a standardized dataframe.
@@ -157,10 +150,17 @@ class GGGMetHandler():
     raw_file_pattern = re.compile(r'\d{8}[_\.]\w+\.txt') # Regular expression pattern for the raw file name -- e.g. 20210101_vtph.txt or 20210101.WBB.txt
 
 
-    def __init__(self):
-        pass
-
-    def load_df_in_range(self,data_path,dtr=None,start_dt=None,end_dt=None,tz='UTC'):
+    def __init__(self,mode,data_path = None):
+        if mode == 'loader':
+            if data_path is None:
+                raise ValueError("Must provide a data path if using loader") 
+            self.data_path = data_path
+        elif mode == 'converter':
+            self.data_path = data_path
+        else:
+            raise ValueError("Invalid mode. Must be 'loader' or 'converter'")
+        
+    def load_df_in_range(self,dtr=None,start_dt=None,end_dt=None,tz='UTC'):
         in_tz = dtr.tz #Timezone of the input DateTimeRange object
         if in_tz != self.tz : #If the timezone of the DateTimeRange object is not UTC
             new_dtr = dtr.new_tz(self.tz) #Create a new DateTimeRange object with the timezone set to UTC
@@ -170,29 +170,31 @@ class GGGMetHandler():
         dates = new_dtr.get_dates_in_range() #Get the dates in the specified datetime range
         data = [] #List to store the dataframes
         for date in dates: #Iterate over the dates
-            fname = self.create_raw_fname(date,data_path) #Create the raw file name
+            fname = self.create_raw_fname(date) #Create the raw file name
             if fname is None: #If the file name is None
                 continue #Skip to the next date
             try:
-                df = self.load_df_from_raw_file(fname,data_path) #Load the dataframe from the raw file
+                df = self.load_df_from_raw_file(fname) #Load the dataframe from the raw file
             except FileNotFoundError: #If the file is not found
                 continue #Skip to the next date
             data.append(df) #Append the dataframe to the list
 
-        return pd.concat(data) #Concatenate the dataframes
+        if len(data) == 0: #If there is no data 
+            return pd.DataFrame() #Return an empty dataframe
+        else:
+            return pd.concat(data) #Concatenate the dataframes
     
-    def create_raw_fname(self,date,data_path):
+    def create_raw_fname(self,date):
         """Create the raw file name for a given date, using the files in the data path provided.
 
         Args:
             date (datetime.datetime): Date for which to create the raw file name.
-            data_path (str): Path to the ggg data.
 
         Returns:
             str: Raw file name.
         """
         matching_dates = [] #List to store the matching dates
-        for fname in os.listdir(data_path):
+        for fname in os.listdir(self.data_path):
             if fname.startswith(date.strftime('%Y%m%d')) and self.raw_file_pattern.match(fname): #If the file name matches the date and the pattern
                 matching_dates.append(fname) #Append the file name to the list
         if len(matching_dates)>1:
@@ -203,12 +205,11 @@ class GGGMetHandler():
         else:
             return matching_dates[0]    
     
-    def load_df_from_raw_file(self,fname,data_path):
+    def load_df_from_raw_file(self,fname):
         """Load the GGG meteorological data from a raw file.
 
         Args:
             fname (str): Raw file name. Just the name.
-            data_path (str): Path to the GGG meteorological data.
 
         Returns:
             pd.DataFrame: Dataframe containing the GGG meteorological data.
@@ -217,7 +218,7 @@ class GGGMetHandler():
             ValueError: If the file name is invalid.
         """
 
-        full_filepath = os.path.join(data_path,fname) #Create the full file path using the self.data_path
+        full_filepath = os.path.join(self.data_path,fname) #Create the full file path using the self.data_path
         if not self.raw_file_pattern.match(os.path.basename(full_filepath)): #If t he file name is invalid
             raise ValueError(f'Invalid file name: {full_filepath}') #Raise an error
 
@@ -351,8 +352,10 @@ class VaisalaTPH():
             except FileNotFoundError: #If the file is not found
                 continue #Skip to the next date
             data.append(df) #Append the dataframe to the list
-
-        return pd.concat(data) #Concatenate the dataframes
+        if len(data) == 0: #If there is no data 
+            return pd.DataFrame() #Return an empty dataframe
+        else:
+            return pd.concat(data) #Concatenate the dataframes
 
     def create_raw_fname(self,date):
         """Create the raw file name for a given date.
@@ -470,7 +473,10 @@ class LANLZeno():
                 continue #Skip to the next date
             data.append(df) #Append the dataframe to the list
 
-        return pd.concat(data) #Concatenate the dataframes
+        if len(data) == 0: #If there is no data 
+            return pd.DataFrame() #Return an empty dataframe
+        else:
+            return pd.concat(data) #Concatenate the dataframes
 
     def create_raw_fname(self,date):
         """Create the raw file name for a given date.

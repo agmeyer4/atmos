@@ -26,6 +26,8 @@ def remove_rolling_outliers(df, window = '1h', columns='all', std_thresh=3):
         columns = df.columns    
 
     for col in columns: #Iterate over the columns
+        if not pd.api.types.is_numeric_dtype(out_df[col]):
+            continue
         rolling_median = out_df[col].rolling(window=window, center=True,min_periods = 1).median() #Calculate the rolling median
         rolling_std = out_df[col].rolling(window=window, center=True,min_periods=1).std() #Calculate the rolling standard deviation
         outliers = (out_df[col] - rolling_median).abs() > std_thresh * rolling_std #Find the outliers
