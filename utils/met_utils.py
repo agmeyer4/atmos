@@ -109,27 +109,38 @@ class GGGMetHandler():
         ggg_df (pd.DataFrame): Dataframe prepared for GGG.
     """
 
-    def __init__(self,df,met_type):
-        if df.index.tz != pytz.UTC: #If the timezone of the dataframe is not UTC
-            df.index = df.index.tz_convert(pytz.UTC) #Convert the timezone to UTC
-        self.df = df #Set the dataframe 
-        self.met_type = met_type #Set the meteorological data type 
-        self.ggg_df = self.prep_df_for_ggg() #Prepare the dataframe for GGG
+    #Map the default column names (in MetHandler) to the GGG column names
+    ggg_column_map = {
+        'pres': 'Pout',
+        'temp': 'Tout',
+        'rh': 'RH',
+        'ws': 'WSPD',
+        'wd': 'WDIR',
+    }
+    ggg_column_order = ['UTCDate','UTCTime','Pout','Tout','RH','WSPD','WDIR'] #Order of the columns in the GGG file
 
-    def write_daily_ggg_met_files(self,write_path,overwrite=False):
+    def __init__(self):
+        pass
+
+    def write_daily_ggg_met_files(self,df,met_type,write_path,overwrite=False):
         """Write daily GGG meteorological files.
         
         Args:
+            df (pd.DataFrame): Dataframe containing the meteorological data.
+            met_type (str): Type of meteorological data. Options are 'vaisala_tph' and 'lanl_zeno'.
             write_path (str): Path to write the GGG meteorological files.
             overwrite (bool): Whether to overwrite existing files. Default is False.
             
         """
 
-        daily_dfs = [part for _, part in self.ggg_df.groupby(pd.Grouper(freq='1D')) if not part.empty] #parse into a list of daily dataframes
+        if df.index.tz != pytz.UTC: #If the timezone of the dataframe is not UTC
+            df.index = df.index.tz_convert(pytz.UTC) #Convert the timezone to UTC
+        ggg_df = self.prep_df_for_ggg(df) #Prepare the dataframe for GGG
+        daily_dfs = [part for _, part in ggg_df.groupby(pd.Grouper(freq='1D')) if not part.empty] #parse into a list of daily dataframes
         for day_df in daily_dfs: #Iterate over the daily dataframes
-            self.write_ggg_met_file(day_df,write_path,overwrite) #Write the GGG meteorological file
+            self.write_ggg_met_file(day_df,met_type,write_path,overwrite) #Write the GGG meteorological file
 
-    def write_ggg_met_file(self,day_df,write_path,overwrite=False):
+    def write_ggg_met_file(self,day_df,met_type,write_path,overwrite=False):
         """Write a GGG meteorological file.
 
         Args:
@@ -150,9 +161,9 @@ class GGGMetHandler():
             raise ValueError("DataFrame index must contain data from only one day.") #Raise an error
 
         #Determine the file extension based on the meteorological data type
-        if self.met_type == 'vaisala_tph': 
+        if met_type == 'vaisala_tph': 
             file_ext = '_vtph.txt'
-        elif self.met_type == 'lanl_zeno':
+        elif met_type == 'lanl_zeno':
             file_ext = '_zeno.txt'
         else:
             file_ext = '.txt'
@@ -169,38 +180,30 @@ class GGGMetHandler():
         with open(full_fname,'w') as f: 
             day_df.to_csv(f,sep=',',index = False)
 
-    def prep_df_for_ggg(self):
-        """Prepare the dataframe (self.df) for GGG.
+    def prep_df_for_ggg(self,df):
+        """Prepare the dataframe  for GGG.
         
+        Args:
+            df (pd.DataFrame): Dataframe containing the meteorological data.
+
         Returns:
             pd.DataFrame: Dataframe prepared for GGG.
         """
-
-        #Map the default column names (in MetHandler) to the GGG column names
-        ggg_column_map = {
-            'pres': 'Pout',
-            'temp': 'Tout',
-            'rh': 'RH',
-            'ws': 'WSPD',
-            'wd': 'WDIR',
-        }
-        ggg_column_order = ['UTCDate','UTCTime','Pout','Tout','RH','WSPD','WDIR'] #Order of the columns in the GGG file
-
-        df = self.df 
+ 
         cleandf = df_utils.remove_rolling_outliers(df,window = '1min',std_thresh=4) #Remove rolling outliers
         resampled_df = cleandf.resample('1min').mean() #Resample the dataframe to 1 minute intervals 
-        resampled_df = resampled_df.rename(columns=ggg_column_map) #Rename the columns
+        resampled_df = resampled_df.rename(columns=self.ggg_column_map) #Rename the columns
 
         resampled_df['UTCDate'] = resampled_df.index.strftime('%y/%m/%d') #Add the UTCDate column
         resampled_df['UTCTime'] = resampled_df.index.strftime('%H:%M:%S') #Add the UTCTime column
 
         #Fill in missing columns with -99.99
-        for col in ggg_column_order[2:]:
+        for col in self.ggg_column_order[2:]:
             if col not in resampled_df.columns:
                 resampled_df[col] = -99.99
             resampled_df[col] = resampled_df[col].round(2)
 
-        resampled_df = resampled_df[ggg_column_order] #Reorder the columns and drop any extra columns
+        resampled_df = resampled_df[self.ggg_column_order] #Reorder the columns and drop any extra columns
         return resampled_df
 
 class VaisalaTPH():
