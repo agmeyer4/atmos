@@ -19,9 +19,32 @@ import re
 
 #Import local dependencies
 sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
-from configs.met_config import MetConfig
 from utils import df_utils
 from utils import datetime_utils
+
+class MetConfig:
+    """Configuration for met tools.
+
+    Attributes:
+        default_vars (dict): Dictionary containing the default variables for meteorological data.
+    """
+
+    def __init__(self,config_mode = 'default'):
+        if config_mode == 'default':
+            self.default_vars = {
+                'et': {'description': 'Epoch time -- seconds since 1970-01-01 00:00:00 UTC', 'units': 's', 'dtype':'float'},
+                'dt': {'description': 'Date time', 'units': 'na', 'dtype':'datetime.datetime'},
+                'pres': {'description': 'Atmospheric Pressure','units': 'hPa', 'dtype':'float'},
+                'temp': {'description': 'Temperature','units': 'C', 'dtype':'float'},
+                'rh': {'description': 'Relative Humidity','units': '%', 'dtype':'float'},
+                'ws': {'description': 'Wind Speed','units': 'm/s', 'dtype':'float'},
+                'wd': {'description': 'Wind Direction (clockwise from N)','units': 'degrees', 'dtype':'float'},
+                'u': {'description': 'u component of wind (>0 = from west)','units': 'm/s', 'dtype':'float'},
+                'v': {'description': 'v component of wind (>0 = from south)','units': 'm/s', 'dtype':'float'},
+                'w': {'description': 'w component of wind (>0 = upward)','units': 'm/s', 'dtype':'float'},
+            }   
+        else:
+            raise ValueError("Invalid config_mode. Only have 'default' set up right now.")
 
 class MetHandler(MetConfig):
     """Parent class for handling meteorological data.
@@ -36,7 +59,7 @@ class MetHandler(MetConfig):
 
         super().__init__(config_mode)
     
-    def load_data_in_range(self,met_type,data_path,dtr=None,start_dt=None,end_dt=None,tz='UTC'):
+    def load_stddata_in_range(self,met_type,data_path,dtr=None,start_dt=None,end_dt=None,tz='UTC'):
         """Load meteorological data in a specified datetime range.
         
         You can provide either a DateTimeRange object or both start_dt and end_dt.
@@ -60,23 +83,28 @@ class MetHandler(MetConfig):
             if start_dt is None or end_dt is None: #If both start_dt and end_dt are not provided
                 raise ValueError("Either a DateTimeRange object or both start_dt and end_dt must be provided.")
             dtr = datetime_utils.DateTimeRange(start_dt, end_dt, tz) #Create a DateTimeRange object
-        
+        if not os.path.isdir(data_path): #If the data path isn't a dir
+            raise ValueError(f"Invalid data path: {data_path}") #Raise an error
+
         if met_type == 'vaisala_tph': #If the meteorological data is Vaisala TPH
-            vtph = VaisalaTPH(data_path) #Create a VaisalaTPH object
-            df = vtph.load_df_in_range(dtr) #Load the data in the specified datetime range
-            df = self.standardize(df) #Standardize the dataframe
-            if df.index.tz != dtr.tz:  #If the timezone of the dataframe does not match the timezone of the DateTimeRange object
-                df.index = df.index.tz_convert(dtr.tz) #Convert the timezone of the dataframe
-            df = df.loc[dtr.start_dt:dtr.end_dt] #Filter the dataframe to the specified datetime range
-            return df
+            mettypehandler = VaisalaTPH(data_path) #Create a VaisalaTPH object
         elif met_type == 'lanl_zeno': #If the meteorological data is LANL Zeno
-            zeno = LANLZeno(data_path)
-            df = zeno.load_df_in_range(dtr)
-            df = self.standardize(df)
-            if df.index.tz != dtr.tz:
-                df.index = df.index.tz_convert(dtr.tz)
-            df = df.loc[dtr.start_dt:dtr.end_dt]
+            mettypehandler = LANLZeno(data_path) #Create a LANLZeno object
+        elif met_type == 'ggg': #If the meteorological data is GGG
+            mettypehandler = GGGMetHandler('loader',data_path) #Create a GGGMetHandler object
+        else:
+            raise ValueError("Invalid met_type. Only have 'vaisala_tph', 'lanl_zeno', and 'ggg' set up right now.")
+        
+        df = mettypehandler.load_df_in_range(dtr) #Load the data in the specified datetime range
+        if len(df) == 0: #If there is no data
+            print('Warning: No data found in specified datetime range.') #Print a warning
             return df
+        df = self.standardize(df) #Standardize the dataframe
+        if df.index.tz != dtr.tz:  #If the timezone of the dataframe does not match the timezone of the DateTimeRange object
+            df.index = df.index.tz_convert(dtr.tz) #Convert the timezone of the dataframe
+        df = df.loc[dtr.start_dt:dtr.end_dt] #Filter the dataframe to the specified datetime range
+        return df
+    
 
     def standardize(self,df):
         """Standardize the meteorological data.
@@ -99,37 +127,126 @@ class MetHandler(MetConfig):
         if extra_columns: #If there are extra columns
             print(f"Warning: Extra columns in DataFrame that are not in default_vars: {extra_columns}") #Print a warning
         return df
-
+    
 class GGGMetHandler():
-    """Class for handling meteorological data for GGG.
+    """Class for handling meteorological data for GGG. It is intended to be used either to transform data standardized by MetHandler and
+    write daily GGG meteorological files, or to read in GGG style met files and transform them into a standardized dataframe.
 
     Attributes:
-        df (pd.DataFrame): Dataframe containing the meteorological data. This should be a dataframe "standardized" by the MetHandler class.
-        met_type (str): Type of meteorological data. Options are 'vaisala_tph' and 'lanl_zeno'.
-        ggg_df (pd.DataFrame): Dataframe prepared for GGG.
+        ggg_column_map (dict): Dictionary mapping the default column names to the GGG column names.
+        ggg_column_order (list): Order of the columns in the GGG file.
     """
 
-    def __init__(self,df,met_type):
-        if df.index.tz != pytz.UTC: #If the timezone of the dataframe is not UTC
-            df.index = df.index.tz_convert(pytz.UTC) #Convert the timezone to UTC
-        self.df = df #Set the dataframe 
-        self.met_type = met_type #Set the meteorological data type 
-        self.ggg_df = self.prep_df_for_ggg() #Prepare the dataframe for GGG
+    #Map the default column names (in MetHandler) to the GGG column names
+    ggg_column_map = {
+        'pres': 'Pout',
+        'temp': 'Tout',
+        'rh': 'RH',
+        'ws': 'WSPD',
+        'wd': 'WDIR',
+    }
+    ggg_column_order = ['UTCDate','UTCTime','Pout','Tout','RH','WSPD','WDIR'] #Order of the columns in the GGG file
+    tz = pytz.timezone('UTC') #Timezone of GGG data
+    raw_file_pattern = re.compile(r'\d{8}[_\.]\w+\.txt') # Regular expression pattern for the raw file name -- e.g. 20210101_vtph.txt or 20210101.WBB.txt
 
-    def write_daily_ggg_met_files(self,write_path,overwrite=False):
+
+    def __init__(self,mode,data_path = None):
+        if mode == 'loader':
+            if data_path is None:
+                raise ValueError("Must provide a data path if using loader") 
+            self.data_path = data_path
+        elif mode == 'converter':
+            self.data_path = data_path
+        else:
+            raise ValueError("Invalid mode. Must be 'loader' or 'converter'")
+        
+    def load_df_in_range(self,dtr=None,start_dt=None,end_dt=None,tz='UTC'):
+        in_tz = dtr.tz #Timezone of the input DateTimeRange object
+        if in_tz != self.tz : #If the timezone of the DateTimeRange object is not UTC
+            new_dtr = dtr.new_tz(self.tz) #Create a new DateTimeRange object with the timezone set to UTC
+        else:
+            new_dtr = dtr #Otherwise, use the input DateTimeRange object
+
+        dates = new_dtr.get_dates_in_range() #Get the dates in the specified datetime range
+        data = [] #List to store the dataframes
+        for date in dates: #Iterate over the dates
+            fname = self.create_raw_fname(date) #Create the raw file name
+            if fname is None: #If the file name is None
+                continue #Skip to the next date
+            try:
+                df = self.load_df_from_raw_file(fname) #Load the dataframe from the raw file
+            except FileNotFoundError: #If the file is not found
+                continue #Skip to the next date
+            data.append(df) #Append the dataframe to the list
+
+        if len(data) == 0: #If there is no data 
+            return pd.DataFrame() #Return an empty dataframe
+        else:
+            return pd.concat(data) #Concatenate the dataframes
+    
+    def create_raw_fname(self,date):
+        """Create the raw file name for a given date, using the files in the data path provided.
+
+        Args:
+            date (datetime.datetime): Date for which to create the raw file name.
+
+        Returns:
+            str: Raw file name.
+        """
+        matching_dates = [] #List to store the matching dates
+        for fname in os.listdir(self.data_path):
+            if fname.startswith(date.strftime('%Y%m%d')) and self.raw_file_pattern.match(fname): #If the file name matches the date and the pattern
+                matching_dates.append(fname) #Append the file name to the list
+        if len(matching_dates)>1:
+            raise ValueError(f"Multiple files found for date {date.strftime('%Y%m%d')}: {matching_dates}")
+        elif len(matching_dates)==0:
+            print(f'Warning: no file found for date {date.strftime("%Y%m%d")}')
+            return None
+        else:
+            return matching_dates[0]    
+    
+    def load_df_from_raw_file(self,fname):
+        """Load the GGG meteorological data from a raw file.
+
+        Args:
+            fname (str): Raw file name. Just the name.
+
+        Returns:
+            pd.DataFrame: Dataframe containing the GGG meteorological data.
+
+        Raises:
+            ValueError: If the file name is invalid.
+        """
+
+        full_filepath = os.path.join(self.data_path,fname) #Create the full file path using the self.data_path
+        if not self.raw_file_pattern.match(os.path.basename(full_filepath)): #If t he file name is invalid
+            raise ValueError(f'Invalid file name: {full_filepath}') #Raise an error
+
+        df = pd.read_csv(full_filepath) #Read the CSV file
+        df['dt'] = pd.to_datetime(df['UTCDate']+df['UTCTime'],format='%y/%m/%d%H:%M:%S').dt.tz_localize('UTC')
+        df = df.drop(columns = ['UTCDate','UTCTime'])
+        df = df.rename(columns={v: k for k, v in self.ggg_column_map.items()})
+        return df
+
+    def write_daily_ggg_met_files(self,df,met_type,write_path,overwrite=False):
         """Write daily GGG meteorological files.
         
         Args:
+            df (pd.DataFrame): Dataframe containing the meteorological data.
+            met_type (str): Type of meteorological data. Options are 'vaisala_tph' and 'lanl_zeno'.
             write_path (str): Path to write the GGG meteorological files.
             overwrite (bool): Whether to overwrite existing files. Default is False.
             
         """
 
-        daily_dfs = [part for _, part in self.ggg_df.groupby(pd.Grouper(freq='1D')) if not part.empty] #parse into a list of daily dataframes
+        if df.index.tz != pytz.UTC: #If the timezone of the dataframe is not UTC
+            df.index = df.index.tz_convert(pytz.UTC) #Convert the timezone to UTC
+        ggg_df = self.prep_df_for_ggg(df) #Prepare the dataframe for GGG
+        daily_dfs = [part for _, part in ggg_df.groupby(pd.Grouper(freq='1D')) if not part.empty] #parse into a list of daily dataframes
         for day_df in daily_dfs: #Iterate over the daily dataframes
-            self.write_ggg_met_file(day_df,write_path,overwrite) #Write the GGG meteorological file
+            self.write_ggg_met_file(day_df,met_type,write_path,overwrite) #Write the GGG meteorological file
 
-    def write_ggg_met_file(self,day_df,write_path,overwrite=False):
+    def write_ggg_met_file(self,day_df,met_type,write_path,overwrite=False):
         """Write a GGG meteorological file.
 
         Args:
@@ -150,9 +267,9 @@ class GGGMetHandler():
             raise ValueError("DataFrame index must contain data from only one day.") #Raise an error
 
         #Determine the file extension based on the meteorological data type
-        if self.met_type == 'vaisala_tph': 
+        if met_type == 'vaisala_tph': 
             file_ext = '_vtph.txt'
-        elif self.met_type == 'lanl_zeno':
+        elif met_type == 'lanl_zeno':
             file_ext = '_zeno.txt'
         else:
             file_ext = '.txt'
@@ -169,38 +286,30 @@ class GGGMetHandler():
         with open(full_fname,'w') as f: 
             day_df.to_csv(f,sep=',',index = False)
 
-    def prep_df_for_ggg(self):
-        """Prepare the dataframe (self.df) for GGG.
+    def prep_df_for_ggg(self,df):
+        """Prepare the dataframe  for GGG.
         
+        Args:
+            df (pd.DataFrame): Dataframe containing the meteorological data.
+
         Returns:
             pd.DataFrame: Dataframe prepared for GGG.
         """
-
-        #Map the default column names (in MetHandler) to the GGG column names
-        ggg_column_map = {
-            'pres': 'Pout',
-            'temp': 'Tout',
-            'rh': 'RH',
-            'ws': 'WSPD',
-            'wd': 'WDIR',
-        }
-        ggg_column_order = ['UTCDate','UTCTime','Pout','Tout','RH','WSPD','WDIR'] #Order of the columns in the GGG file
-
-        df = self.df 
+ 
         cleandf = df_utils.remove_rolling_outliers(df,window = '1min',std_thresh=4) #Remove rolling outliers
         resampled_df = cleandf.resample('1min').mean() #Resample the dataframe to 1 minute intervals 
-        resampled_df = resampled_df.rename(columns=ggg_column_map) #Rename the columns
+        resampled_df = resampled_df.rename(columns=self.ggg_column_map) #Rename the columns
 
         resampled_df['UTCDate'] = resampled_df.index.strftime('%y/%m/%d') #Add the UTCDate column
         resampled_df['UTCTime'] = resampled_df.index.strftime('%H:%M:%S') #Add the UTCTime column
 
         #Fill in missing columns with -99.99
-        for col in ggg_column_order[2:]:
+        for col in self.ggg_column_order[2:]:
             if col not in resampled_df.columns:
                 resampled_df[col] = -99.99
             resampled_df[col] = resampled_df[col].round(2)
 
-        resampled_df = resampled_df[ggg_column_order] #Reorder the columns and drop any extra columns
+        resampled_df = resampled_df[self.ggg_column_order] #Reorder the columns and drop any extra columns
         return resampled_df
 
 class VaisalaTPH():
@@ -243,8 +352,10 @@ class VaisalaTPH():
             except FileNotFoundError: #If the file is not found
                 continue #Skip to the next date
             data.append(df) #Append the dataframe to the list
-
-        return pd.concat(data) #Concatenate the dataframes
+        if len(data) == 0: #If there is no data 
+            return pd.DataFrame() #Return an empty dataframe
+        else:
+            return pd.concat(data) #Concatenate the dataframes
 
     def create_raw_fname(self,date):
         """Create the raw file name for a given date.
@@ -362,7 +473,10 @@ class LANLZeno():
                 continue #Skip to the next date
             data.append(df) #Append the dataframe to the list
 
-        return pd.concat(data) #Concatenate the dataframes
+        if len(data) == 0: #If there is no data 
+            return pd.DataFrame() #Return an empty dataframe
+        else:
+            return pd.concat(data) #Concatenate the dataframes
 
     def create_raw_fname(self,date):
         """Create the raw file name for a given date.
