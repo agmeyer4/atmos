@@ -226,6 +226,8 @@ class GGGMetHandler():
         df['dt'] = pd.to_datetime(df['UTCDate']+df['UTCTime'],format='%y/%m/%d%H:%M:%S').dt.tz_localize('UTC')
         df = df.drop(columns = ['UTCDate','UTCTime'])
         df = df.rename(columns={v: k for k, v in self.ggg_column_map.items()})
+        df = df.replace(-99.99,np.nan)
+        df = df.replace(-99.0,np.nan)
         return df
 
     def write_daily_ggg_met_files(self,df,met_type,write_path,overwrite=False):
