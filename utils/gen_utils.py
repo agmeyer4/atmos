@@ -45,7 +45,6 @@ def check_space(path,excep_thresh='8Tb'):
         print(f'Required space (a user defined property): {excep_thresh}\n')
         raise MemoryError(f'There is less than {excep_thresh} in the destination filesystem. Ensure there is enough room for your data download, or change the threshold')
     else:
-        print(f'Sufficient space detected in {path}')
         print(f'Found {bytes_to_human(free_bytes)} free space')
         return disk_usage
     
