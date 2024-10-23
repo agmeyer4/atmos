@@ -103,6 +103,23 @@ def listdir_visible(path,add_path = False):
         vis_list = [os.path.join(path,f) for f in vis_list]
     return vis_list
 
+def read_credentials(fullpath):
+    """Read the credentials file and return the username and password
+    
+    Args:
+    fullpath (str) : full path to the credentials file
+    
+    Returns:
+    dict : dictionary with keys 'username' and 'password'
+    """
+    credentials ={}
+    with open(fullpath) as f:
+        lines = f.readlines()
+        for line in lines:
+            key,value = line.strip().split('=')
+            credentials[key] = value
+    return credentials
+
 
 def main():
     dir1 = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/202102'

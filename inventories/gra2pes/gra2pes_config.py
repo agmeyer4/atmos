@@ -21,6 +21,7 @@ class Gra2pesConfig():
         'SHIPPING' : {'description': 'Shipping'},
         'VCP' : {'description': 'VCP'},
         'WASTE' : {'description': 'Waste'},
+        'total' : {'description': 'Total'}
     }
 
     def __init__(self):
