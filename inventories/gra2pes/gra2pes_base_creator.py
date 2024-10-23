@@ -150,6 +150,7 @@ class Gra2pesDownloadExtra():
     Attributes:
     config (gra2pes_config.Gra2pesConfig) : configuration object for GRA2PES
     base_path (str) : base path where the data will be stored
+    extra_id (str) : extra id for the data (e.g. 'methane')
     download_path (str) : path where the data will be downloaded (a temp folder called .download)
     base_download_url (str) : base url where the data lives online
     tar_filename_template (str) : template for the tar file name as stored in base_download_url
@@ -161,7 +162,6 @@ class Gra2pesDownloadExtra():
         self.base_path = base_path #base path where the data will be stored
         self.extra_id = extra_id
         self.tar_filename_template = 'GRA2PES_{sector}_{year}_{extra_id}.tar.gz' #template for the tar file name as stored in base_download_url
-
         self.download_path = os.path.join(self.base_path, f'.download/{extra_id}') #path where the data will be downloaded (a temp folder called .download)
         os.makedirs(self.download_path, exist_ok=True) #create the download path if it doesn't exist
         self.base_download_url = f'ftp://ftp.al.noaa.gov/{extra_id}'
@@ -170,7 +170,7 @@ class Gra2pesDownloadExtra():
         self.credentials = gen_utils.read_credentials(credentials_path)
 
     def download_and_extract(self,sector,year):
-        '''Main function to download GRA2PES data for a specific sector, year, and month and format the directories nicely
+        '''Main function to download extra GRA2PES data for a specific sector, year, and month and format the directories nicely
         
         Args:
         sector (str) : sector to download, from the self.config.sector_details.keys() dictionary
@@ -258,74 +258,138 @@ class Gra2pesDownloadExtra():
 
 
 class OrganizeExtraDownload():
+    """Class to organize the extra data downloaded by Gra2pesDownloadExtra
+
+    Attributes:
+    base_path (str) : base path where the data will be stored
+    download_path (str) : path where the data will be downloaded (a temp folder called .download)
+    extra_id_details (str) : extra id for the data (e.g. 'methane')
+    """
 
     def __init__(self, base_path, extra_id):
         self.base_path = base_path
         self.download_path = os.path.join(self.base_path, '.download')
-        self.extra_id_details = extra_id
+        self.extra_id = extra_id
 
     def organize_extra(self):
-        print(f'Organizing extra "{self.extra_id}"')
-        extra_download_path = os.path.join(self.download_path,self.extra_id)
-        extra_base_path = self.create_extra_in_base(self.extra_id)
-        extra_download_matchpath = self.find_multifolder_path(extra_download_path)
+        """Main function to organize the extra data downloaded by Gra2pesDownloadExtra
         
-        self.move_at_multifolder(extra_download_matchpath,extra_base_path,dirs_exist_ok=True)
-        self.delete_download_at_multifolder(extra_download_matchpath)
+        Moves data from the .download/extra_id folder to the base_path/extra_id folder, making sure the structure matches
+        the main data in the base_path. Then deletes the .download/extra_id folder."""
 
-    def delete_download_at_multifolder(self,extra_download_matchpath):
-        shutil.rmtree(extra_download_matchpath)
+        print(f'Organizing extra "{self.extra_id}"')
+        extra_download_path = os.path.join(self.download_path,self.extra_id) #path to the extra download
+        extra_base_path = self.create_extra_in_base(self.extra_id) #path to the extra_id folder in the base_path
+        extra_download_matchpath = self.find_multifolder_path(extra_download_path)  # find where in the extra download path there are multiple folders (means where ate the date folder)
+        
+        self.move_at_multifolder(extra_download_matchpath,extra_base_path,dirs_exist_ok=True) #move the data from the extra download path to the extra base path
+        self.delete_extra_download(extra_download_path) #delete the extra download path
+
+    def delete_extra_download(self,extra_download_path):
+        """Delete the extra download path after moving the data
+
+        Args:
+        extra_download_path (str) : path to the extra download folder
+        """
+
+        shutil.rmtree(extra_download_path)
 
     def move_at_multifolder(self,src,dst,dirs_exist_ok=False):
+        """Move the data from the src path to the dst path, making sure the structure matches the main data in the base_path
+
+        Args:
+        src (str) : source path to move data from
+        dst (str) : destination path to move data to
+        dirs_exist_ok (bool) : whether to allow the destination directory to exist, if False, will raise an error if the destination directory
+        """
+
         shutil.copytree(src,dst,dirs_exist_ok=dirs_exist_ok)
 
     def find_multifolder_path(self,src):
-        nitems = len(os.listdir(src))
-        if nitems == 1:
-            newsrc = os.path.join(src,os.listdir(src)[0])
-            return self.find_multifolder_path(newsrc)
-        else:
+        """Find where in the src path there are multiple folders (means where we start the date folder)
+
+        Args:
+        src (str) : source path to find the multiple folders in
+
+        Returns:
+        str : path to the parent dir where there are multiple folders
+        """
+
+        nitems = len(os.listdir(src)) #number of items in the src path
+        if nitems == 1: #if there is only one item in the src path, go to the next folder
+            newsrc = os.path.join(src,os.listdir(src)[0]) #new src path
+            return self.find_multifolder_path(newsrc) #recursive call
+        else: #if there are multiple items in the src path, return the parent dir
             return src
 
     def create_extra_in_base(self,extra_id):
+        """Create the extra_id folder in the base_path
+
+        Args:
+        extra_id (str) : extra id for the data (e.g. 'methane')
+
+        Returns:
+        str : path to the extra_id folder in the base_path
+        """
+
         extra_path = os.path.join(self.base_path,extra_id)
         os.makedirs(extra_path, exist_ok=True)
         return extra_path
 
 def compare_base_and_extra(base_path,extra_id):
-    main_path = base_path
-    extra_path = os.path.join(base_path,extra_id)
+    """Compare the base and extra directories to make sure they are the same structure
 
-    main_subdirs = sorted([d for d in gen_utils.listdir_visible(main_path) if d != extra_id])
-    extra_subdirs = sorted(gen_utils.listdir_visible(extra_path))
+    Args:
+    base_path (str) : base path where the data is stored
+    extra_id (str) : extra id for the data (e.g. 'methane')
 
-    if main_subdirs != extra_subdirs:
+    Returns:
+    bool : whether the base and extra directories are the same structure
+    """
+
+    main_path = base_path #main path is the base path
+    extra_path = os.path.join(base_path,extra_id) #extra path is the base path/extra_id
+
+    main_subdirs = sorted([d for d in gen_utils.listdir_visible(main_path) if d != extra_id]) #get the directories in the main path, excluding the extra_id
+    extra_subdirs = sorted(gen_utils.listdir_visible(extra_path)) #get the directories in the extra path
+
+    if main_subdirs != extra_subdirs: #if the main and extra directories do not match, raise an error
         raise ValueError(f"Main and extra directories do not match: \nmain - {main_path}   {main_subdirs}\nextra - {extra_path}  {extra_subdirs}")
 
-    for yearmonth in main_subdirs:
-        main_dir = os.path.join(main_path,yearmonth)
-        extra_dir = os.path.join(extra_path,yearmonth)
-        try:
+    for yearmonth in main_subdirs: #for each yearmonth in the main subdirs
+        main_dir = os.path.join(main_path,yearmonth) #main directory is the main path/yearmonth
+        extra_dir = os.path.join(extra_path,yearmonth) #extra directory is the extra path/yearmonth
+        try: #try to compare the directories exactly
             compare_dirs_exact(main_dir,extra_dir)
-        except ValueError as e:
+        except ValueError as e: #if there is an error, print the error and return False
             print(e)
             return False
     return True
 
 def compare_dirs_exact(dir1, dir2):
-    differences = []
+    """Compare two directories exactly, raising an error if they are not the same
 
-    def _compare_dirs(dir1, dir2):
-        dir_cmp = filecmp.dircmp(dir1, dir2)
-        if dir_cmp.left_only or dir_cmp.right_only:
-            differences.append(f"Directories are not the same:\n{dir1}: {dir_cmp.left_only}\n{dir2}: {dir_cmp.right_only}")
+    Args:
+    dir1 (str) : first directory to compare
+    dir2 (str) : second directory to compare
 
-        for common_dir in dir_cmp.common_dirs:
-            _compare_dirs(os.path.join(dir1, common_dir), os.path.join(dir2, common_dir))
+    Raises:
+    ValueError : if the directories are not the same
+    """
 
-    _compare_dirs(dir1, dir2)
+    differences = [] #list to store differences
 
-    if differences:
+    def _compare_dirs(dir1, dir2): #recursive function to compare directories
+        dir_cmp = filecmp.dircmp(dir1, dir2) #compare the directories
+        if dir_cmp.left_only or dir_cmp.right_only: #if there are directories that are only in one directory, add them to the differences list
+            differences.append(f"Directories are not the same:\n{dir1}: {dir_cmp.left_only}\n{dir2}: {dir_cmp.right_only}") 
+
+        for common_dir in dir_cmp.common_dirs: #for each common directory, recursively call the function
+            _compare_dirs(os.path.join(dir1, common_dir), os.path.join(dir2, common_dir)) 
+
+    _compare_dirs(dir1, dir2) #call the recursive function
+
+    if differences: #if there are differences, raise an error
         raise ValueError("\n".join(differences))
 
 def main():
