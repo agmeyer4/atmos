@@ -417,3 +417,953 @@ Downloading and extracting ONROAD_GAS for 2021-4
 Found 15Tb free space
 Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_GAS_202104.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
 Extracting GRA2PESv1.0_ONROAD_GAS_202104.tar.gz
+Deleting GRA2PESv1.0_ONROAD_GAS_202104.tar.gz
+
+Downloading and extracting RAIL for 2021-4
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RAIL_202104.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RAIL_202104.tar.gz
+Deleting GRA2PESv1.0_RAIL_202104.tar.gz
+
+Downloading and extracting RES for 2021-4
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RES_202104.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RES_202104.tar.gz
+Deleting GRA2PESv1.0_RES_202104.tar.gz
+
+Downloading and extracting SHIPPING for 2021-4
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_SHIPPING_202104.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_SHIPPING_202104.tar.gz
+Deleting GRA2PESv1.0_SHIPPING_202104.tar.gz
+
+Downloading and extracting VCP for 2021-4
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_VCP_202104.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_VCP_202104.tar.gz
+Deleting GRA2PESv1.0_VCP_202104.tar.gz
+
+Downloading and extracting WASTE for 2021-4
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_WASTE_202104.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_WASTE_202104.tar.gz
+Deleting GRA2PESv1.0_WASTE_202104.tar.gz
+
+Downloading and extracting total for 2021-4
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_total_202104.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_total_202104.tar.gz
+Deleting GRA2PESv1.0_total_202104.tar.gz
+
+Downloading and extracting AG for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AG_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AG_202105.tar.gz
+Deleting GRA2PESv1.0_AG_202105.tar.gz
+
+Downloading and extracting AVIATION for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AVIATION_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AVIATION_202105.tar.gz
+Deleting GRA2PESv1.0_AVIATION_202105.tar.gz
+
+Downloading and extracting COMM for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COMM_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COMM_202105.tar.gz
+Deleting GRA2PESv1.0_COMM_202105.tar.gz
+
+Downloading and extracting COOKING for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COOKING_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COOKING_202105.tar.gz
+Deleting GRA2PESv1.0_COOKING_202105.tar.gz
+
+Downloading and extracting EGU for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_EGU_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_EGU_202105.tar.gz
+Deleting GRA2PESv1.0_EGU_202105.tar.gz
+
+Downloading and extracting FUG for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_FUG_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_FUG_202105.tar.gz
+Deleting GRA2PESv1.0_FUG_202105.tar.gz
+
+Downloading and extracting INDF for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDF_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDF_202105.tar.gz
+Deleting GRA2PESv1.0_INDF_202105.tar.gz
+
+Downloading and extracting INDP for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDP_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDP_202105.tar.gz
+Deleting GRA2PESv1.0_INDP_202105.tar.gz
+
+Downloading and extracting INTERNATIONAL for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INTERNATIONAL_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INTERNATIONAL_202105.tar.gz
+Deleting GRA2PESv1.0_INTERNATIONAL_202105.tar.gz
+
+Downloading and extracting OFFROAD for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OFFROAD_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OFFROAD_202105.tar.gz
+Deleting GRA2PESv1.0_OFFROAD_202105.tar.gz
+
+Downloading and extracting OG for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OG_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OG_202105.tar.gz
+Deleting GRA2PESv1.0_OG_202105.tar.gz
+
+Downloading and extracting ONROAD_DSL for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_DSL_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_DSL_202105.tar.gz
+Deleting GRA2PESv1.0_ONROAD_DSL_202105.tar.gz
+
+Downloading and extracting ONROAD_GAS for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_GAS_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_GAS_202105.tar.gz
+Deleting GRA2PESv1.0_ONROAD_GAS_202105.tar.gz
+
+Downloading and extracting RAIL for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RAIL_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RAIL_202105.tar.gz
+Deleting GRA2PESv1.0_RAIL_202105.tar.gz
+
+Downloading and extracting RES for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RES_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RES_202105.tar.gz
+Deleting GRA2PESv1.0_RES_202105.tar.gz
+
+Downloading and extracting SHIPPING for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_SHIPPING_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_SHIPPING_202105.tar.gz
+Deleting GRA2PESv1.0_SHIPPING_202105.tar.gz
+
+Downloading and extracting VCP for 2021-5
+Found 15Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_VCP_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_VCP_202105.tar.gz
+Deleting GRA2PESv1.0_VCP_202105.tar.gz
+
+Downloading and extracting WASTE for 2021-5
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_WASTE_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_WASTE_202105.tar.gz
+Deleting GRA2PESv1.0_WASTE_202105.tar.gz
+
+Downloading and extracting total for 2021-5
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_total_202105.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_total_202105.tar.gz
+Deleting GRA2PESv1.0_total_202105.tar.gz
+
+Downloading and extracting AG for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AG_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AG_202106.tar.gz
+Deleting GRA2PESv1.0_AG_202106.tar.gz
+
+Downloading and extracting AVIATION for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AVIATION_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AVIATION_202106.tar.gz
+Deleting GRA2PESv1.0_AVIATION_202106.tar.gz
+
+Downloading and extracting COMM for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COMM_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COMM_202106.tar.gz
+Deleting GRA2PESv1.0_COMM_202106.tar.gz
+
+Downloading and extracting COOKING for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COOKING_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COOKING_202106.tar.gz
+Deleting GRA2PESv1.0_COOKING_202106.tar.gz
+
+Downloading and extracting EGU for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_EGU_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_EGU_202106.tar.gz
+Deleting GRA2PESv1.0_EGU_202106.tar.gz
+
+Downloading and extracting FUG for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_FUG_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_FUG_202106.tar.gz
+Deleting GRA2PESv1.0_FUG_202106.tar.gz
+
+Downloading and extracting INDF for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDF_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDF_202106.tar.gz
+Deleting GRA2PESv1.0_INDF_202106.tar.gz
+
+Downloading and extracting INDP for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDP_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDP_202106.tar.gz
+Deleting GRA2PESv1.0_INDP_202106.tar.gz
+
+Downloading and extracting INTERNATIONAL for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INTERNATIONAL_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INTERNATIONAL_202106.tar.gz
+Deleting GRA2PESv1.0_INTERNATIONAL_202106.tar.gz
+
+Downloading and extracting OFFROAD for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OFFROAD_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OFFROAD_202106.tar.gz
+Deleting GRA2PESv1.0_OFFROAD_202106.tar.gz
+
+Downloading and extracting OG for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OG_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OG_202106.tar.gz
+Deleting GRA2PESv1.0_OG_202106.tar.gz
+
+Downloading and extracting ONROAD_DSL for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_DSL_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_DSL_202106.tar.gz
+Deleting GRA2PESv1.0_ONROAD_DSL_202106.tar.gz
+
+Downloading and extracting ONROAD_GAS for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_GAS_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_GAS_202106.tar.gz
+Deleting GRA2PESv1.0_ONROAD_GAS_202106.tar.gz
+
+Downloading and extracting RAIL for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RAIL_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RAIL_202106.tar.gz
+Deleting GRA2PESv1.0_RAIL_202106.tar.gz
+
+Downloading and extracting RES for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RES_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RES_202106.tar.gz
+Deleting GRA2PESv1.0_RES_202106.tar.gz
+
+Downloading and extracting SHIPPING for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_SHIPPING_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_SHIPPING_202106.tar.gz
+Deleting GRA2PESv1.0_SHIPPING_202106.tar.gz
+
+Downloading and extracting VCP for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_VCP_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_VCP_202106.tar.gz
+Deleting GRA2PESv1.0_VCP_202106.tar.gz
+
+Downloading and extracting WASTE for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_WASTE_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_WASTE_202106.tar.gz
+Deleting GRA2PESv1.0_WASTE_202106.tar.gz
+
+Downloading and extracting total for 2021-6
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_total_202106.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_total_202106.tar.gz
+Deleting GRA2PESv1.0_total_202106.tar.gz
+
+Downloading and extracting AG for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AG_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AG_202107.tar.gz
+Deleting GRA2PESv1.0_AG_202107.tar.gz
+
+Downloading and extracting AVIATION for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AVIATION_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AVIATION_202107.tar.gz
+Deleting GRA2PESv1.0_AVIATION_202107.tar.gz
+
+Downloading and extracting COMM for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COMM_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COMM_202107.tar.gz
+Deleting GRA2PESv1.0_COMM_202107.tar.gz
+
+Downloading and extracting COOKING for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COOKING_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COOKING_202107.tar.gz
+Deleting GRA2PESv1.0_COOKING_202107.tar.gz
+
+Downloading and extracting EGU for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_EGU_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_EGU_202107.tar.gz
+Deleting GRA2PESv1.0_EGU_202107.tar.gz
+
+Downloading and extracting FUG for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_FUG_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_FUG_202107.tar.gz
+Deleting GRA2PESv1.0_FUG_202107.tar.gz
+
+Downloading and extracting INDF for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDF_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDF_202107.tar.gz
+Deleting GRA2PESv1.0_INDF_202107.tar.gz
+
+Downloading and extracting INDP for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDP_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDP_202107.tar.gz
+Deleting GRA2PESv1.0_INDP_202107.tar.gz
+
+Downloading and extracting INTERNATIONAL for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INTERNATIONAL_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INTERNATIONAL_202107.tar.gz
+Deleting GRA2PESv1.0_INTERNATIONAL_202107.tar.gz
+
+Downloading and extracting OFFROAD for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OFFROAD_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OFFROAD_202107.tar.gz
+Deleting GRA2PESv1.0_OFFROAD_202107.tar.gz
+
+Downloading and extracting OG for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OG_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OG_202107.tar.gz
+Deleting GRA2PESv1.0_OG_202107.tar.gz
+
+Downloading and extracting ONROAD_DSL for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_DSL_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_DSL_202107.tar.gz
+Deleting GRA2PESv1.0_ONROAD_DSL_202107.tar.gz
+
+Downloading and extracting ONROAD_GAS for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_GAS_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_GAS_202107.tar.gz
+Deleting GRA2PESv1.0_ONROAD_GAS_202107.tar.gz
+
+Downloading and extracting RAIL for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RAIL_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RAIL_202107.tar.gz
+Deleting GRA2PESv1.0_RAIL_202107.tar.gz
+
+Downloading and extracting RES for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RES_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RES_202107.tar.gz
+Deleting GRA2PESv1.0_RES_202107.tar.gz
+
+Downloading and extracting SHIPPING for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_SHIPPING_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_SHIPPING_202107.tar.gz
+Deleting GRA2PESv1.0_SHIPPING_202107.tar.gz
+
+Downloading and extracting VCP for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_VCP_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_VCP_202107.tar.gz
+Deleting GRA2PESv1.0_VCP_202107.tar.gz
+
+Downloading and extracting WASTE for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_WASTE_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_WASTE_202107.tar.gz
+Deleting GRA2PESv1.0_WASTE_202107.tar.gz
+
+Downloading and extracting total for 2021-7
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_total_202107.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_total_202107.tar.gz
+Deleting GRA2PESv1.0_total_202107.tar.gz
+
+Downloading and extracting AG for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AG_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AG_202108.tar.gz
+Deleting GRA2PESv1.0_AG_202108.tar.gz
+
+Downloading and extracting AVIATION for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AVIATION_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AVIATION_202108.tar.gz
+Deleting GRA2PESv1.0_AVIATION_202108.tar.gz
+
+Downloading and extracting COMM for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COMM_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COMM_202108.tar.gz
+Deleting GRA2PESv1.0_COMM_202108.tar.gz
+
+Downloading and extracting COOKING for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COOKING_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COOKING_202108.tar.gz
+Deleting GRA2PESv1.0_COOKING_202108.tar.gz
+
+Downloading and extracting EGU for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_EGU_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_EGU_202108.tar.gz
+Deleting GRA2PESv1.0_EGU_202108.tar.gz
+
+Downloading and extracting FUG for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_FUG_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_FUG_202108.tar.gz
+Deleting GRA2PESv1.0_FUG_202108.tar.gz
+
+Downloading and extracting INDF for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDF_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDF_202108.tar.gz
+Deleting GRA2PESv1.0_INDF_202108.tar.gz
+
+Downloading and extracting INDP for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDP_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDP_202108.tar.gz
+Deleting GRA2PESv1.0_INDP_202108.tar.gz
+
+Downloading and extracting INTERNATIONAL for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INTERNATIONAL_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INTERNATIONAL_202108.tar.gz
+Deleting GRA2PESv1.0_INTERNATIONAL_202108.tar.gz
+
+Downloading and extracting OFFROAD for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OFFROAD_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OFFROAD_202108.tar.gz
+Deleting GRA2PESv1.0_OFFROAD_202108.tar.gz
+
+Downloading and extracting OG for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OG_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OG_202108.tar.gz
+Deleting GRA2PESv1.0_OG_202108.tar.gz
+
+Downloading and extracting ONROAD_DSL for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_DSL_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_DSL_202108.tar.gz
+Deleting GRA2PESv1.0_ONROAD_DSL_202108.tar.gz
+
+Downloading and extracting ONROAD_GAS for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_GAS_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_GAS_202108.tar.gz
+Deleting GRA2PESv1.0_ONROAD_GAS_202108.tar.gz
+
+Downloading and extracting RAIL for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RAIL_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RAIL_202108.tar.gz
+Deleting GRA2PESv1.0_RAIL_202108.tar.gz
+
+Downloading and extracting RES for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RES_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RES_202108.tar.gz
+Deleting GRA2PESv1.0_RES_202108.tar.gz
+
+Downloading and extracting SHIPPING for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_SHIPPING_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_SHIPPING_202108.tar.gz
+Deleting GRA2PESv1.0_SHIPPING_202108.tar.gz
+
+Downloading and extracting VCP for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_VCP_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_VCP_202108.tar.gz
+Deleting GRA2PESv1.0_VCP_202108.tar.gz
+
+Downloading and extracting WASTE for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_WASTE_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_WASTE_202108.tar.gz
+Deleting GRA2PESv1.0_WASTE_202108.tar.gz
+
+Downloading and extracting total for 2021-8
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_total_202108.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_total_202108.tar.gz
+Deleting GRA2PESv1.0_total_202108.tar.gz
+
+Downloading and extracting AG for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AG_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AG_202109.tar.gz
+Deleting GRA2PESv1.0_AG_202109.tar.gz
+
+Downloading and extracting AVIATION for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AVIATION_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AVIATION_202109.tar.gz
+Deleting GRA2PESv1.0_AVIATION_202109.tar.gz
+
+Downloading and extracting COMM for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COMM_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COMM_202109.tar.gz
+Deleting GRA2PESv1.0_COMM_202109.tar.gz
+
+Downloading and extracting COOKING for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COOKING_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COOKING_202109.tar.gz
+Deleting GRA2PESv1.0_COOKING_202109.tar.gz
+
+Downloading and extracting EGU for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_EGU_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_EGU_202109.tar.gz
+Deleting GRA2PESv1.0_EGU_202109.tar.gz
+
+Downloading and extracting FUG for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_FUG_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_FUG_202109.tar.gz
+Deleting GRA2PESv1.0_FUG_202109.tar.gz
+
+Downloading and extracting INDF for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDF_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDF_202109.tar.gz
+Deleting GRA2PESv1.0_INDF_202109.tar.gz
+
+Downloading and extracting INDP for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDP_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDP_202109.tar.gz
+Deleting GRA2PESv1.0_INDP_202109.tar.gz
+
+Downloading and extracting INTERNATIONAL for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INTERNATIONAL_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INTERNATIONAL_202109.tar.gz
+Deleting GRA2PESv1.0_INTERNATIONAL_202109.tar.gz
+
+Downloading and extracting OFFROAD for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OFFROAD_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OFFROAD_202109.tar.gz
+Deleting GRA2PESv1.0_OFFROAD_202109.tar.gz
+
+Downloading and extracting OG for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OG_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OG_202109.tar.gz
+Deleting GRA2PESv1.0_OG_202109.tar.gz
+
+Downloading and extracting ONROAD_DSL for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_DSL_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_DSL_202109.tar.gz
+Deleting GRA2PESv1.0_ONROAD_DSL_202109.tar.gz
+
+Downloading and extracting ONROAD_GAS for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_GAS_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_GAS_202109.tar.gz
+Deleting GRA2PESv1.0_ONROAD_GAS_202109.tar.gz
+
+Downloading and extracting RAIL for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RAIL_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RAIL_202109.tar.gz
+Deleting GRA2PESv1.0_RAIL_202109.tar.gz
+
+Downloading and extracting RES for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RES_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RES_202109.tar.gz
+Deleting GRA2PESv1.0_RES_202109.tar.gz
+
+Downloading and extracting SHIPPING for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_SHIPPING_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_SHIPPING_202109.tar.gz
+Deleting GRA2PESv1.0_SHIPPING_202109.tar.gz
+
+Downloading and extracting VCP for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_VCP_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_VCP_202109.tar.gz
+Deleting GRA2PESv1.0_VCP_202109.tar.gz
+
+Downloading and extracting WASTE for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_WASTE_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_WASTE_202109.tar.gz
+Deleting GRA2PESv1.0_WASTE_202109.tar.gz
+
+Downloading and extracting total for 2021-9
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_total_202109.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_total_202109.tar.gz
+Deleting GRA2PESv1.0_total_202109.tar.gz
+
+Downloading and extracting AG for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AG_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AG_202110.tar.gz
+Deleting GRA2PESv1.0_AG_202110.tar.gz
+
+Downloading and extracting AVIATION for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AVIATION_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AVIATION_202110.tar.gz
+Deleting GRA2PESv1.0_AVIATION_202110.tar.gz
+
+Downloading and extracting COMM for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COMM_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COMM_202110.tar.gz
+Deleting GRA2PESv1.0_COMM_202110.tar.gz
+
+Downloading and extracting COOKING for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COOKING_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COOKING_202110.tar.gz
+Deleting GRA2PESv1.0_COOKING_202110.tar.gz
+
+Downloading and extracting EGU for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_EGU_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_EGU_202110.tar.gz
+Deleting GRA2PESv1.0_EGU_202110.tar.gz
+
+Downloading and extracting FUG for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_FUG_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_FUG_202110.tar.gz
+Deleting GRA2PESv1.0_FUG_202110.tar.gz
+
+Downloading and extracting INDF for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDF_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDF_202110.tar.gz
+Deleting GRA2PESv1.0_INDF_202110.tar.gz
+
+Downloading and extracting INDP for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDP_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDP_202110.tar.gz
+Deleting GRA2PESv1.0_INDP_202110.tar.gz
+
+Downloading and extracting INTERNATIONAL for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INTERNATIONAL_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INTERNATIONAL_202110.tar.gz
+Deleting GRA2PESv1.0_INTERNATIONAL_202110.tar.gz
+
+Downloading and extracting OFFROAD for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OFFROAD_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OFFROAD_202110.tar.gz
+Deleting GRA2PESv1.0_OFFROAD_202110.tar.gz
+
+Downloading and extracting OG for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OG_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OG_202110.tar.gz
+Deleting GRA2PESv1.0_OG_202110.tar.gz
+
+Downloading and extracting ONROAD_DSL for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_DSL_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_DSL_202110.tar.gz
+Deleting GRA2PESv1.0_ONROAD_DSL_202110.tar.gz
+
+Downloading and extracting ONROAD_GAS for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_GAS_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_GAS_202110.tar.gz
+Deleting GRA2PESv1.0_ONROAD_GAS_202110.tar.gz
+
+Downloading and extracting RAIL for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RAIL_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RAIL_202110.tar.gz
+Deleting GRA2PESv1.0_RAIL_202110.tar.gz
+
+Downloading and extracting RES for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RES_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RES_202110.tar.gz
+Deleting GRA2PESv1.0_RES_202110.tar.gz
+
+Downloading and extracting SHIPPING for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_SHIPPING_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_SHIPPING_202110.tar.gz
+Deleting GRA2PESv1.0_SHIPPING_202110.tar.gz
+
+Downloading and extracting VCP for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_VCP_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_VCP_202110.tar.gz
+Deleting GRA2PESv1.0_VCP_202110.tar.gz
+
+Downloading and extracting WASTE for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_WASTE_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_WASTE_202110.tar.gz
+Deleting GRA2PESv1.0_WASTE_202110.tar.gz
+
+Downloading and extracting total for 2021-10
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_total_202110.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_total_202110.tar.gz
+Deleting GRA2PESv1.0_total_202110.tar.gz
+
+Downloading and extracting AG for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AG_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AG_202111.tar.gz
+Deleting GRA2PESv1.0_AG_202111.tar.gz
+
+Downloading and extracting AVIATION for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AVIATION_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AVIATION_202111.tar.gz
+Deleting GRA2PESv1.0_AVIATION_202111.tar.gz
+
+Downloading and extracting COMM for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COMM_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COMM_202111.tar.gz
+Deleting GRA2PESv1.0_COMM_202111.tar.gz
+
+Downloading and extracting COOKING for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COOKING_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COOKING_202111.tar.gz
+Deleting GRA2PESv1.0_COOKING_202111.tar.gz
+
+Downloading and extracting EGU for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_EGU_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_EGU_202111.tar.gz
+Deleting GRA2PESv1.0_EGU_202111.tar.gz
+
+Downloading and extracting FUG for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_FUG_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_FUG_202111.tar.gz
+Deleting GRA2PESv1.0_FUG_202111.tar.gz
+
+Downloading and extracting INDF for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDF_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDF_202111.tar.gz
+Deleting GRA2PESv1.0_INDF_202111.tar.gz
+
+Downloading and extracting INDP for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDP_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDP_202111.tar.gz
+Deleting GRA2PESv1.0_INDP_202111.tar.gz
+
+Downloading and extracting INTERNATIONAL for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INTERNATIONAL_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INTERNATIONAL_202111.tar.gz
+Deleting GRA2PESv1.0_INTERNATIONAL_202111.tar.gz
+
+Downloading and extracting OFFROAD for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OFFROAD_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OFFROAD_202111.tar.gz
+Deleting GRA2PESv1.0_OFFROAD_202111.tar.gz
+
+Downloading and extracting OG for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OG_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OG_202111.tar.gz
+Deleting GRA2PESv1.0_OG_202111.tar.gz
+
+Downloading and extracting ONROAD_DSL for 2021-11
+Found 14Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_DSL_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_DSL_202111.tar.gz
+Deleting GRA2PESv1.0_ONROAD_DSL_202111.tar.gz
+
+Downloading and extracting ONROAD_GAS for 2021-11
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_GAS_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_GAS_202111.tar.gz
+Deleting GRA2PESv1.0_ONROAD_GAS_202111.tar.gz
+
+Downloading and extracting RAIL for 2021-11
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RAIL_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RAIL_202111.tar.gz
+Deleting GRA2PESv1.0_RAIL_202111.tar.gz
+
+Downloading and extracting RES for 2021-11
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RES_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RES_202111.tar.gz
+Deleting GRA2PESv1.0_RES_202111.tar.gz
+
+Downloading and extracting SHIPPING for 2021-11
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_SHIPPING_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_SHIPPING_202111.tar.gz
+Deleting GRA2PESv1.0_SHIPPING_202111.tar.gz
+
+Downloading and extracting VCP for 2021-11
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_VCP_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_VCP_202111.tar.gz
+Deleting GRA2PESv1.0_VCP_202111.tar.gz
+
+Downloading and extracting WASTE for 2021-11
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_WASTE_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_WASTE_202111.tar.gz
+Deleting GRA2PESv1.0_WASTE_202111.tar.gz
+
+Downloading and extracting total for 2021-11
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_total_202111.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_total_202111.tar.gz
+Deleting GRA2PESv1.0_total_202111.tar.gz
+
+Downloading and extracting AG for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AG_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AG_202112.tar.gz
+Deleting GRA2PESv1.0_AG_202112.tar.gz
+
+Downloading and extracting AVIATION for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AVIATION_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_AVIATION_202112.tar.gz
+Deleting GRA2PESv1.0_AVIATION_202112.tar.gz
+
+Downloading and extracting COMM for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COMM_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COMM_202112.tar.gz
+Deleting GRA2PESv1.0_COMM_202112.tar.gz
+
+Downloading and extracting COOKING for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_COOKING_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_COOKING_202112.tar.gz
+Deleting GRA2PESv1.0_COOKING_202112.tar.gz
+
+Downloading and extracting EGU for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_EGU_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_EGU_202112.tar.gz
+Deleting GRA2PESv1.0_EGU_202112.tar.gz
+
+Downloading and extracting FUG for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_FUG_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_FUG_202112.tar.gz
+Deleting GRA2PESv1.0_FUG_202112.tar.gz
+
+Downloading and extracting INDF for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDF_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDF_202112.tar.gz
+Deleting GRA2PESv1.0_INDF_202112.tar.gz
+
+Downloading and extracting INDP for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INDP_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INDP_202112.tar.gz
+Deleting GRA2PESv1.0_INDP_202112.tar.gz
+
+Downloading and extracting INTERNATIONAL for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_INTERNATIONAL_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_INTERNATIONAL_202112.tar.gz
+Deleting GRA2PESv1.0_INTERNATIONAL_202112.tar.gz
+
+Downloading and extracting OFFROAD for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OFFROAD_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OFFROAD_202112.tar.gz
+Deleting GRA2PESv1.0_OFFROAD_202112.tar.gz
+
+Downloading and extracting OG for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_OG_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_OG_202112.tar.gz
+Deleting GRA2PESv1.0_OG_202112.tar.gz
+
+Downloading and extracting ONROAD_DSL for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_DSL_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_DSL_202112.tar.gz
+Deleting GRA2PESv1.0_ONROAD_DSL_202112.tar.gz
+
+Downloading and extracting ONROAD_GAS for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_ONROAD_GAS_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_ONROAD_GAS_202112.tar.gz
+Deleting GRA2PESv1.0_ONROAD_GAS_202112.tar.gz
+
+Downloading and extracting RAIL for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RAIL_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RAIL_202112.tar.gz
+Deleting GRA2PESv1.0_RAIL_202112.tar.gz
+
+Downloading and extracting RES for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_RES_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_RES_202112.tar.gz
+Deleting GRA2PESv1.0_RES_202112.tar.gz
+
+Downloading and extracting SHIPPING for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_SHIPPING_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_SHIPPING_202112.tar.gz
+Deleting GRA2PESv1.0_SHIPPING_202112.tar.gz
+
+Downloading and extracting VCP for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_VCP_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_VCP_202112.tar.gz
+Deleting GRA2PESv1.0_VCP_202112.tar.gz
+
+Downloading and extracting WASTE for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_WASTE_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_WASTE_202112.tar.gz
+Deleting GRA2PESv1.0_WASTE_202112.tar.gz
+
+Downloading and extracting total for 2021-12
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_total_202112.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/.download
+Extracting GRA2PESv1.0_total_202112.tar.gz
+Deleting GRA2PESv1.0_total_202112.tar.gz
+Time taken: 53282 seconds

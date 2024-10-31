@@ -169,7 +169,7 @@ class Gra2pesDownloadExtra():
             raise ValueError("credentials_path must be provided for ftp data source")
         self.credentials = gen_utils.read_credentials(credentials_path)
 
-    def download_and_extract(self,sector,year):
+    def download_and_extract(self,sector,year,mvpath = None):
         '''Main function to download extra GRA2PES data for a specific sector, year, and month and format the directories nicely
         
         Args:
@@ -184,7 +184,11 @@ class Gra2pesDownloadExtra():
         gen_utils.check_space(self.base_path,excep_thresh='1Tb') #check if there is enough space in the base path
         tar_fname = self.get_tar_filename(sector, year)
         tar_full_url = self.get_tar_url(sector, year)
-        #self.download_tar(tar_full_url)
+        if mvpath is None:
+            self.download_tar(tar_full_url)
+        else:
+            old_loc = os.path.join(mvpath,tar_fname)
+            shutil.copy(old_loc, os.path.join(self.download_path, tar_fname))
         self.extract_tar(tar_fname)
         self.delete_tar(tar_fname)
 
@@ -397,26 +401,28 @@ def main():
     base_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0'
     credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials.txt'
     config = gra2pes_config.Gra2pesConfig()
-    main_downloader = Gra2pesDownload(config, base_path, data_source='ftp',credentials_path=credentials_path)
+    # main_downloader = Gra2pesDownload(config, base_path, data_source='ftp',credentials_path=credentials_path)
     
-    years = config.years
-    months = config.months
-    sectors = config.sector_details.keys()
-    for year in years:
-        for month in months:
-            for sector in sectors:
-                print(f'\nDownloading and extracting {sector} for {year}-{month}')
-                main_downloader.download_extract(sector,year,month)
-
-    # extra_id = 'methane'
+    # years = config.years
+    # months = config.months
+    # sectors = config.sector_details.keys()
     # for year in years:
-    #     for sector in sectors:
-    #         print(f'\nDownloading and extracting {sector} for {year} {extra_id}')
-    #         extra_downloader = Gra2pesDownloadExtra(config, base_path, extra_id, credentials_path=credentials_path)
-    #         extra_downloader.download_and_extract(sector,year)
+    #     for month in months:
+    #         for sector in sectors:
+    #             print(f'\nDownloading and extracting {sector} for {year}-{month}')
+    #             main_downloader.download_extract(sector,year,month)
 
-    #         extra_organizer = OrganizeExtraDownload(base_path,extra_id)
-    #         extra_organizer.organize_extra()
+    years = [2021]
+    sectors = config.sector_details.keys()
+    tar_loc = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/methane'
+    extra_id = 'methane'
+    for year in years:
+        for sector in sectors:
+            print(f'\nDownloading and extracting {sector} for {year} {extra_id}')
+            extra_downloader = Gra2pesDownloadExtra(config, base_path, extra_id, credentials_path=credentials_path)
+            extra_downloader.download_and_extract(sector,year,mvpath=tar_loc)
+            extra_organizer = OrganizeExtraDownload(base_path,extra_id)
+            extra_organizer.organize_extra()
 
     # good_compare = compare_base_and_extra(base_path,extra_id)
 
