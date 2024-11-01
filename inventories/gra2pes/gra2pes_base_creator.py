@@ -26,7 +26,7 @@ class Gra2pesDownload():
     
     Attributes:
     config (gra2pes_config.Gra2pesConfig) : configuration object for GRA2PES
-    base_path (str) : base path where the data will be stored
+    base_path (str) : base path where the data will be stored (part of the config)
     download_path (str) : path where the data will be downloaded (a temp folder called .download)
     base_download_url (str) : base url where the data lives online
     tar_filename_template (str) : template for the tar file name as stored in base_download_url
@@ -34,9 +34,9 @@ class Gra2pesDownload():
 
     tar_filename_template = 'GRA2PESv1.0_{sector}_{yearmonth}.tar.gz' #template for the tar file name as stored in base_download_url
 
-    def __init__(self, config, base_path, data_source = 'https',credentials_path = None, min_space = '1Tb'):
+    def __init__(self, config, data_source = 'https',credentials_path = None, min_space = '1Tb'):
         self.config = config #configuration object for GRA2PES
-        self.base_path = base_path #base path where the data will be stored
+        self.base_path = config.base_path #base path where the data will be stored
         self.download_path = os.path.join(self.base_path, '.download') #path where the data will be downloaded (a temp folder called .download)
         os.makedirs(self.download_path, exist_ok=True) #create the download path if it doesn't exist
         self.data_source = data_source
@@ -149,7 +149,7 @@ class Gra2pesDownloadExtra():
     
     Attributes:
     config (gra2pes_config.Gra2pesConfig) : configuration object for GRA2PES
-    base_path (str) : base path where the data will be stored
+    base_path (str) : base path where the data will be stored (part of config)
     extra_id (str) : extra id for the data (e.g. 'methane')
     download_path (str) : path where the data will be downloaded (a temp folder called .download)
     base_download_url (str) : base url where the data lives online
@@ -157,9 +157,9 @@ class Gra2pesDownloadExtra():
     """
 
 
-    def __init__(self, config, base_path, extra_id, credentials_path = None):
+    def __init__(self, config, extra_id, credentials_path = None):
         self.config = config #configuration object for GRA2PES
-        self.base_path = base_path #base path where the data will be stored
+        self.base_path = config.base_path #base path where the data will be stored
         self.extra_id = extra_id
         self.tar_filename_template = 'GRA2PES_{sector}_{year}_{extra_id}.tar.gz' #template for the tar file name as stored in base_download_url
         self.download_path = os.path.join(self.base_path, f'.download/{extra_id}') #path where the data will be downloaded (a temp folder called .download)
@@ -398,33 +398,32 @@ def compare_dirs_exact(dir1, dir2):
 
 def main():
     t1 = time.time()
-    base_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0'
     credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials.txt'
     config = gra2pes_config.Gra2pesConfig()
-    # main_downloader = Gra2pesDownload(config, base_path, data_source='ftp',credentials_path=credentials_path)
+    main_downloader = Gra2pesDownload(config, data_source='ftp',credentials_path=credentials_path)
     
-    # years = config.years
-    # months = config.months
-    # sectors = config.sector_details.keys()
-    # for year in years:
-    #     for month in months:
-    #         for sector in sectors:
-    #             print(f'\nDownloading and extracting {sector} for {year}-{month}')
-    #             main_downloader.download_extract(sector,year,month)
+    years = config.years
+    months = config.months
+    sectors = config.sector_details.keys()
+    for year in years:
+        for month in months:
+            for sector in sectors:
+                print(f'\nDownloading and extracting {sector} for {year}-{month}')
+                main_downloader.download_extract(sector,year,month)
 
     years = [2021]
     sectors = config.sector_details.keys()
-    tar_loc = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/methane'
+    # tar_loc = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/methane'
     extra_id = 'methane'
     for year in years:
         for sector in sectors:
             print(f'\nDownloading and extracting {sector} for {year} {extra_id}')
-            extra_downloader = Gra2pesDownloadExtra(config, base_path, extra_id, credentials_path=credentials_path)
-            extra_downloader.download_and_extract(sector,year,mvpath=tar_loc)
-            extra_organizer = OrganizeExtraDownload(base_path,extra_id)
+            extra_downloader = Gra2pesDownloadExtra(config, extra_id, credentials_path=credentials_path)
+            extra_downloader.download_and_extract(sector,year)#,mvpath=tar_loc)
+            extra_organizer = OrganizeExtraDownload(config.base_path,extra_id)
             extra_organizer.organize_extra()
 
-    # good_compare = compare_base_and_extra(base_path,extra_id)
+    good_compare = compare_base_and_extra(config.base_path,extra_id)
 
     t2 = time.time()
     print(f"Time taken: {round(t2-t1)} seconds")

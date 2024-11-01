@@ -1,3 +1,5 @@
+import numpy as np
+
 class Gra2pesConfig():
     months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     years = [2021]
@@ -24,5 +26,37 @@ class Gra2pesConfig():
         'total' : {'description': 'Total'}
     }
 
+    base_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0'
+    base_fname_structure = '{year_str}{month_str}/{day_type}/GRA2PESv1.0_{sector}_{year_str}{month_str}_{day_type}_{hour_start}to{hour_end}Z.nc'
+
     def __init__(self):
         pass
+
+class Gra2pesRegridConfig():
+    lat_spacing = 0.025
+    lon_spacing = lat_spacing
+    lat_center_range = (18.95, 58.05)
+    lon_center_range = (-138.05, -58.95)
+    method = 'conservative'
+    input_dims=('south_north','west_east')
+    weights_file = 'create'
+    regrid_id = f'{lat_spacing}x{lon_spacing}'
+    regridded_path =  f'/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/regridded{regrid_id}'
+    # grid_out = {
+    #                 'lat': np.arange(18.95, 58.05, 0.025),  # Center Point Spacing Lat
+    #                 'lon': np.arange(-138.05, -58.95, 0.025),  # Center Point Spacing Lon
+    #                 'lat_b': np.arange(18.95-0.0125, 58.05+0.0125, 0.025),  # Boundary Spacing Lat
+    #                 'lon_b': np.arange(-138.05-0.0125, -58.95+0.0125, 0.025),  # Boundary Spacing Lon
+    #             }
+
+    def __init__(self):
+        self.grid_out = self.get_grid_out()
+
+    def get_grid_out(self):
+        grid_out = {
+            'lat': np.arange(self.lat_center_range[0], self.lat_center_range[1], self.lat_spacing),  # Center Point Spacing Lat
+            'lon': np.arange(self.lon_center_range[0], self.lon_center_range[1], self.lon_spacing),  # Center Point Spacing Lon
+            'lat_b': np.arange(self.lat_center_range[0]-self.lat_spacing/2, self.lat_center_range[1]+self.lat_spacing/2, self.lat_spacing),  # Boundary Spacing Lat
+            'lon_b': np.arange(self.lon_center_range[0]-self.lon_spacing/2, self.lon_center_range[1]+self.lon_spacing/2, self.lon_spacing),  # Boundary Spacing Lon
+        }
+        return grid_out
