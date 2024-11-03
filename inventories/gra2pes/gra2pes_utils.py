@@ -8,6 +8,35 @@ import numpy as np
 # Suppress the specific FutureWarning
 warnings.filterwarnings("ignore", category=FutureWarning, message="The return type of `Dataset.dims` will be changed")
 
+def set_ds_encoding(ds, encoding_details, vars_to_set = 'all'):
+    """Set the encoding details for a dataset
+    
+    Args:
+    ds (xr.Dataset) : the dataset to set the encoding details for
+    encoding_details (dict) : the encoding details to set
+    
+    Returns:
+    xr.Dataset : the dataset with the encoding details set
+    """
+    if vars_to_set == 'all':
+        vars_to_set = ds.variables
+
+    dim_sizes = ds.sizes
+    # Resolve chunksizes
+    resolved_chunksizes = tuple(
+        dim_sizes[dim] if isinstance(dim, str) and dim in dim_sizes else dim for dim in encoding_details['chunksizes']
+    )
+
+    encoding = {}
+    for var in ds.data_vars:
+        encoding[var] = {
+            'zlib': encoding_details['zlib'],
+            'complevel': encoding_details['complevel'],
+            'shuffle': encoding_details['shuffle'],
+            'chunksizes': resolved_chunksizes,
+        }
+        
+    return encoding
 
 class BaseGra2pesHandler():
     """ This class is meant to handle the file storage and naminv conventions for the "base" GRA2PES files, as downloaded
@@ -53,6 +82,7 @@ class BaseGra2pesHandler():
             ds = self.load_fmt_single(sector, year, month, day_type, hour_start, chunks, check_extra) 
             ds_list.append(ds)
         full_ds = xr.concat(ds_list, dim='utc_hour') # Concatenate the two half-day files
+        full_ds = self.rename_zlevel(full_ds) # Rename the zlevel coordinate
         return full_ds
 
     def load_fmt_single(self, sector, year, month, day_type, hour_start, chunks, check_extra):
@@ -185,6 +215,18 @@ class BaseGra2pesHandler():
         ds = ds.rename({'Time':'utc_hour'})
         return ds
 
+    def rename_zlevel(self,ds):
+        """Rename the zlevel coordinate from bottom_top to zlevel
+        
+        Args:
+        ds (xr.Dataset) : the dataset to rename the zlevel coordinate of
+        
+        Returns:
+        xr.Dataset : the dataset with the bottom_top coordinate renamed to zlevel
+        """
+
+        ds = ds.rename({'bottom_top':'zlevel'})
+        return ds
 
 class Gra2pesRegridder():
 
@@ -197,6 +239,7 @@ class Gra2pesRegridder():
         except:
             self.regridder = self.create_regridder(ds)
         
+        print('Regridding')
         regridded_ds = self.regridder(ds,keep_attrs = True)
         old_attrs = list(regridded_ds.attrs.keys())
         keep_attrs = ['sector','year','month','day_type','TITLE','regrid_method']
@@ -207,7 +250,7 @@ class Gra2pesRegridder():
                 continue
         return regridded_ds
 
-    def create_regridder(self, ds):
+    def create_regridder(self, ds, save_to_self = False):
         print('Creating regridder')
         grid_in = self.create_ingrid(ds)
         grid_out = self.regrid_config.grid_out
@@ -215,6 +258,8 @@ class Gra2pesRegridder():
         input_dims = self.regrid_config.input_dims
         regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims)
         regridder.ds_attrs = ds.attrs
+        if save_to_self:
+            self.regridder = regridder
         return regridder
 
     def create_ingrid(self, ds):

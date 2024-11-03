@@ -42,12 +42,12 @@ class Gra2pesRegridConfig():
     weights_file = 'create'
     regrid_id = f'{lat_spacing}x{lon_spacing}'
     regridded_path =  f'/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/regridded{regrid_id}'
-    # grid_out = {
-    #                 'lat': np.arange(18.95, 58.05, 0.025),  # Center Point Spacing Lat
-    #                 'lon': np.arange(-138.05, -58.95, 0.025),  # Center Point Spacing Lon
-    #                 'lat_b': np.arange(18.95-0.0125, 58.05+0.0125, 0.025),  # Boundary Spacing Lat
-    #                 'lon_b': np.arange(-138.05-0.0125, -58.95+0.0125, 0.025),  # Boundary Spacing Lon
-    #             }
+    # encoding_details = {
+    #     'zlib': True,              # Use zlib compression
+    #     'complevel': 1,            # Compression level (1 is low, 9 is high)
+    #     'shuffle': True,           # Use the shuffle filter to improve compression
+    #     'chunksizes': ('utc_hour','bottom_top','lat','lon'),  # Set chunk shape to full size for lat lon
+    # }
 
     def __init__(self):
         self.grid_out = self.get_grid_out()
