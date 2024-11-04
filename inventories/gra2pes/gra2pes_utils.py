@@ -1,9 +1,15 @@
-import xarray as xr
 import os
 import warnings
 import pyproj
+import calendar
+import datetime
+import sys
 import xesmf as xe
 import numpy as np
+import xarray as xr
+import pandas as pd
+sys.path.append(os.path.join(os.path.dirname(__file__),'../..'))
+from utils import datetime_utils
 
 # Suppress the specific FutureWarning
 warnings.filterwarnings("ignore", category=FutureWarning, message="The return type of `Dataset.dims` will be changed")
@@ -37,6 +43,45 @@ def set_ds_encoding(ds, encoding_details, vars_to_set = 'all'):
         }
         
     return encoding
+
+def get_daytype_from_int(day_int,config):
+    """Get the day type from an integer
+    
+    Args:
+    day_int (int) : the integer to get the day type from
+    config (Gra2pesConfig) : the configuration object for the GRA2PES inventory
+    
+    Returns:
+    str : the day type
+    """
+    for day_type,intlist in config.day_type_details.items():
+        if day_int in intlist:
+            return day_type
+    raise ValueError(f"Day type {day_int} not found in config")
+
+def get_inrange_list(dtr,config):
+    '''Gets all unique year/month/daytype combinations in a datetime range
+    
+    Args:
+    dtr (DateTimeRange) : the datetime range object from utils.datetime_utils
+    config (Gra2pesConfig) : the config object
+    
+    Returns:
+    unique_yr_mo_daytypes (list) : list of dictionaries with 'year', 'month', and 'day_type' keys
+    '''
+    
+    dates_in_range = dtr.get_dates_in_range()
+    yr_mo_daytypes_in_range = []
+    for dates in dates_in_range:
+        yr_mo_daytype = {}
+        yr_mo_daytype['year'] = dates.year
+        yr_mo_daytype['month'] = dates.month
+        yr_mo_daytype['day_type'] = get_daytype_from_int(dates.weekday(),config)
+        yr_mo_daytypes_in_range.append(yr_mo_daytype)
+
+    unique_yr_mo_daytypes = [dict(t) for t in {tuple(d.items()) for d in yr_mo_daytypes_in_range}]
+    unique_yr_mo_daytypes = sorted(unique_yr_mo_daytypes, key=lambda x: (x['year'], x['month'], x['day_type']))
+    return unique_yr_mo_daytypes
 
 class BaseGra2pesHandler():
     """ This class is meant to handle the file storage and naminv conventions for the "base" GRA2PES files, as downloaded
@@ -350,4 +395,90 @@ class Gra2pesRegridder():
         #TODO
         pass
 
+class RegriddedGra2pesHandler:
 
+    def __init__(self,config,regrid_id):
+        self.config = config
+        self.regrid_id = regrid_id
+        self.regridded_path = self.get_regridded_path()
+
+    def get_regridded_path(self):
+        regridded_path = self.config.regridded_path_structure.format(regridded_parent_path=self.config.regridded_parent_path,regrid_id=self.regrid_id)
+        if not os.path.exists(regridded_path):
+            raise ValueError(f"Regridded path {regridded_path} does not exist.")
+        return regridded_path
+
+    def get_files_inrange(self,dtr,sectors = 'all'):
+        if sectors == 'all':
+            sectors = self.config.sectors
+        inrange_list = get_inrange_list(dtr,self.config)
+        files_inrange = []
+        for yr_mo_daytype in inrange_list:
+            for sector in sectors:
+                relpath_fname = self.get_relpath_fname(sector,yr_mo_daytype['year'],yr_mo_daytype['month'],yr_mo_daytype['day_type'])
+                fullpath = os.path.join(self.regridded_path,relpath_fname)
+                files_inrange.append(fullpath)
+        return sorted(files_inrange)
+    
+    def get_relpath_fname(self, sector,year,month,day_type):
+        year_str = f'{year:04d}'
+        month_str = f'{month:02d}'
+        relpath_fname = self.config.regridded_fname_structure.format(year_str=year_str, month_str=month_str, day_type=day_type, sector=sector)
+        return relpath_fname
+    
+    def open_ds_inrange(self,dtr,sectors = 'all',chunks = {}):
+        files_inrange = self.get_files_inrange(dtr,sectors)
+        ds_list = []
+        for fname in files_inrange:
+            ds = self.open_ds_single(fname)
+            ds_list.append(ds)
+        ds_combined = xr.combine_by_coords(ds_list,combine_attrs='drop_conflicts')
+        ds_combined = ds_combined.transpose('lat','lon','year','month','day_type','utc_hour','sector')
+        ds_combined = ds_combined.assign_coords(
+            lat=ds_combined['lat'],
+            lon=ds_combined['lon'],
+            year=ds_combined['year'],
+            month=ds_combined['month'],
+            day_type=ds_combined['day_type'],
+            utc_hour=ds_combined['utc_hour'],
+            sector=ds_combined['sector']
+        )
+        return ds_combined
+
+    def open_ds_single(self,fname,chunks = {}):
+        ds = xr.open_dataset(fname)
+        ds = ds.assign_coords(year=ds.attrs['year'], month=ds.attrs['month'], day_type=ds.attrs['day_type'],sector=ds.attrs['sector'])
+        ds = ds.expand_dims(dim=['year','month','day_type','sector'])
+        
+        return ds
+
+    def rework_ds_dt(self,ds):
+        combined_ds_list = []
+        for year in ds.year.values:
+            for month in ds.month.values:
+                dt1 = datetime.datetime(year, month, 1)
+                dt2 = datetime.datetime(year, month, calendar.monthrange(year, month)[1])
+                dates_in_month = datetime_utils.DateTimeRange(dt1,dt2,tz='UTC').get_dates_in_range()
+                dates_by_day_type = {
+                    'weekdy':[date for date in dates_in_month if date.weekday() in self.config.day_type_details['weekdy']],
+                    'satdy':[date for date in dates_in_month if date.weekday() in self.config.day_type_details['satdy']],
+                    'sundy':[date for date in dates_in_month if date.weekday()  in self.config.day_type_details['sundy']]
+                }        
+                month_ds = ds.sel(year = year, month = month)
+
+                new_month_ds_list = []
+                for day_type,dates in dates_by_day_type.items():
+                    subds = month_ds.sel(day_type=day_type).drop_vars(['year','month','day_type'])
+                    subds = subds.assign_coords({'date':dates})
+                    datetimes = [pd.Timestamp(date) + pd.Timedelta(hours=int(hour)) for date in subds.coords['date'].values for hour in subds.coords['utc_hour'].values]
+                    datetime_index = pd.DatetimeIndex(datetimes)
+
+                    subds = subds.stack({'datetime':('date','utc_hour')})#.assign_coords({'datetime':datetime_index})
+                    subds = subds.drop_vars(['date','utc_hour','datetime'])
+                    subds = subds.assign_coords({'datetime':datetime_index})
+                    new_month_ds_list.append(subds)
+
+                new_month_ds = xr.concat(new_month_ds_list,dim='datetime').sortby('datetime')
+                combined_ds_list.append(new_month_ds)
+        combined_ds = xr.concat(combined_ds_list,dim='datetime').sortby('datetime')
+        return combined_ds

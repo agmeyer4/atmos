@@ -1,0 +1,21 @@
+name: atmos
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - jupyterlab
+  - ipython
+  - statsmodels
+  - xarray
+  - dask
+  - netcdf4
+  - xesmf
+  - cartopy
+  - plotly
+  - gitpython

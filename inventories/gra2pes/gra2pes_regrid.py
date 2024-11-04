@@ -77,7 +77,7 @@ def main():
     specs = ['CO2','CO','HC01']#,'HC02','HC14','NH3','NOX','SO2']
     BGH = gra2pes_utils.BaseGra2pesHandler(config,specs = specs, extra_ids = extra_ids)
 
-    sectors = config.sector_details.keys()
+    sectors = config.sectors
     months = [1,2,3,4,5,6,7,8,9,10,11,12]
     years = [2021]
     day_types = ['satdy','sundy','weekdy']

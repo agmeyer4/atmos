@@ -1,0 +1,5480 @@
+Regridding GRA2PES data from base (Lambert Conical Conformal) to regridded (Lat/Lon)
+Git hash of this regrid = 99307376f9b114016183a148cac68f669f276c19
+Starting regrid at 1730695479.5122786
+Saving regridded data to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/regridded0.025x0.025
+
+Regridding AG for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Creating regridder
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-1 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-1 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-2 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-2 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-2 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-3 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-3 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-3 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-4 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-4 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-4 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-5 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-5 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-5 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-6 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-6 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-6 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-7 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-7 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-7 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-8 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-8 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-8 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-9 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-9 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-9 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-10 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-10 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-10 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-11 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-11 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-11 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-12 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-12 sundy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AG for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding AVIATION for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COMM for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding COOKING for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding EGU for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding FUG for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDF for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INDP for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding INTERNATIONAL for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OFFROAD for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding OG for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_DSL for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding ONROAD_GAS for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RAIL for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding RES for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding SHIPPING for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding VCP for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding WASTE for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Regridding total for 2021-12 weekdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Regridding
+Slicing extent:  {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+Loading regridded dataset into memory
+Saving regridded dataset
+
+Finished regrid at 1730737987.9355197
+Time taken: 42508.42324113846 seconds

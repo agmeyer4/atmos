@@ -55,11 +55,11 @@ class Gra2pesDownload():
         '''Main function to download GRA2PES data for a specific sector, year, and month and format the directories nicely
         
         Args:
-        sector (str) : sector to download, from the self.config.sector_details.keys() dictionary
+        sector (str) : sector to download, from the self.config.sectors list
         year (int) : integer year to download
         month (int) : integer month to download
         '''
-        if sector not in self.config.sector_details.keys():
+        if sector not in self.config.sectors:
             raise ValueError(f"sector {sector} not found in config")
         if year not in self.config.years:
             raise ValueError(f"year {year} not found in config")
@@ -77,7 +77,7 @@ class Gra2pesDownload():
         """Get the tar filename on the server for a specific sector, year, and month
         
         Args:
-        sector (str) : sector to download, from the self.config.sector_details.keys() dictionary
+        sector (str) : sector to download, from the self.config.sectors list
         year (int) : integer year to download
         month (int) : integer month to download
         
@@ -92,7 +92,7 @@ class Gra2pesDownload():
         """Get the full url to download the tar file for a specific sector, year, and month
 
         Args:
-        sector (str) : sector to download, from the self.config.sector_details.keys() dictionary
+        sector (str) : sector to download, from the self.config.sectors list
         year (int) : integer year to download
         month (int) : integer month to download
 
@@ -173,10 +173,10 @@ class Gra2pesDownloadExtra():
         '''Main function to download extra GRA2PES data for a specific sector, year, and month and format the directories nicely
         
         Args:
-        sector (str) : sector to download, from the self.config.sector_details.keys() dictionary
+        sector (str) : sector to download, from the self.config.sectors list
         year (int) : integer year to download
         '''
-        if sector not in self.config.sector_details.keys():
+        if sector not in self.config.sectors:
             raise ValueError(f"sector {sector} not found in config")
         if year not in self.config.years:
             raise ValueError(f"year {year} not found in config")
@@ -197,7 +197,7 @@ class Gra2pesDownloadExtra():
         """Get the tar filename on the server for a specific sector, year, and month
         
         Args:
-        sector (str) : sector to download, from the self.config.sector_details.keys() dictionary
+        sector (str) : sector to download, from the self.config.sectors list
         year (int) : integer year to download
         
         Returns:
@@ -211,7 +211,7 @@ class Gra2pesDownloadExtra():
         """Get the full url to download the tar file for a specific sector, year, and month
 
         Args:
-        sector (str) : sector to download, from the self.config.sector_details.keys() dictionary
+        sector (str) : sector to download, from the self.config.sectors list
         year (int) : integer year to download
         month (int) : integer month to download
 
@@ -404,7 +404,7 @@ def main():
     
     years = config.years
     months = config.months
-    sectors = config.sector_details.keys()
+    sectors = config.sectors
     for year in years:
         for month in months:
             for sector in sectors:
@@ -412,7 +412,7 @@ def main():
                 main_downloader.download_extract(sector,year,month)
 
     years = [2021]
-    sectors = config.sector_details.keys()
+    sectors = config.sectors
     # tar_loc = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/methane'
     extra_id = 'methane'
     for year in years:
