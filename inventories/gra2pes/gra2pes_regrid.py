@@ -76,18 +76,19 @@ def main():
     extra_ids = 'methane'
     specs = ['CO2','CO','HC01']#,'HC02','HC14','NH3','NOX','SO2']
     BGH = gra2pes_utils.BaseGra2pesHandler(config,specs = specs, extra_ids = extra_ids)
-    sectors = config.sector_details.keys()
-    months = [6]
-    years = [2021]
-    day_types = ['weekdy']
 
-    gra2pes_regridder = gra2pes_utils.Gra2pesRegridder(regrid_config)
+    sectors = config.sector_details.keys()
+    months = [1,2,3,4,5,6,7,8,9,10,11,12]
+    years = [2021]
+    day_types = ['satdy','sundy','weekdy']
 
     pre_sum_dim = 'zlevel'
     extent = {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
     
     pre_processes = [(sum_on_dim,{'dim':pre_sum_dim})]
     post_processes = [(slice_extent,{'extent':extent})]
+
+    gra2pes_regridder = gra2pes_utils.Gra2pesRegridder(regrid_config)
 
     for year in years:
         for month in months:
@@ -104,7 +105,7 @@ def main():
 
     t2 = time.time()
     print(f'Finished regrid at {t2}')
-    print(f'Time taken: {t2-t1}')
+    print(f'Time taken: {t2-t1} seconds')
     return
 
 if __name__ == "__main__":
