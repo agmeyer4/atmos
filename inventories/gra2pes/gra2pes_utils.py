@@ -18,11 +18,11 @@ def set_ds_encoding(ds, encoding_details, vars_to_set = 'all'):
     """Set the encoding details for a dataset
     
     Args:
-    ds (xr.Dataset) : the dataset to set the encoding details for
-    encoding_details (dict) : the encoding details to set
+        ds (xr.Dataset) : the dataset to set the encoding details for
+        encoding_details (dict) : the encoding details to set
     
     Returns:
-    xr.Dataset : the dataset with the encoding details set
+        xr.Dataset : the dataset with the encoding details set
     """
     if vars_to_set == 'all':
         vars_to_set = ds.variables
@@ -48,11 +48,11 @@ def get_daytype_from_int(day_int,config):
     """Get the day type from an integer
     
     Args:
-    day_int (int) : the integer to get the day type from
-    config (Gra2pesConfig) : the configuration object for the GRA2PES inventory
+        day_int (int) : the integer to get the day type from
+        config (Gra2pesConfig) : the configuration object for the GRA2PES inventory
     
     Returns:
-    str : the day type
+        str : the day type
     """
     for day_type,intlist in config.day_type_details.items():
         if day_int in intlist:
@@ -63,11 +63,11 @@ def get_inrange_list(dtr,config):
     '''Gets all unique year/month/daytype combinations in a datetime range
     
     Args:
-    dtr (DateTimeRange) : the datetime range object from utils.datetime_utils
-    config (Gra2pesConfig) : the config object
+        dtr (DateTimeRange) : the datetime range object from utils.datetime_utils
+        config (Gra2pesConfig) : the config object
     
     Returns:
-    unique_yr_mo_daytypes (list) : list of dictionaries with 'year', 'month', and 'day_type' keys
+        unique_yr_mo_daytypes (list) : list of dictionaries with 'year', 'month', and 'day_type' keys
     '''
     
     dates_in_range = dtr.get_dates_in_range()
@@ -88,10 +88,10 @@ class BaseGra2pesHandler():
     and organized by gra2pes_base_creator.py. 
     
     Attributes:
-    config (Gra2pesConfig) : the configuration object for the GRA2PES inventory
-    base_path (str) : the base path to the GRA2PES files, as defined in the config
-    specs (str or list) : the variables to load from the files. If 'all', all variables will be loaded
-    extra_ids (list) : list of extra ids to load in addition to the main file, as of now only "methane" is applicable
+        config (Gra2pesConfig) : the configuration object for the GRA2PES inventory
+        base_path (str) : the base path to the GRA2PES files, as defined in the config
+        specs (str or list) : the variables to load from the files. If 'all', all variables will be loaded
+        extra_ids (list) : list of extra ids to load in addition to the main file, as of now only "methane" is applicable
     """
 
     def __init__(self, config, specs='all', extra_ids=None):
@@ -111,15 +111,15 @@ class BaseGra2pesHandler():
         """Load the full day of data for a given sector, year, month, and day type
         
         Args:
-        sector (str) : the sector to load
-        year (int) : the year to load
-        month (int) : the month to load
-        day_type (str) : the day type to load
-        chunks (dict) : dictionary of chunks to pass to xarray.open_dataset
-        check_extra (bool) : whether to check the extra datasets against the main dataset ensuring the same varibles, coordinates, and attributes
+            sector (str) : the sector to load
+            year (int) : the year to load
+            month (int) : the month to load
+            day_type (str) : the day type to load
+            chunks (dict) : dictionary of chunks to pass to xarray.open_dataset
+            check_extra (bool) : whether to check the extra datasets against the main dataset ensuring the same varibles, coordinates, and attributes
         
         Returns:
-        xr.Dataset : the full dataset for the given sector, year, month, and day type
+            xr.Dataset : the full dataset for the given sector, year, month, and day type
         """
 
         ds_list = []
@@ -134,16 +134,16 @@ class BaseGra2pesHandler():
         """Load a single half-day file for a given sector, year, month, day type, and hour start, along with any extra files
 
         Args:
-        sector (str) : the sector to load
-        year (int) : the year to load
-        month (int) : the month to load
-        day_type (str) : the day type to load
-        hour_start (str) : the hour start to load ('00' or '12')
-        chunks (dict) : dictionary of chunks to pass to xarray.open_dataset
-        check_extra (bool) : whether to check the extra datasets against the main dataset ensuring the same varibles, coordinates, and attributes
+            sector (str) : the sector to load
+            year (int) : the year to load
+            month (int) : the month to load
+            day_type (str) : the day type to load
+            hour_start (str) : the hour start to load ('00' or '12')
+            chunks (dict) : dictionary of chunks to pass to xarray.open_dataset
+            check_extra (bool) : whether to check the extra datasets against the main dataset ensuring the same varibles, coordinates, and attributes
 
         Returns:
-        xr.Dataset : the dataset for the given sector, year, month, day type, and hour start
+            xr.Dataset : the dataset for the given sector, year, month, day type, and hour start
         """
 
         # Get the relative file path (will be the same for both main and extra, with the addition of the extra id)
@@ -187,14 +187,14 @@ class BaseGra2pesHandler():
         from base_path/extra_id
         
         Args:
-        sector (str) : the sector to load
-        year (int) : the year to load
-        month (int) : the month to load
-        day_type (str) : the day type to load
-        hour_start (str) : the hour start to load ('00' or '12')
+            sector (str) : the sector to load
+            year (int) : the year to load
+            month (int) : the month to load
+            day_type (str) : the day type to load
+            hour_start (str) : the hour start to load ('00' or '12')
         
         Returns:
-        str : the relative file path
+            str : the relative file path
         """
 
         year_str = f'{year:04d}' # Convert year to string with 4 digits
@@ -214,11 +214,11 @@ class BaseGra2pesHandler():
         """Get the extra variables in the extra dataset that are not in the main dataset
         
         Args:
-        main_ds (xr.Dataset) : the main dataset
-        extra_ds (xr.Dataset) : the extra dataset
+            main_ds (xr.Dataset) : the main dataset
+            extra_ds (xr.Dataset) : the extra dataset
         
         Returns:
-        set : the set of extra variables in the extra dataset
+            set : the set of extra variables in the extra dataset
         """
 
         extra_vars = set(extra_ds.variables) - set(main_ds.variables)
@@ -228,11 +228,11 @@ class BaseGra2pesHandler():
         """Check that the extra dataset matches the main dataset in terms of variables, attributes, and coordinates, dimensions
 
         Args:
-        main_ds (xr.Dataset) : the main dataset
-        extra_ds (xr.Dataset) : the extra dataset
+            main_ds (xr.Dataset) : the main dataset
+            extra_ds (xr.Dataset) : the extra dataset
 
         Raises:
-        AssertionError : if the extra dataset does not match the main dataset
+            AssertionError : if the extra dataset does not match the main dataset
         """
 
         attrs_equal = main_ds.attrs == extra_ds.attrs # Check that the attributes are the same
@@ -250,10 +250,10 @@ class BaseGra2pesHandler():
         """Change the time coordinate from a datetime on the first day of each month to utc_hour integer for clarity
 
         Args:
-        ds (xr.Dataset) : the dataset to change the time coordinate of
+            ds (xr.Dataset) : the dataset to change the time coordinate of
 
         Returns:
-        xr.Dataset : the dataset with the time coordinate changed to utc_hour as an int
+            xr.Dataset : the dataset with the time coordinate changed to utc_hour as an int
         """
 
         ds['Time'] = ds['Time'].dt.hour
@@ -264,58 +264,98 @@ class BaseGra2pesHandler():
         """Rename the zlevel coordinate from bottom_top to zlevel
         
         Args:
-        ds (xr.Dataset) : the dataset to rename the zlevel coordinate of
+            ds (xr.Dataset) : the dataset to rename the zlevel coordinate of
         
         Returns:
-        xr.Dataset : the dataset with the bottom_top coordinate renamed to zlevel
+            xr.Dataset : the dataset with the bottom_top coordinate renamed to zlevel
         """
 
         ds = ds.rename({'bottom_top':'zlevel'})
         return ds
 
 class Gra2pesRegridder():
+    """This class is meant to handle the regridding of the "base" GRA2PES files to a new grid.
+    
+    Attributes:
+        regrid_config (Gra2pesRegridConfig) : the regrid configuration object
+        
+    Methods:
+        regrid : regrid a dataset
+        create_regridder : create a regridder object
+        create_ingrid : create the input grid for the regridder
+        create_transformers : create the transformers for going from lambert conformal to WGS and vice versa
+        proj4_from_ds : get a proj4 string defining a projection from a gra2pes "base" dataset
+        save_regrid_weights : save the regridded weights to a file
+    """
 
     def __init__(self, regrid_config):
-        self.regrid_config = regrid_config
+        self.regrid_config = regrid_config #initialize with a regrid config object
 
     def regrid(self, ds):
-        try: 
+        """Regrid a dataset according to the parameters of the class. Creates the regridder if it doesn't exist. 
+
+        Args:
+            ds (xr.Dataset) : the dataset to regrid
+
+        Returns:
+            xr.Dataset : the regridded dataset
+        """
+
+        try:  # Try to get the regridder
             self.regridder
-        except:
+        except: # If it doesn't exist, create it and save it to the class
             self.regridder = self.create_regridder(ds)
         
-        print('Regridding')
-        regridded_ds = self.regridder(ds,keep_attrs = True)
-        old_attrs = list(regridded_ds.attrs.keys())
-        keep_attrs = ['sector','year','month','day_type','TITLE','regrid_method']
-        for attr in old_attrs:
+        #print('Regridding')
+        regridded_ds = self.regridder(ds,keep_attrs = True) #regrid the dataset using the regridder
+        old_attrs = list(regridded_ds.attrs.keys()) #get the old attributes 
+        keep_attrs = ['sector','year','month','day_type','TITLE','regrid_method'] #attributes to keep
+
+        #remove all attributes that aren't in the keep_attrs list
+        for attr in old_attrs: 
             if attr not in keep_attrs:
                 del regridded_ds.attrs[attr]
             else:
                 continue
+
         return regridded_ds
 
     def create_regridder(self, ds, save_to_self = False):
+        """Create a regridder object from a "base" gra2pes dataset
+
+        Args:
+            ds (xr.Dataset) : the xarray dataset created by the Gra2pesBaseHandler to use as the base for the regridder
+            save_to_self (bool) : whether to save the regridder to the class
+
+        Returns:
+            xe.Regridder : the regridder object
+        """
+
         print('Creating regridder')
-        grid_in = self.create_ingrid(ds)
-        grid_out = self.regrid_config.grid_out
-        method = self.regrid_config.method
+        grid_in = self.create_ingrid(ds) #create the input grid
+        grid_out = self.regrid_config.grid_out #get the output grid from the regrid config
+        method = self.regrid_config.method 
         input_dims = self.regrid_config.input_dims
-        regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims)
-        regridder.ds_attrs = ds.attrs
-        if save_to_self:
+
+        regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims) #create the regridder
+
+        regridder.ds_attrs = ds.attrs #save the attributes of the dataset to the regridder
+
+        if save_to_self: 
             self.regridder = regridder
+
         return regridder
 
     def create_ingrid(self, ds):
         """Creates the grid that will be input into the regridder from a "base" gra2pes dataset. Adapted from Colin Harkins at NOAA
         
         Args:
-        ds (xarray.DataSet) : the xarray dataset to use as the grid_in
+            ds (xarray.DataSet) : the xarray dataset to use as the grid_in
         
         Returns:
-        grid_in (dict) : a grid_in type dictionary that can be fed to xe.Regridder
+            grid_in (dict) : a grid_in type dictionary that can be fed to xe.Regridder
         """
+
         #create the projection transformers. 'wgs_to_lcc' converts EPSG4326 to lambert conformal, 'lcc_to_wgs' does the opposite
         wgs_to_lcc, lcc_to_wgs = self.create_transformers(ds)  
 
@@ -348,11 +388,11 @@ class Gra2pesRegridder():
         """Create transformers for going from lambert conformal to WGS and vice versa
         
         Args:
-        ds (xarray.dataset) : use the dataset to define the lcc projection, as gra2pes "base" data is in LCC
+            ds (xarray.dataset) : use the dataset to define the lcc projection, as gra2pes "base" data is in LCC
         
         Returns:
-        wgs_to_lcc (pyproj.Transformer) : a transformer object to transform from WGS coordinates to LCC coordinates
-        lcc_to_wgs (pyproj.Transformer) : a transformer object to transform from LCC coordinates to WGS coordinates
+            wgs_to_lcc (pyproj.Transformer) : a transformer object to transform from WGS coordinates to LCC coordinates
+            lcc_to_wgs (pyproj.Transformer) : a transformer object to transform from LCC coordinates to WGS coordinates
         """
 
         proj4_str = self.proj4_from_ds(ds) #get the proj4 string from the dataset
@@ -367,9 +407,12 @@ class Gra2pesRegridder():
         """Get a proj4 string defining a projection from a gra2pes "base" dataset 
         
         Args:
-        ds (xarray.Dataset) : a dataset to get the projection from
-        map_proj (proj,optional) :the pyproj.Proj proj argument. allow the user to directly define the map proj, defaults to getting it from the dataset
-        earth_rep (str) : change the earth representation of the input projection TODO, only can do "sphere" right now
+            ds (xarray.Dataset) : a dataset to get the projection from
+            map_proj (proj,optional) :the pyproj.Proj proj argument. allow the user to directly define the map proj, defaults to getting it from the dataset
+            earth_rep (str) : change the earth representation of the input projection TODO, only can do "sphere" right now
+
+        Returns:
+            str : a proj4 string defining the projection
         """
          
         if map_proj == None: #if the user didn't define a map projection
@@ -392,11 +435,12 @@ class Gra2pesRegridder():
         return my_proj.to_proj4()
 
     def save_regrid_weights(self, save_path):
-        '''Saves the regridded weights to a file
+        """Saves the regridded weights to a file
         
         Args:
-        save_path (str) : the path in which to store the weights
-        '''
+            save_path (str) : the path in which to store the weights
+        """
+        
         fname = f"regrid_weights.nc"
         self.regridder.to_netcdf(os.path.join(save_path,fname))
         pass

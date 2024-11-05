@@ -39,7 +39,8 @@ class Gra2pesConfig():
     base_fname_structure = '{year_str}{month_str}/{day_type}/GRA2PESv1.0_{sector}_{year_str}{month_str}_{day_type}_{hour_start}to{hour_end}Z.nc'
 
     regridded_path_structure = '{parent_path}/regridded{regrid_id}'
-    regridded_fname_structure = '{year_str}/{month_str}/{day_type}/{sector}_regridded.nc'
+    regridded_day_subpath_structure = '{year_str}/{month_str}/{day_type}'
+    regridded_fname_structure = '{sector}_regridded.nc'
 
     def __init__(self):
         pass
@@ -66,6 +67,8 @@ class Gra2pesRegridConfig():
         self.grid_out = self.get_grid_out()
 
     def get_grid_out(self):
+        """Creates the grid_out dictionary for the regridding process"""
+
         grid_out = {
             'lat': np.arange(self.lat_center_range[0], self.lat_center_range[1], self.lat_spacing),  # Center Point Spacing Lat
             'lon': np.arange(self.lon_center_range[0], self.lon_center_range[1], self.lon_spacing),  # Center Point Spacing Lon
@@ -75,5 +78,6 @@ class Gra2pesRegridConfig():
         return grid_out
     
     def get_regridded_path(self):
+        """Gets the regridded path for the regridded data using the config"""
         regridded_path = self.config.regridded_path_structure.format(parent_path=self.config.parent_path,regrid_id=self.regrid_id)
         return regridded_path

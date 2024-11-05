@@ -19,3 +19,5 @@ dependencies:
   - cartopy
   - plotly
   - gitpython
+  - cdo
+  - pip
