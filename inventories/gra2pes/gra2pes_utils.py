@@ -440,12 +440,27 @@ class Gra2pesRegridder():
         Args:
             save_path (str) : the path in which to store the weights
         """
-        
+
         fname = f"regrid_weights.nc"
         self.regridder.to_netcdf(os.path.join(save_path,fname))
         pass
 
 class RegriddedGra2pesHandler:
+    """This class is meant to handle the regridded GRA2PES .nc files in a specific directory structure created using gra2pes_regrid.py
+    
+    Attributes:
+        config (Gra2pesConfig) : the configuration object for the GRA2PES inventory
+        regrid_id (str) : the regrid id for the regridded files
+        regridded_path (str) : the path to the regridded files
+        
+    Methods:
+        open_ds_inrange : open a dataset in a datetime range
+        open_ds_single : open a single dataset
+        rework_ds_dt : rework the datetime coordinates of a dataset
+        get_files_inrange : get the files in a datetime range
+        get_regridded_path : get the regridded path
+        get_relpath_fname : get the relative path file name for a given sector, year, month, and day type
+    """
 
     def __init__(self,config,regrid_id):
         self.config = config
@@ -453,6 +468,15 @@ class RegriddedGra2pesHandler:
         self.regridded_path = self.get_regridded_path()
 
     def get_regridded_path(self):
+        """Gets the regridded path for the regridded data using the config
+
+        Returns:
+            str : the regridded path
+
+        Raise:
+            ValueError : if the regridded path does not exist
+        """
+
         regridded_path = self.config.regridded_path_structure.format(regridded_parent_path=self.config.regridded_parent_path,regrid_id=self.regrid_id)
         if not os.path.exists(regridded_path):
             raise ValueError(f"Regridded path {regridded_path} does not exist.")

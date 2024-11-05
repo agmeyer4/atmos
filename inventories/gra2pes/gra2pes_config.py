@@ -31,7 +31,7 @@ class Gra2pesConfig():
 
     ftp_credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials.txt'
 
-    parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES_2'
+    parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES'
 
     base_id = 'base_v1.0'
     base_path_structure = '{parent_path}/{base_id}'
