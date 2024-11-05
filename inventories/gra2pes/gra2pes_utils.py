@@ -477,37 +477,71 @@ class RegriddedGra2pesHandler:
             ValueError : if the regridded path does not exist
         """
 
-        regridded_path = self.config.regridded_path_structure.format(regridded_parent_path=self.config.regridded_parent_path,regrid_id=self.regrid_id)
+        regridded_path = self.config.regridded_path_structure.format(parent_path=self.config.parent_path,regrid_id=self.regrid_id)
         if not os.path.exists(regridded_path):
             raise ValueError(f"Regridded path {regridded_path} does not exist.")
         return regridded_path
 
     def get_files_inrange(self,dtr,sectors = 'all'):
+        """Get the files in a datetime range, optionally for specific sectors
+
+        Args:
+            dtr (DateTimeRange) : the datetime range object from utils.datetime_utils
+            sectors (str or list) : the sectors to get the files for. If 'all', all sectors will be used
+
+        Returns:
+            list : the list of files in the datetime range
+        """
+
         if sectors == 'all':
             sectors = self.config.sectors
-        inrange_list = get_inrange_list(dtr,self.config)
+        inrange_list = get_inrange_list(dtr,self.config)  #get a list of dictionaries for the year, month, and day type representing the files we want
         files_inrange = []
-        for yr_mo_daytype in inrange_list:
-            for sector in sectors:
-                relpath_fname = self.get_relpath_fname(sector,yr_mo_daytype['year'],yr_mo_daytype['month'],yr_mo_daytype['day_type'])
-                fullpath = os.path.join(self.regridded_path,relpath_fname)
-                files_inrange.append(fullpath)
-        return sorted(files_inrange)
+        for yr_mo_daytype in inrange_list: # Loop through the years, months, and daytypes 
+            for sector in sectors: #Loop through the sectors
+                day_subpath = self.get_day_subpath(yr_mo_daytype['year'],yr_mo_daytype['month'],yr_mo_daytype['day_type']) #get the subpath to that day
+                fname = self.config.regridded_fname_structure.format(sector=sector) #get the file name
+                fullpath = os.path.join(self.regridded_path,day_subpath,fname) #define the full path
+                files_inrange.append(fullpath) #add the full path to the list
+        return sorted(files_inrange) #return the list sorted
     
-    def get_relpath_fname(self, sector,year,month,day_type):
+    def get_day_subpath(self,year,month,day_type):
+        """Get the day subpath for a given year, month, and day type
+
+        Args:
+            year (int) : the year
+            month (int) : the month
+            day_type (str) : the day type
+
+        Returns:
+            str : the day subpath, relative to the regridded_path
+        """
+
         year_str = f'{year:04d}'
         month_str = f'{month:02d}'
-        relpath_fname = self.config.regridded_fname_structure.format(year_str=year_str, month_str=month_str, day_type=day_type, sector=sector)
-        return relpath_fname
+        #use the config to build the subpath
+        day_subpath = self.config.regridded_day_subpath_structure.format(year_str=year_str, month_str=month_str, day_type=day_type)
+        return day_subpath
     
     def open_ds_inrange(self,dtr,sectors = 'all',chunks = {}):
-        files_inrange = self.get_files_inrange(dtr,sectors)
+        """Opens a dataset with values within the datetime range and optionally for specific sectors
+        
+        Args:
+            dtr (DateTimeRange) : the datetime range object from utils.datetime_utils
+            sectors (str or list) : the sectors to get the files for. If 'all', all sectors will be used
+            
+        Returns:
+            xr.Dataset : the dataset with values in the datetime range, nicely organized as a regridded_dataset with sectors as dimensions 
+        """
+
+        files_inrange = self.get_files_inrange(dtr,sectors) #get the files in the datetime range
         ds_list = []
-        for fname in files_inrange:
-            ds = self.open_ds_single(fname)
-            ds_list.append(ds)
-        ds_combined = xr.combine_by_coords(ds_list,combine_attrs='drop_conflicts')
-        ds_combined = ds_combined.transpose('lat','lon','year','month','day_type','utc_hour','sector')
+        for fname in files_inrange: 
+            ds = self.open_ds_single(fname) #open each file
+            ds_list.append(ds) #add it to the list
+        ds_combined = xr.combine_by_coords(ds_list,combine_attrs='drop_conflicts') #combine the datasets, dropping the conflicting attributes
+        ds_combined = ds_combined.transpose('lat','lon','year','month','day_type','utc_hour','sector') #transpose the dataset 
+        #below is a little unecessary, but it orders the coordinates in a way that makes sense when printing in jupyter or elsewhere
         ds_combined = ds_combined.assign_coords(
             lat=ds_combined['lat'],
             lon=ds_combined['lon'],
@@ -516,43 +550,77 @@ class RegriddedGra2pesHandler:
             day_type=ds_combined['day_type'],
             utc_hour=ds_combined['utc_hour'],
             sector=ds_combined['sector']
-        )
+        ) 
         return ds_combined
 
     def open_ds_single(self,fname,chunks = {}):
+        """Open a single dataset from a file
+
+        Args:
+            fname (str) : the file name to open
+            chunks (dict) : the chunks to pass to xarray.open_dataset
+
+        Returns:
+            xr.Dataset : the opened dataset
+        """
+
         ds = xr.open_dataset(fname)
-        ds = ds.assign_coords(year=ds.attrs['year'], month=ds.attrs['month'], day_type=ds.attrs['day_type'],sector=ds.attrs['sector'])
+        #assign the coordinates based on the attributes that were logged in each dataset during the regrid. 
+        ds = ds.assign_coords(year=ds.attrs['year'], month=ds.attrs['month'], day_type=ds.attrs['day_type'],sector=ds.attrs['sector']) 
         ds = ds.expand_dims(dim=['year','month','day_type','sector'])
         
         return ds
 
     def rework_ds_dt(self,ds):
-        combined_ds_list = []
-        for year in ds.year.values:
-            for month in ds.month.values:
+        """Combines the weird datetime coordinates (year, month, day_type, utc_hour) into a single datetime coordinate
+        
+        Args:
+            ds (xr.Dataset) : the dataset to rework the datetime coordinates of, should have dims ('year','month','day_type','utc_hour','sector')
+            
+        Returns:
+            xr.Dataset : the dataset with a datetime coordinate/dimension that is just the actual datetime
+        """
+
+        combined_ds_list = [] #initialize a list to hold the datasets
+        for year in ds.year.values: #loop through the years
+            for month in ds.month.values: #loop through the months
+
+                #get the dates in the month
                 dt1 = datetime.datetime(year, month, 1)
                 dt2 = datetime.datetime(year, month, calendar.monthrange(year, month)[1])
                 dates_in_month = datetime_utils.DateTimeRange(dt1,dt2,tz='UTC').get_dates_in_range()
+
+                #find the dates that are in each day type
                 dates_by_day_type = {
                     'weekdy':[date for date in dates_in_month if date.weekday() in self.config.day_type_details['weekdy']],
                     'satdy':[date for date in dates_in_month if date.weekday() in self.config.day_type_details['satdy']],
                     'sundy':[date for date in dates_in_month if date.weekday()  in self.config.day_type_details['sundy']]
                 }        
-                month_ds = ds.sel(year = year, month = month)
 
-                new_month_ds_list = []
-                for day_type,dates in dates_by_day_type.items():
-                    subds = month_ds.sel(day_type=day_type).drop_vars(['year','month','day_type'])
-                    subds = subds.assign_coords({'date':dates})
+                #select the current month from the ds
+                month_ds = ds.sel(year = year, month = month) 
+
+                new_month_ds_list = [] #create a list to hold the new datasets for this month
+                for day_type,dates in dates_by_day_type.items(): #loop through the day types 
+                    subds = month_ds.sel(day_type=day_type).drop_vars(['year','month','day_type']) #select the current day type 
+                    subds = subds.assign_coords({'date':dates}) #assign the date coordinate using the list of dates for that day type
+
+                    #create a list of datetimes for the new datetime coordinate
                     datetimes = [pd.Timestamp(date) + pd.Timedelta(hours=int(hour)) for date in subds.coords['date'].values for hour in subds.coords['utc_hour'].values]
-                    datetime_index = pd.DatetimeIndex(datetimes)
+                    datetime_index = pd.DatetimeIndex(datetimes) #create a datetime index from the list of datetimes
 
-                    subds = subds.stack({'datetime':('date','utc_hour')})#.assign_coords({'datetime':datetime_index})
-                    subds = subds.drop_vars(['date','utc_hour','datetime'])
-                    subds = subds.assign_coords({'datetime':datetime_index})
-                    new_month_ds_list.append(subds)
+                    subds = subds.stack({'datetime':('date','utc_hour')}) # stack the date and utc_hour into a datetime coordinate
+                    subds = subds.drop_vars(['date','utc_hour','datetime']) #drop the old date and utc_hour coordinates
+                    subds = subds.assign_coords({'datetime':datetime_index}) #assign the new datetime coordinate
+                    new_month_ds_list.append(subds) #add the new dataset to the list
 
+                #concatenate the datasets for the current month
                 new_month_ds = xr.concat(new_month_ds_list,dim='datetime').sortby('datetime')
+
+                #add the new month dataset to the list
                 combined_ds_list.append(new_month_ds)
+
+        #concatenate the datasets for all the months        
         combined_ds = xr.concat(combined_ds_list,dim='datetime').sortby('datetime')
+        
         return combined_ds
