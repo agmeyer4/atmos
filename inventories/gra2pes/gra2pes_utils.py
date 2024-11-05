@@ -584,7 +584,6 @@ class RegriddedGra2pesHandler:
         combined_ds_list = [] #initialize a list to hold the datasets
         for year in ds.year.values: #loop through the years
             for month in ds.month.values: #loop through the months
-
                 #get the dates in the month
                 dt1 = datetime.datetime(year, month, 1)
                 dt2 = datetime.datetime(year, month, calendar.monthrange(year, month)[1])
@@ -622,5 +621,5 @@ class RegriddedGra2pesHandler:
 
         #concatenate the datasets for all the months        
         combined_ds = xr.concat(combined_ds_list,dim='datetime').sortby('datetime')
-        
+
         return combined_ds
