@@ -137,11 +137,11 @@ def main():
 
     #Data parameters (editable)
     extra_ids = 'methane' # This is an extra id that is not in the base data, but is in another folder which we want to include in the regrid
-    specs = ['CO2','CO','HC01']#,'HC02','HC14','NH3','NOX','SO2'] #These are the species we want to regrid
-    sectors = ['AG','AVIATION']#config.sectors #The sectors to include in the gregrid
-    months = [1]#,2,3,4,5,6,7,8,9,10,11,12] #The months to include in the regrid
+    specs = ['CO2','CO','HC01','HC02','HC14','NH3','NOX','SO2'] #These are the species we want to regrid
+    sectors = config.sectors #The sectors to include in the 
+    months = [1,2,3,4,5,6,7,8,9,10,11,12] #The months to include in the regrid
     years = [2021] #The years to include in the regrid
-    day_types = ['satdy']#['satdy','sundy','weekdy'] #The day types to include in the regrid
+    day_types = ['satdy','sundy','weekdy'] #The day types to include in the regrid
 
     #Processing parameters (editable)
     pre_sum_dim = 'zlevel' #The dimension to sum on before the regrid (inputs to sum_on_dim)
