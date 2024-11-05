@@ -1,0 +1,7 @@
+Beginning GRA2PES base data download and organization at 1730759917.1826508
+Downloading and extracting for years: [2021], months: [1], sectors: ['AG', 'AVIATION']
+
+Downloading and extracting AG for 2021-1
+Found 13Tb free space
+Downloading ftp://ftp.al.noaa.gov/GRA2PESv1.0_AG_202101.tar.gz to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES_2/base_v1.0/.download
+slurmstepd: error: *** JOB 13496670 ON kp376 CANCELLED AT 2024-11-04T15:38:57 ***

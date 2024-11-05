@@ -1,0 +1,50 @@
+Regridding GRA2PES data from base (Lambert Conical Conformal) to regridded (Lat/Lon)
+Git hash of this regrid = ac749fdf56e9fab561f9a13edee9ae70486b865d
+Starting regrid at 1730763376.8221467
+Saving regridded data to /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES_2/regridded0.025x0.025
+Years: [2021]
+Months: [1]
+Day types: ['satdy']
+Sectors: ['AG', 'AVIATION']
+Specs: ['CO2', 'CO', 'HC01']
+Extra ids: methane
+Pre processes:  sum_on_dim zlevel
+Post processes:  slice_extent {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+
+
+Regridding AG for 2021-1 satdy
+Found 13Tb free space
+Summing on dimension  zlevel
+Creating regridder
+Error at 1730763387.649538
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_utils.py", line 283, in regrid
+    self.regridder
+AttributeError: 'Gra2pesRegridder' object has no attribute 'regridder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_regrid.py", line 109, in main
+    load_regrid_save(BGH,gra2pes_regridder,sector,year,month,day_type,pre_processes=pre_processes,post_processes=post_processes)
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_regrid.py", line 32, in load_regrid_save
+    regridded_ds = gra2pes_regridder.regrid(base_ds)
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_utils.py", line 285, in regrid
+    self.regridder = self.create_regridder(ds)
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_utils.py", line 304, in create_regridder
+    regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims)
+  File "/uufs/chpc.utah.edu/common/home/u0890904/software/pkg/miniconda3/envs/atmos/lib/python3.9/site-packages/xesmf/frontend.py", line 928, in __init__
+    super().__init__(
+KeyError: 'input_dims'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_regrid.py", line 143, in <module>
+    main()
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_regrid.py", line 112, in main
+    raise Exception(e)
+Exception: 'input_dims'
+sed: can't read ./slurm/logs/csl_regrid_13496794.out: No such file or directory
+Copying log file to /details
+cp: cannot stat './slurm/logs/csl_regrid_13496794.out': No such file or directory

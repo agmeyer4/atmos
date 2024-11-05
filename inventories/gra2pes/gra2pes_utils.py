@@ -391,8 +391,14 @@ class Gra2pesRegridder():
         
         return my_proj.to_proj4()
 
-    def save_regrid_weights(self, regridder, save_path = None, fname = None):
-        #TODO
+    def save_regrid_weights(self, save_path):
+        '''Saves the regridded weights to a file
+        
+        Args:
+        save_path (str) : the path in which to store the weights
+        '''
+        fname = f"regrid_weights.nc"
+        self.regridder.to_netcdf(os.path.join(save_path,fname))
         pass
 
 class RegriddedGra2pesHandler:

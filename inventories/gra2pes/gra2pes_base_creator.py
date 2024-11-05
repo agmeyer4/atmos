@@ -398,13 +398,18 @@ def compare_dirs_exact(dir1, dir2):
 
 def main():
     t1 = time.time()
-    credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials.txt'
+    print(f'Beginning GRA2PES base data download and organization at {t1}')
     config = gra2pes_config.Gra2pesConfig()
+    credentials_path = config.ftp_credentials_path
     main_downloader = Gra2pesDownload(config, data_source='ftp',credentials_path=credentials_path)
     
+    if os.listdir(main_downloader.download_path):
+        raise ValueError(f"Download path {main_downloader.download_path} is not empty. Please clear the download path before proceeding.")
+
     years = config.years
-    months = config.months
-    sectors = config.sectors
+    months = [1] #config.months
+    sectors = ['AG','AVIATION']#config.sectors
+    print(f'Downloading and extracting for years: {years}, months: {months}, sectors: {sectors}')
     for year in years:
         for month in months:
             for sector in sectors:

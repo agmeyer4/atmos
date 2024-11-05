@@ -1,4 +1,5 @@
 import numpy as np
+import os
 
 class Gra2pesConfig():
     months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -28,11 +29,16 @@ class Gra2pesConfig():
     }
     sectors = list(sector_details.keys())
 
-    base_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0'
+    ftp_credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials.txt'
+
+    parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES_2'
+
+    base_id = 'base_v1.0'
+    base_path_structure = '{parent_path}/{base_id}'
+    base_path = base_path_structure.format(parent_path=parent_path, base_id=base_id)
     base_fname_structure = '{year_str}{month_str}/{day_type}/GRA2PESv1.0_{sector}_{year_str}{month_str}_{day_type}_{hour_start}to{hour_end}Z.nc'
 
-    regridded_parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES'
-    regridded_path_structure = '{regridded_parent_path}/regridded{regrid_id}'
+    regridded_path_structure = '{parent_path}/regridded{regrid_id}'
     regridded_fname_structure = '{year_str}/{month_str}/{day_type}/{sector}_regridded.nc'
 
     def __init__(self):
@@ -47,7 +53,6 @@ class Gra2pesRegridConfig():
     input_dims=('south_north','west_east')
     weights_file = 'create'
     regrid_id = f'{lat_spacing}x{lon_spacing}'
-    regridded_path =  f'/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/regridded{regrid_id}'
     # encoding_details = {
     #     'zlib': True,              # Use zlib compression
     #     'complevel': 1,            # Compression level (1 is low, 9 is high)
@@ -55,7 +60,9 @@ class Gra2pesRegridConfig():
     #     'chunksizes': ('utc_hour','bottom_top','lat','lon'),  # Set chunk shape to full size for lat lon
     # }
 
-    def __init__(self):
+    def __init__(self,config):
+        self.config = config
+        self.regridded_path =  self.get_regridded_path()
         self.grid_out = self.get_grid_out()
 
     def get_grid_out(self):
@@ -66,3 +73,7 @@ class Gra2pesRegridConfig():
             'lon_b': np.arange(self.lon_center_range[0]-self.lon_spacing/2, self.lon_center_range[1]+self.lon_spacing/2, self.lon_spacing),  # Boundary Spacing Lon
         }
         return grid_out
+    
+    def get_regridded_path(self):
+        regridded_path = self.config.regridded_path_structure.format(parent_path=self.config.parent_path,regrid_id=self.regrid_id)
+        return regridded_path

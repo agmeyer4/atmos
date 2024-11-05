@@ -1,0 +1,16 @@
+Regridding GRA2PES data from base (Lambert Conical Conformal) to regridded (Lat/Lon)
+Git hash of this regrid = ac749fdf56e9fab561f9a13edee9ae70486b865d
+Starting regrid at 1730763285.4436793
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_regrid.py", line 143, in <module>
+    main()
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_regrid.py", line 71, in main
+    regrid_config = gra2pes_config.Gra2pesRegridConfig(config)
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_config.py", line 65, in __init__
+    self.regridded_path =  self.get_regridded_path()
+  File "/uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/inventories/gra2pes/gra2pes_config.py", line 80, in get_regridded_path
+    raise ValueError(f"Regridded path {regridded_path} does not exist.")
+ValueError: Regridded path /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES_2/regridded0.025x0.025 does not exist.
+sed: can't read ./slurm/logs/csl_regrid_13496793.out: No such file or directory
+Copying log file to /details
+cp: cannot stat './slurm/logs/csl_regrid_13496793.out': No such file or directory
