@@ -20,7 +20,10 @@ class DateTimeRange():
     """
 
     def __init__(self,start_dt,end_dt,tz = 'UTC'):
-        self.tz = pytz.timezone(tz)
+        if isinstance(tz, pytz.tzinfo.BaseTzInfo):
+            self.tz = tz
+        else:
+            self.tz = pytz.timezone(tz)
 
         self.start_dt = self._parse_datetime(start_dt)
         self.end_dt = self._parse_datetime(end_dt)
@@ -44,7 +47,7 @@ class DateTimeRange():
         if dt.tzinfo is None: #If the datetime object has no timezone
             dt = self.tz.localize(dt) #Add the timezone
         else:
-            if dt.tzinfo != self.tz: #If the timezone of the datetime object does not match the specified timezone
+            if dt.tzinfo.zone != self.tz.zone: #If the timezone of the datetime object does not match the specified timezone
                 raise ValueError(f"Timezone of {dt} does not match the specified timezone {self.tz}") #Raise an error
         return dt
     
@@ -91,3 +94,15 @@ class DateTimeRange():
         start_dt = self.start_dt.astimezone(tz) #Convert the start date to the new timezone
         end_dt = self.end_dt.astimezone(tz) #Convert the end date to the new timezone
         return DateTimeRange(start_dt,end_dt) #Return a new DateTimeRange object with the new timezone
+    
+    def intersection(self,other_dtr):
+        if self.tz != other_dtr.tz:
+            raise ValueError("Timezones do not match")
+        
+        latest_start = max(self.start_dt, other_dtr.start_dt)
+        earliest_end = min(self.end_dt, other_dtr.end_dt)
+
+        if latest_start <= earliest_end:
+            return DateTimeRange(latest_start, earliest_end, self.tz)
+        else:
+            return None
