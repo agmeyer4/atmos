@@ -20,4 +20,6 @@ dependencies:
   - plotly
   - gitpython
   - cdo
+  - herbie-data
+  - pynio
   - pip
