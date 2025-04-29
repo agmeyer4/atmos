@@ -1,5 +1,9 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
+import sys
+sys.path.append('.')
+from utils import regression_utils
 
 #Declare functions
 def plot_reg_on_ax(ax,reg_details,permil = False,labsize = 10,color = 'black'):
@@ -12,13 +16,13 @@ def plot_reg_on_ax(ax,reg_details,permil = False,labsize = 10,color = 'black'):
     Returns:
     ax : plt ax object with the regression line and legend plotted
     '''
-    r2_val = reg_details['r2']
+    r2_val = reg_details['r_squared']
     if permil:
         slope_val = reg_details['slope']*1000 #get the "per mille" value by multiplying by 1000
-        yint_val = reg_details['yint']*1000
+        yint_val = reg_details['intercept']*1000
     else:
         slope_val = reg_details['slope']
-        yint_val = reg_details['yint']
+        yint_val = reg_details['intercept']
                                
     annotation = f"R2={r2_val:.2}\n"
     annotation += f"slope={slope_val:.5}"
@@ -33,4 +37,35 @@ def plot_reg_on_ax(ax,reg_details,permil = False,labsize = 10,color = 'black'):
     leg = ax.legend(handlelength=0, handletextpad=0, fancybox=True,fontsize = labsize)
     for item in leg.legend_handles:
         item.set_visible(False)
+    return ax
+
+# General Plotting Functions
+def add_single_regression_to_ax(ax,df,x_name,y_name,regression_output,
+                           x_err_name = None, y_err_name = None,
+                           summary_keys = None,scatter_kwargs = {'s':5,'c':'k','zorder':5},regr_err = None):
+    
+    working_df = df.copy()
+    x = working_df[x_name]
+    y = working_df[y_name]
+    x_err = working_df[x_err_name] if x_err_name else None
+    y_err = working_df[y_err_name] if y_err_name else None
+
+    x_line = np.array([x.min(), x.max()])
+    y_line = regression_utils.linear_model([regression_output['slope'], regression_output['intercept']], x_line)
+
+    ax.scatter(x,y,**scatter_kwargs)
+
+    if x_err is not None and y_err is not None:
+        ax.errorbar(x,y,xerr=x_err,yerr=y_err,fmt='o',markersize=0,c='grey',zorder = 4)
+
+    ax.plot(x_line,y_line,c='r',zorder = 6)
+
+
+    if summary_keys:
+        summary_text = '\n'.join([f"{key}: {format(regression_output[key], f'.{3}e')}" for key in summary_keys])
+        ax.plot([],[],c = 'red',label=summary_text)
+    
+    ax.legend()
+    ax.set_xlabel(x_name)
+    ax.set_ylabel(y_name)
     return ax
