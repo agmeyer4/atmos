@@ -33,3 +33,26 @@ def remove_rolling_outliers(df, window = '1h', columns='all', std_thresh=3):
         outliers = (out_df[col] - rolling_median).abs() > std_thresh * rolling_std #Find the outliers
         out_df.loc[outliers, col] = np.nan #Replace the outliers with np.nan
     return out_df
+
+def separate_daily_dfs(df,dt_col=None):
+    """
+    Separate the dataframe into daily dataframes.
+
+    Args:
+        df (pd.DataFrame): The dataframe to be separated.
+        dt_col (str): The name of the datetime column. If None, the index is used.
+
+    Returns:
+        dict: A dictionary where the keys are dates and the values are dataframes for that date.
+    """
+    daily_dfs = {}
+    if dt_col is not None:
+        df[dt_col] = pd.to_datetime(df[dt_col])
+        df.set_index(dt_col, inplace=True)
+    else:
+        df.index = pd.to_datetime(df.index)
+
+    for date, group in df.groupby(df.index.date):
+        datestr = date.strftime('%Y-%m-%d')
+        daily_dfs[datestr] = group
+    return daily_dfs
