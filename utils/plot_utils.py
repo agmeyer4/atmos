@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 import matplotlib.patches as mpatches
 import matplotlib
 import os
@@ -6,7 +7,7 @@ import pandas as pd
 import numpy as np
 import sys
 sys.path.append('.')
-from utils import regression_utils
+from utils import regression_utils, gen_utils
 
 #Declare functions
 # def plot_reg_on_ax(ax,reg_details,permil = False,labsize = 10,color = 'black'):
@@ -166,6 +167,87 @@ def ratio_ts_plot(ax,rolling_regr_df,regr_params,regr_label,regr_type,labsize,ma
         ax.set_ylim(ylims)
 
     return scatter
+
+def plot_stacked_seasonal_bars(
+    df_grouped,
+    var,
+    fig_id,
+    fig_path,
+    palette,
+    sector_order,
+    savefig=False,
+    showfig=True,
+    labsize=44,
+    legfontsize=44
+):
+    season_order = ['DJF', 'MAM', 'JJA', 'SON']
+
+    df_grouped['Season'] = pd.Categorical(df_grouped['Season'], categories=season_order, ordered=True)
+    color_dict = dict(zip(sector_order, palette))
+
+    var_data = df_grouped[df_grouped['Variable'] == var]
+    stacked_data = var_data.pivot_table(index='Season', columns='Sector', values='Sum', aggfunc='sum', observed=False)
+
+    stacked_data = stacked_data.reindex(season_order)
+    stacked_data = stacked_data[sector_order]
+
+    # ---------- Main Plot ----------
+    fig, ax = plt.subplots(figsize=(20, 8))
+    bars = stacked_data.plot(
+        kind='bar',
+        stacked=True,
+        ax=ax,
+        color=[color_dict[sec] for sec in sector_order],
+        width=0.5
+    )
+
+    max_value = stacked_data.sum(axis=1).max()
+    exp = gen_utils.calculate_exponent(max_value)
+    scale = 10 ** exp
+    ax.yaxis.set_major_formatter(make_sci_formatter(scale, decimals=1))
+
+    ax.set_xlabel('')
+    ax.set_ylabel(f'{var} Emissions\n(Tonne × $10^{{{exp}}}$)', fontsize=labsize)
+    ax.tick_params(axis='both', which='major', labelsize=labsize)
+    ax.set_title('')
+    ax.get_legend().remove()
+
+    fig.tight_layout()
+
+    if savefig:
+        fig.savefig(os.path.join(fig_path, f"{fig_id}.png"), dpi=500, bbox_inches="tight")
+    if showfig:
+        plt.show()
+    else:
+        plt.close()
+
+    # ----- Legend-Only Figure (Reversed) -----
+    fig_leg = plt.figure(figsize=(6, 2))
+    ax_leg = fig_leg.add_subplot(111)
+
+    reversed_order = list(reversed(sector_order))
+    handles = [plt.Rectangle((0, 0), 1, 1, color=color_dict[sec]) for sec in reversed_order]
+    ax_leg.legend(handles, reversed_order, fontsize=legfontsize, loc='center', frameon=False,labelspacing=2.0)
+    ax_leg.axis('off')
+
+    fig_leg.tight_layout()
+
+    if savefig:
+        fig_leg.savefig(os.path.join(fig_path, f"{fig_id}_legend.png"), dpi=300, bbox_inches='tight')
+    if showfig:
+        plt.show()
+    else:
+        plt.close()
+
+
+
+
+def make_sci_formatter(scale_factor, decimals=1):
+    """Return a FuncFormatter that divides values by scale_factor and formats to the given number of decimal places."""
+    def formatter(x, pos):
+        return f'{x / scale_factor:.{decimals}f}'
+    return FuncFormatter(formatter)
+
 
 # Declare Plotting Classes
 class RegressionPlotter:

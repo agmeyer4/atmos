@@ -1,6 +1,13 @@
 import xarray as xr
 
+# Define Functions
+def trim_ds_to_extent(ds,extent,lat_name='lat',lon_name='lon'):
+    """Trim the dataset to the given extent."""
+    out_ds = ds.sel(**{lat_name: slice(extent['lat_min'], extent['lat_max']),
+                       lon_name: slice(extent['lon_min'], extent['lon_max'])})
+    return out_ds
 
+# Define classes
 class UnitConverter:
     def __init__(self):
         self.conversion_funcs = {
@@ -74,9 +81,68 @@ class UnitConverter:
 
         return ds_copy  # Return the modified dataset
 
+class InventoryRatios():
+    def __init__(self, ds,molar_masses):
+        self.ds = ds
+        self.molar_masses = molar_masses
 
-def trim_ds_to_extent(ds,extent,lat_name='lat',lon_name='lon'):
-    """Trim the dataset to the given extent."""
-    out_ds = ds.sel(**{lat_name: slice(extent['lat_min'], extent['lat_max']),
-                       lon_name: slice(extent['lon_min'], extent['lon_max'])})
-    return out_ds
+    def get_total_ratio(self, num, denom):
+        self.check_ratioability(num, denom)
+        mmu = self.get_molemass_unit(num)
+        if 'gridcell^-1' not in self.ds[num].units or 'gridcell^-1' not in self.ds[denom].units:
+            raise ValueError(f"{num} and {denom} must have units of gridcell^-1 to sum over gridcells")
+        if mmu == 'mole':
+            return float(self.ds[num].sum() / self.ds[denom].sum())
+        elif (mmu == 'g') | (mmu == 'metric_Ton'):
+            return float(self.ds[num].sum() / self.ds[denom].sum() * self.molar_masses[denom] / self.molar_masses[num])
+    
+    def get_gc_ratio(self,num,denom,num_quantile_filter = None, denom_quantile_filter = None):
+        self.check_ratioability(num, denom)
+        mmu = self.get_molemass_unit(num)
+
+        if num_quantile_filter is not None:
+            ds_num = self.ds[num].where(self.ds[num] > self.ds[num].quantile(num_quantile_filter))
+        else:
+            ds_num = self.ds[num]
+        if denom_quantile_filter is not None:
+            ds_denom = self.ds[denom].where(self.ds[denom] > self.ds[denom].quantile(denom_quantile_filter))
+        else:
+            ds_denom = self.ds[denom]
+
+        ratio_id = f"{num.lower()}_{denom.lower()}"
+        if mmu == 'mole':
+            ratio = ds_num / ds_denom
+        elif (mmu == 'g') | (mmu == 'metric_Ton'):
+            ratio = ds_num / ds_denom * self.molar_masses[denom] / self.molar_masses[num]
+
+        # Calculate denomnum_eq_sum
+        if num == 'CH4':
+            denomnum_eq_sum = ds_num * 84 + ds_denom
+        elif num == 'CO':
+            denomnum_eq_sum = ds_num * 1.57 + ds_denom
+        else:
+            denomnum_eq_sum = ds_num + ds_denom
+
+        # Create a new dataset with the ratio and denomnum_eq_sum
+        new_ds = xr.Dataset({
+            ratio_id: ratio,
+            f'{denom}_eq_sum': denomnum_eq_sum
+        })
+
+        return new_ds
+        
+    def check_ratioability(self, num, denom):
+        if num not in list(self.ds.data_vars):
+            raise ValueError(f"{num} is not in the dataset")
+        if denom not in list(self.ds.data_vars):
+            raise ValueError(f"{denom} is not in the dataset")
+        if self.ds[num].units != self.ds[denom].units:
+            raise ValueError(f"Units of {num} and {denom} do not match")
+        
+    def get_molemass_unit(self, var):
+        mmu = self.ds[var].units.split()[0]
+        if (mmu == 'g') & (var not in self.molar_masses.keys()):
+            raise ValueError(f"{var} is in grams but a molar mass is not defined for this var")
+        
+        return mmu
+

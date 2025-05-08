@@ -120,6 +120,10 @@ def read_credentials(fullpath):
             credentials[key] = value
     return credentials
 
+def calculate_exponent(value):
+    """Calculate the exponent based on the magnitude of the value."""
+    return int(np.floor(np.log10(abs(value))))  # Get the exponent of the largest magnitude
+
 
 def main():
     dir1 = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/base_v1.0/202102'
