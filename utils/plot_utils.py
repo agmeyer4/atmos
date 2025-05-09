@@ -249,6 +249,30 @@ def make_sci_formatter(scale_factor, decimals=1):
     return FuncFormatter(formatter)
 
 
+def bulk_regression_plotter(plotter,plot_df,regression_outputs,regr_label,err_tag,regr_type,
+fig_id,savefig = False,showfig = False,annotate = True,legend_style = {},plot_kwargs = {},title=None):
+    if annotate:
+        fig_id = f'{fig_id}_ann'
+    
+    x_name = regression_outputs[regr_label][err_tag]['details']['x_name']
+    y_name = regression_outputs[regr_label][err_tag]['details']['y_name']
+    x_err_name = regression_outputs[regr_label][err_tag]['details']['x_err_name']
+    y_err_name = regression_outputs[regr_label][err_tag]['details']['y_err_name']
+    regression_output = regression_outputs[regr_label][err_tag][regr_type]
+
+    # Plot using the 'co_co2' label
+    fig = plotter.plot(
+        plot_df, x_name, y_name, x_err_name, y_err_name,
+        regression_output=regression_output,
+        fig_id=fig_id,
+        regr_label=regr_label,  
+        savefig=savefig,
+        showfig=showfig,
+        legend_style = legend_style,
+        title = title,
+        **plot_kwargs
+    )
+
 # Declare Plotting Classes
 class RegressionPlotter:
     def __init__(self, figures_path=".", regr_plot_dict=None):

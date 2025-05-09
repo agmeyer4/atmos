@@ -176,3 +176,11 @@ def rmv_prep(str):
         str: The modified string with 'prep_' removed.
     """
     return '_'.join(str.split('_')[1:])
+
+def get_season_df(df,season,date_col = None, seasons = {'DJF': [12, 1, 2],'MAM': [3, 4, 5],'JJA': [6, 7, 8],'SON': [9, 10, 11]}):
+    season_months = seasons[season]
+    if date_col is None:
+        return df.loc[df.index.month.isin(season_months)]
+    else:
+        df['month'] = df.apply(lambda row: row[date_col].month,axis=1)
+        return df.loc[df['month'].isin(season_months)]
