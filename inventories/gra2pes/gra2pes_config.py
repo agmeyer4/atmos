@@ -4,6 +4,13 @@ import os
 class Gra2pesConfig():
     months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     years = [2021]
+
+    data_source = 'ftp' # 'ftp' or 'https'
+    ftp_credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials.txt'
+    parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES'
+    base_id = 'base_v1.0'
+
+
     day_type_details = {'satdy':[5],'sundy':[6],'weekdy':[0,1,2,3,4]}
     day_types = list(day_type_details.keys())
     sector_details = {
@@ -29,11 +36,6 @@ class Gra2pesConfig():
     }
     sectors = list(sector_details.keys())
 
-    ftp_credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials.txt'
-
-    parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES'
-
-    base_id = 'base_v1.0'
     base_path_structure = '{parent_path}/{base_id}'
     base_path = base_path_structure.format(parent_path=parent_path, base_id=base_id)
     base_fname_structure = '{year_str}{month_str}/{day_type}/GRA2PESv1.0_{sector}_{year_str}{month_str}_{day_type}_{hour_start}to{hour_end}Z.nc'

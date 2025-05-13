@@ -1,7 +1,22 @@
 '''
-Module: gra2pes_download.py
+Module: gra2pes_base_creator.py
 Author: Aaron G. Meyer (agmeyer4@gmail.com)
 Description:
+
+This module contains classes and functions to download, extract, and organize "base" (the original files) GRA2PES data from the NOAA FTP server.
+
+To use this module, edit the information in the gra2pes_config.py file to set the base path and other parameters. 
+
+If using the "ftp" option, you will need to set up a credentials file with the structure:
+username: <your_username>
+password: <your_password>
+The credentials file should be located in the path specified in the gra2pes_config.py file.
+
+Next edit the main function as necessary to run either the "test" or "full" download. The test download will only download a small amount of data for testing, 
+while the full download will download all data. You can also specify the years, months, and sectors you want to download.
+
+Finally, run the script to download and extract the data by running < python gra2pes_base_creator.py > 
+in the command line from this directory.
 
 '''
 
@@ -34,7 +49,7 @@ class Gra2pesDownload():
 
     tar_filename_template = 'GRA2PESv1.0_{sector}_{yearmonth}.tar.gz' #template for the tar file name as stored in base_download_url
 
-    def __init__(self, config, data_source = 'https',credentials_path = None, min_space = '1Tb'):
+    def __init__(self, config, data_source = 'https',credentials_path = None, min_space = '3Tb'):
         self.config = config #configuration object for GRA2PES
         self.base_path = config.base_path #base path where the data will be stored
         self.download_path = os.path.join(self.base_path, '.download') #path where the data will be downloaded (a temp folder called .download)
@@ -397,15 +412,20 @@ def compare_dirs_exact(dir1, dir2):
         raise ValueError("\n".join(differences))
 
 def main():
-    t1 = time.time()
+    """Main function to download and extract GRA2PES data for a specific sector, year, and month and format the directories nicely""" 
+     
+    t1 = time.time() # start time
     print(f'Beginning GRA2PES base data download and organization at {t1}')
-    config = gra2pes_config.Gra2pesConfig()
-    credentials_path = config.ftp_credentials_path
-    main_downloader = Gra2pesDownload(config, data_source='ftp',credentials_path=credentials_path)
-    
-    if os.listdir(main_downloader.download_path):
+    config = gra2pes_config.Gra2pesConfig() #load the config file
+    credentials_path = config.ftp_credentials_path #path to the credentials file
+    data_source = config.data_source #data source (ftp or https)
+    main_downloader = Gra2pesDownload(config, data_source=data_source,credentials_path=credentials_path) 
+
+    # Check that the download path is empty so we don't overwrite anything
+    if os.listdir(main_downloader.download_path): 
         raise ValueError(f"Download path {main_downloader.download_path} is not empty. Please clear the download path before proceeding.")
 
+    #### Test Download ####
     years = config.years
     months = [1] #config.months
     sectors = ['AG','AVIATION']#config.sectors
@@ -416,9 +436,21 @@ def main():
                 print(f'\nDownloading and extracting {sector} for {year}-{month}')
                 main_downloader.download_extract(sector,year,month)
 
+    #### Full Download ####
+    years = config.years
+    months = config.months
+    sectors = config.sectors
+    print(f'Downloading and extracting for years: {years}, months: {months}, sectors: {sectors}')
+    for year in years:
+        for month in months:
+            for sector in sectors:
+                print(f'\nDownloading and extracting {sector} for {year}-{month}')
+                main_downloader.download_extract(sector,year,month)
+
+    #### Extra Download ####
+    # Below downloads the extra methane data. 
     years = [2021]
     sectors = config.sectors
-    # tar_loc = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES/methane'
     extra_id = 'methane'
     for year in years:
         for sector in sectors:
