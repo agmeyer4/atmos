@@ -10,7 +10,6 @@ class Gra2pesConfig():
     parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES'
     base_id = 'base_v1.0'
 
-
     day_type_details = {'satdy':[5],'sundy':[6],'weekdy':[0,1,2,3,4]}
     day_types = list(day_type_details.keys())
     sector_details = {

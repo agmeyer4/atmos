@@ -171,7 +171,6 @@ class Gra2pesDownloadExtra():
     tar_filename_template (str) : template for the tar file name as stored in base_download_url
     """
 
-
     def __init__(self, config, extra_id, credentials_path = None):
         self.config = config #configuration object for GRA2PES
         self.base_path = config.base_path #base path where the data will be stored
