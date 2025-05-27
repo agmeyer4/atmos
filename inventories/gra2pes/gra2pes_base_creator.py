@@ -59,7 +59,7 @@ class Gra2pesDownload():
         if data_source == 'https':
             self.base_download_url = 'https://csl.noaa.gov/groups/csl4/gra2pes/datasets/data/{year}'#'https://data.nist.gov/od/ds/mds2-3520/'
         elif data_source == 'ftp':
-            self.base_download_url = 'ftp://ftp.al.noaa.gov'
+            self.base_download_url = 'ftp://ftpshare.al.noaa.gov/GRA2PESv1.0/{year}'
             if credentials_path is None:
                 raise ValueError("credentials_path must be provided for ftp data source")
             self.credentials = gen_utils.read_credentials(credentials_path)
@@ -186,7 +186,7 @@ class Gra2pesDownloadExtra():
         if data_source == 'https':
             self.base_download_url = 'https://csl.noaa.gov/groups/csl4/gra2pes/datasets/data/{year}/{extra_id_folder_detail}'
         elif data_source == 'ftp':
-            self.base_download_url = f'ftp://ftp.al.noaa.gov/{extra_id}'
+            self.base_download_url = 'ftp://ftpshare.al.noaa.gov/GRA2PESv1.0/{year}/{extra_id_folder_detail}'
         if credentials_path is None:
             raise ValueError("credentials_path must be provided for ftp data source")
         self.credentials = gen_utils.read_credentials(credentials_path)
@@ -450,7 +450,7 @@ def main():
                 main_downloader.download_extract(sector,year,month)
 
     #### Extra Download ####
-    # Below downloads the extra methane data. 
+    #Below downloads the extra methane data. 
     extra_id = 'methane'
     for year in years:
         for sector in sectors:
@@ -486,7 +486,7 @@ def main():
     #         extra_organizer = OrganizeExtraDownload(config.base_path,extra_id)
     #         extra_organizer.organize_extra()
 
-    # good_compare = compare_base_and_extra(config.base_path,extra_id)
+    good_compare = compare_base_and_extra(config.base_path,extra_id)
 
     t2 = time.time()
     print(f"Time taken: {round(t2-t1)} seconds")

@@ -5,8 +5,8 @@ class Gra2pesConfig():
     months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     years = [2021]
 
-    data_source = 'https' # 'ftp' or 'https'
-    ftp_credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials.txt'
+    data_source = 'ftp' # 'ftp' or 'https'
+    ftp_credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials2.txt'
     parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/test_gra2pes'#'/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES'
     base_id = 'base_v1.0'
 
