@@ -7,7 +7,7 @@ class Gra2pesConfig():
 
     data_source = 'ftp' # 'ftp' or 'https'
     ftp_credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials2.txt'
-    parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/test_gra2pes'#'/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES'
+    parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/test_gra2pes'
     base_id = 'base_v1.0'
 
     day_type_details = {'satdy':[5],'sundy':[6],'weekdy':[0,1,2,3,4]}
