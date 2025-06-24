@@ -116,7 +116,7 @@ class InventoryRatios():
             ratio = ds_num / ds_denom * self.molar_masses[denom] / self.molar_masses[num]
 
         # Calculate denomnum_eq_sum
-        if num == 'CH4':
+        if num == 'CH4' | num == 'HC01':
             denomnum_eq_sum = ds_num * 84 + ds_denom
         elif num == 'CO':
             denomnum_eq_sum = ds_num * 1.57 + ds_denom
