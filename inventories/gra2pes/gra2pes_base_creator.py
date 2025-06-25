@@ -485,8 +485,7 @@ def main():
     #         extra_downloader.download_and_extract(sector,year)#,mvpath=tar_loc)
     #         extra_organizer = OrganizeExtraDownload(config.base_path,extra_id)
     #         extra_organizer.organize_extra()
-
-    good_compare = compare_base_and_extra(config.base_path,extra_id)
+    good_compare = compare_base_and_extra(config.base_path,extra_id) # compare the base and extra directories to make sure they are the same structure
 
     t2 = time.time()
     print(f"Time taken: {round(t2-t1)} seconds")
