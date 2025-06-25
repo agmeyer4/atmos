@@ -57,9 +57,9 @@ class Gra2pesDownload():
         self.data_source = data_source
         self.min_space = min_space
         if data_source == 'https':
-            self.base_download_url = 'https://data.nist.gov/od/ds/mds2-3520/'
+            self.base_download_url = 'https://csl.noaa.gov/groups/csl4/gra2pes/datasets/data/{year}'#'https://data.nist.gov/od/ds/mds2-3520/'
         elif data_source == 'ftp':
-            self.base_download_url = 'ftp://ftp.al.noaa.gov'
+            self.base_download_url = 'ftp://ftpshare.al.noaa.gov/GRA2PESv1.0/{year}'
             if credentials_path is None:
                 raise ValueError("credentials_path must be provided for ftp data source")
             self.credentials = gen_utils.read_credentials(credentials_path)
@@ -116,7 +116,8 @@ class Gra2pesDownload():
         """
 
         filename = self.get_tar_filename(sector, year, month)
-        return os.path.join(self.base_download_url,filename)
+        pre_file_url = self.base_download_url.format(year=str(year)) #base url where the data lives online
+        return os.path.join(pre_file_url,filename)
     
     def download_tar(self, tar_full_url):
         """Download the tar file from the full url to the download path
@@ -171,15 +172,21 @@ class Gra2pesDownloadExtra():
     tar_filename_template (str) : template for the tar file name as stored in base_download_url
     """
 
-
-    def __init__(self, config, extra_id, credentials_path = None):
+    def __init__(self, config, extra_id, data_source = 'https', credentials_path = None):
         self.config = config #configuration object for GRA2PES
         self.base_path = config.base_path #base path where the data will be stored
         self.extra_id = extra_id
+        if extra_id not in config.extra_id_details.keys():
+            raise ValueError(f"extra_id {extra_id} not found in config.extra_id_details")
+        self.extra_id_details = config.extra_id_details[extra_id] #extra id details from the config
         self.tar_filename_template = 'GRA2PES_{sector}_{year}_{extra_id}.tar.gz' #template for the tar file name as stored in base_download_url
         self.download_path = os.path.join(self.base_path, f'.download/{extra_id}') #path where the data will be downloaded (a temp folder called .download)
         os.makedirs(self.download_path, exist_ok=True) #create the download path if it doesn't exist
-        self.base_download_url = f'ftp://ftp.al.noaa.gov/{extra_id}'
+        self.data_source = data_source
+        if data_source == 'https':
+            self.base_download_url = 'https://csl.noaa.gov/groups/csl4/gra2pes/datasets/data/{year}/{extra_id_folder_detail}'
+        elif data_source == 'ftp':
+            self.base_download_url = 'ftp://ftpshare.al.noaa.gov/GRA2PESv1.0/{year}/{extra_id_folder_detail}'
         if credentials_path is None:
             raise ValueError("credentials_path must be provided for ftp data source")
         self.credentials = gen_utils.read_credentials(credentials_path)
@@ -195,6 +202,8 @@ class Gra2pesDownloadExtra():
             raise ValueError(f"sector {sector} not found in config")
         if year not in self.config.years:
             raise ValueError(f"year {year} not found in config")
+        if year not in self.extra_id_details['years']:
+            raise ValueError(f"year {year} not found in config.extra_id_details['years'] for extra_id {self.extra_id}")
         
         gen_utils.check_space(self.base_path,excep_thresh='1Tb') #check if there is enough space in the base path
         tar_fname = self.get_tar_filename(sector, year)
@@ -235,7 +244,8 @@ class Gra2pesDownloadExtra():
         """
 
         filename = self.get_tar_filename(sector, year)
-        return os.path.join(self.base_download_url,filename)
+        pre_file_url = self.base_download_url.format(year=str(year), extra_id_folder_detail=self.extra_id_details['folder_name']) 
+        return os.path.join(pre_file_url,filename)
     
     def download_tar(self, tar_full_url):
         """Download the tar file from the full url to the download path
@@ -246,8 +256,11 @@ class Gra2pesDownloadExtra():
 
         print(f"Downloading {tar_full_url} to {self.download_path}")
 
-        command = ['wget',f'--ftp-user={self.credentials["username"]}',f'--ftp-password={self.credentials["password"]}',
-                    tar_full_url,'-P',self.download_path] #create the wget command
+        if self.data_source == 'https':
+            command = ['wget',tar_full_url,'-P',self.download_path]
+        elif self.data_source == 'ftp':
+            command = ['wget',f'--ftp-user={self.credentials["username"]}',f'--ftp-password={self.credentials["password"]}',
+                        tar_full_url,'-P',self.download_path] #create the wget command
 
         proc = subprocess.Popen(command,stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT) #call the command
         proc.communicate() #show the stdout and sterr 
@@ -436,31 +449,43 @@ def main():
                 print(f'\nDownloading and extracting {sector} for {year}-{month}')
                 main_downloader.download_extract(sector,year,month)
 
-    #### Full Download ####
-    years = config.years
-    months = config.months
-    sectors = config.sectors
-    print(f'Downloading and extracting for years: {years}, months: {months}, sectors: {sectors}')
-    for year in years:
-        for month in months:
-            for sector in sectors:
-                print(f'\nDownloading and extracting {sector} for {year}-{month}')
-                main_downloader.download_extract(sector,year,month)
-
     #### Extra Download ####
-    # Below downloads the extra methane data. 
-    years = [2021]
-    sectors = config.sectors
+    #Below downloads the extra methane data. 
     extra_id = 'methane'
     for year in years:
         for sector in sectors:
             print(f'\nDownloading and extracting {sector} for {year} {extra_id}')
-            extra_downloader = Gra2pesDownloadExtra(config, extra_id, credentials_path=credentials_path)
+            extra_downloader = Gra2pesDownloadExtra(config, extra_id,data_source=data_source, credentials_path=credentials_path)
             extra_downloader.download_and_extract(sector,year)#,mvpath=tar_loc)
             extra_organizer = OrganizeExtraDownload(config.base_path,extra_id)
             extra_organizer.organize_extra()
 
-    good_compare = compare_base_and_extra(config.base_path,extra_id)
+
+
+    # #### Full Download ####
+    # years = config.years
+    # months = config.months
+    # sectors = config.sectors
+    # print(f'Downloading and extracting for years: {years}, months: {months}, sectors: {sectors}')
+    # for year in years:
+    #     for month in months:
+    #         for sector in sectors:
+    #             print(f'\nDownloading and extracting {sector} for {year}-{month}')
+    #             main_downloader.download_extract(sector,year,month)
+
+    # #### Extra Download ####
+    # # Below downloads the extra methane data. 
+    # years = [2021]
+    # sectors = config.sectors
+    # extra_id = 'methane'
+    # for year in years:
+    #     for sector in sectors:
+    #         print(f'\nDownloading and extracting {sector} for {year} {extra_id}')
+    #         extra_downloader = Gra2pesDownloadExtra(config, extra_id, credentials_path=credentials_path)
+    #         extra_downloader.download_and_extract(sector,year)#,mvpath=tar_loc)
+    #         extra_organizer = OrganizeExtraDownload(config.base_path,extra_id)
+    #         extra_organizer.organize_extra()
+    good_compare = compare_base_and_extra(config.base_path,extra_id) # compare the base and extra directories to make sure they are the same structure
 
     t2 = time.time()
     print(f"Time taken: {round(t2-t1)} seconds")

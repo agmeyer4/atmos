@@ -212,30 +212,54 @@ def ols_regression(df,x_name,y_name):
 
 
 def odr_regression(df,x_name, y_name, x_err_name, y_err_name,model_kwargs = {},data_kwargs = {},odr_kwargs = {},run_kwargs={},out_keychange = {}):
-    x = df[x_name]
-    x_err = df[x_err_name]
-    y = df[y_name]
-    y_err = df[y_err_name]
+    """Perform Orthogonal Distance Regression (ODR).
 
-    model = scipy.odr.Model(linear_model,**model_kwargs)
+    This function performs Orthogonal Distance Regression (ODR) on the given DataFrame.
 
-    data = scipy.odr.RealData(x,y,x_err,y_err,**data_kwargs)
+    Args:
+        df (pd.DataFrame): DataFrame containing the data.
+        x_name (str): Name of the independent variable column.
+        y_name (str): Name of the dependent variable column.
+        x_err_name (str): Name of the error column for the independent variable.
+        y_err_name (str): Name of the error column for the dependent variable.
+        model_kwargs (dict): Additional keyword arguments for the ODR model.
+        data_kwargs (dict): Additional keyword arguments for the ODR data.
+        odr_kwargs (dict): Additional keyword arguments for the ODR instance.
+        run_kwargs (dict): Additional keyword arguments for the ODR run.
+        out_keychange (dict): Dictionary to change output keys.
 
-    myodr = scipy.odr.ODR(data,model,**odr_kwargs)
-    myoutput = myodr.run(**run_kwargs)
-    myoutput_dict = myoutput.__dict__
+    Returns:
+        dict: Dictionary containing the regression results, including slope, intercept,
+              standard deviations of slope and intercept, Pearson correlation coefficient (r),
+              R-squared value, and other ODR output attributes.
+    """
+    working_df = df.copy()  # Create a copy of the DataFrame to avoid modifying the original data
+
+    # Extract the relevant columns from the DataFrame
+    x = working_df[x_name]
+    x_err = working_df[x_err_name]
+    y = working_df[y_name]
+    y_err = working_df[y_err_name]
+
+    model = scipy.odr.Model(linear_model,**model_kwargs) # Create an ODR model with the linear model function and additional keyword arguments
+    data = scipy.odr.RealData(x,y,x_err,y_err,**data_kwargs) # Create RealData object with the independent and dependent variables, including their errors
+    myodr = scipy.odr.ODR(data,model,**odr_kwargs) # Create an ODR instance with the data and model, including additional keyword arguments
+
+    myoutput = myodr.run(**run_kwargs) # Run the ODR instance to perform the regression 
+    myoutput_dict = myoutput.__dict__ # Convert the output to a dictionary for easier access
+   
     out_dict = {
         'slope': myoutput_dict['beta'][0],
         'intercept': myoutput_dict['beta'][1],
         'sd_slope': myoutput_dict['sd_beta'][0],
         'sd_intercept': myoutput_dict['sd_beta'][1],
-    }
-    R_squared = get_R_squared(x,y,out_dict['slope'],out_dict['intercept'])
-    r = get_r(x,y)
-    out_dict['r'] = r
-    out_dict['r_squared'] = r**2
-    out_dict['R_squared'] = R_squared
-    for key, value in myoutput_dict.items():
+    } # Extract slope and intercept from the output dictionary
+    R_squared = get_R_squared(x,y,out_dict['slope'],out_dict['intercept']) # Calculate R-squared value
+    r = get_r(x,y) # Calculate Pearson correlation coefficient (r)
+    out_dict['r'] = r # Add Pearson correlation coefficient (r) to the output dictionary
+    out_dict['r_squared'] = r**2 # Add r-squared value to the output dictionary
+    out_dict['R_squared'] = R_squared # Add R-squared value to the output dictionary
+    for key, value in myoutput_dict.items(): # Change the keys in the output dictionary based on the out_keychange mapping
         if key not in out_keychange.keys():
             out_dict[key] = value 
         else:
@@ -244,16 +268,41 @@ def odr_regression(df,x_name, y_name, x_err_name, y_err_name,model_kwargs = {},d
     return out_dict
 
 def york_regression(df,x_name, y_name, x_err_name, y_err_name, york_kwargs = {}):
-    working_df = df.copy()
+    """Perform York regression.
+
+    This function performs York regression on the given DataFrame. York regression is a method for fitting a linear model to data with 
+    errors in both the x and y directions.
+
+    Args:
+        df (pd.DataFrame): DataFrame containing the data.
+        x_name (str): Name of the independent variable column.
+        y_name (str): Name of the dependent variable column.
+        x_err_name (str): Name of the error column for the independent variable.
+        y_err_name (str): Name of the error column for the dependent variable.
+        york_kwargs (dict): Additional keyword arguments for the York regression.
+
+    Returns:
+        dict: Dictionary containing the regression results, including slope, intercept,
+              R-squared value, Pearson correlation coefficient (r), standard errors of slope and intercept,
+              goodness-of-fit estimate (S), covariance matrix, and other York regression output attributes.
     
+    """
+
+    working_df = df.copy() # Create a copy of the DataFrame to avoid modifying the original data
+    
+    # Extract the relevant columns from the DataFrame
     x = working_df[x_name]
     x_err = working_df[x_err_name]
     y = working_df[y_name]
     y_err = working_df[y_err_name]
 
+    # Perform York regression using the york function
     intercept, slope, S, cov, se_intercept, se_slope = york(x,y,x_err,y_err,**york_kwargs)
-    R_squared = get_R_squared(x,y,slope,intercept)
-    r = get_r(x,y)
+
+    R_squared = get_R_squared(x,y,slope,intercept) # Calculate R-squared value
+    r = get_r(x,y) # Calculate Pearson correlation coefficient (r)
+
+    # Create the output dictionary with regression results
     out_dict = {
         'slope': slope,
         'intercept': intercept,
@@ -268,12 +317,34 @@ def york_regression(df,x_name, y_name, x_err_name, y_err_name, york_kwargs = {})
     return out_dict
 
 def rma_regression(df,x_name,y_name):
+    """Perform Reduced Major Axis (RMA) regression.
+
+    This function performs Reduced Major Axis (RMA) regression on the given DataFrame.
+    
+    Args:
+        df (pd.DataFrame): DataFrame containing the data.
+        x_name (str): Name of the independent variable column.
+        y_name (str): Name of the dependent variable column.
+
+    Returns:
+        dict: Dictionary containing the regression results, including slope, intercept,
+              Pearson correlation coefficient (r), R-squared value, standard deviations of slope and intercept.
+    """
+
+    # Create a copy of the DataFrame to avoid modifying the original data
     working_df = df.copy()
+
+    # Extract the relevant columns from the DataFrame
     x = working_df[x_name]
     y = working_df[y_name]
+
+    # Perform Reduced Major Axis regression using the regress2 function from pylr2
     results = regress2(x,y,_method_type_2 = 'reduced major axis')
-    R_squared = get_R_squared(x,y,results['slope'],results['intercept'])
-    r = get_r(x,y)
+    
+    R_squared = get_R_squared(x,y,results['slope'],results['intercept']) # Calculate R-squared value
+    r = get_r(x,y) # Calculate Pearson correlation coefficient (r)
+
+    # Create the output dictionary with regression results
     out_dict = {
         'slope': results['slope'],
         'intercept': results['intercept'],
@@ -287,7 +358,26 @@ def rma_regression(df,x_name,y_name):
     return out_dict
 
 def calculate_all_regressions(df,x_name,y_name,err_tags):
+    """Calculate all regression types for given x and y variables with error tags.
+
+    This function calculates Ordinary Least Squares (OLS), Orthogonal Distance Regression (ODR),
+    York regression, and Reduced Major Axis (RMA) regression for the specified x and y variables
+    with the provided error tags. It returns a dictionary containing the regression outputs for each error tag.
+
+    Args:
+        df (pd.DataFrame): DataFrame containing the data.
+        x_name (str): Name of the independent variable column.
+        y_name (str): Name of the dependent variable column.
+        err_tags (list): List of error tags to be used for the regression calculations.
+
+    Returns:
+        dict: Dictionary containing the regression outputs for each error tag, including details,
+              OLS regression results, ODR regression results, York regression results, and RMA regression results.
+    """ 
+    # Initialize a dictionary to store all regression outputs
     all_regression_outputs = {}
+
+    # Loop through each error tag and perform the regressions
     for err_tag in err_tags:
         x_err_name = f'{x_name.split("_")[0]}_{err_tag}'
         y_err_name = f'{y_name.split("_")[0]}_{err_tag}'
@@ -300,4 +390,5 @@ def calculate_all_regressions(df,x_name,y_name,err_tags):
             'rma': rma_regression(df, x_name, y_name)
         }
         all_regression_outputs[err_tag] = regr_outs
+        
     return all_regression_outputs

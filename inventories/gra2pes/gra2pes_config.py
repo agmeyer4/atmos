@@ -2,15 +2,25 @@ import numpy as np
 import os
 
 class Gra2pesConfig():
+    # The following lines are those that should be changed to match the data you want to download/work with and 
+    # the paths for your system. 
     months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    years = [2021]
-
+    years = [2021] # Currently 2021, 2022, and 2023 are available for non-methane data.
     data_source = 'ftp' # 'ftp' or 'https'
-    ftp_credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials.txt'
-    parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES'
-    base_id = 'base_v1.0'
+    ftp_credentials_path = '/uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials2.txt' # Path to the FTP credentials file
+    parent_path = '/uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES' # Parent path for where the data will be stored
+    base_id = 'base_v1.0' # Base ID for the data, used in file naming and structure
 
+    # Extra ID details for methane data, if applicable.
+    # This is used to differentiate methane data from other GRA2PES data as it is a different 
+    # product that is included separately. Currently only methane data for 2021 is available.
+    extra_id_details = {'methane': {'folder_name':'v1_methane_beta',
+                                    'years': [2021]}}
 
+    ############################################################################################################
+    # Everything below is used for the file structure and naming conventions and should generally not be changed.
+    # as it matches the GRA2PES data structure.
+    ############################################################################################################
     day_type_details = {'satdy':[5],'sundy':[6],'weekdy':[0,1,2,3,4]}
     day_types = list(day_type_details.keys())
     sector_details = {
@@ -56,6 +66,9 @@ class Gra2pesRegridConfig():
     input_dims=('south_north','west_east')
     weights_file = 'create'
     regrid_id = f'{lat_spacing}x{lon_spacing}'
+
+    # Below is an example of how to set encoding details for the regridded data.
+    # Uncomment and modify as needed for your specific use case.
     # encoding_details = {
     #     'zlib': True,              # Use zlib compression
     #     'complevel': 1,            # Compression level (1 is low, 9 is high)
