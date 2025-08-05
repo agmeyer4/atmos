@@ -438,34 +438,10 @@ def main():
     main_downloader = Gra2pesDownload(config, data_source=data_source,credentials_path=credentials_path) 
 
 
-    #### Test Download ####
-    years = config.years
-    months = [1] #config.months
-    sectors = ['AG','AVIATION']#config.sectors
-    print(f'Downloading and extracting for years: {years}, months: {months}, sectors: {sectors}')
-    for year in years:
-        for month in months:
-            for sector in sectors:
-                print(f'\nDownloading and extracting {sector} for {year}-{month}')
-                main_downloader.download_extract(sector,year,month)
-
-    #### Extra Download ####
-    #Below downloads the extra methane data. 
-    extra_id = 'methane'
-    for year in years:
-        for sector in sectors:
-            print(f'\nDownloading and extracting {sector} for {year} {extra_id}')
-            extra_downloader = Gra2pesDownloadExtra(config, extra_id,data_source=data_source, credentials_path=credentials_path)
-            extra_downloader.download_and_extract(sector,year)#,mvpath=tar_loc)
-            extra_organizer = OrganizeExtraDownload(config.base_path,extra_id)
-            extra_organizer.organize_extra()
-
-
-
-    # #### Full Download ####
+    # #### Test Download ####
     # years = config.years
-    # months = config.months
-    # sectors = config.sectors
+    # months = [1] #config.months
+    # sectors = ['AG','AVIATION']#config.sectors
     # print(f'Downloading and extracting for years: {years}, months: {months}, sectors: {sectors}')
     # for year in years:
     #     for month in months:
@@ -474,18 +450,44 @@ def main():
     #             main_downloader.download_extract(sector,year,month)
 
     # #### Extra Download ####
-    # # Below downloads the extra methane data. 
-    # years = [2021]
-    # sectors = config.sectors
+    # #Below downloads the extra methane data. 
     # extra_id = 'methane'
     # for year in years:
     #     for sector in sectors:
     #         print(f'\nDownloading and extracting {sector} for {year} {extra_id}')
-    #         extra_downloader = Gra2pesDownloadExtra(config, extra_id, credentials_path=credentials_path)
+    #         extra_downloader = Gra2pesDownloadExtra(config, extra_id,data_source=data_source, credentials_path=credentials_path)
     #         extra_downloader.download_and_extract(sector,year)#,mvpath=tar_loc)
     #         extra_organizer = OrganizeExtraDownload(config.base_path,extra_id)
     #         extra_organizer.organize_extra()
-    good_compare = compare_base_and_extra(config.base_path,extra_id) # compare the base and extra directories to make sure they are the same structure
+
+
+
+    #### Full Download ####
+    years = config.years
+    months = config.months
+    sectors = config.sectors
+    print(f'Downloading and extracting for years: {years}, months: {months}, sectors: {sectors}')
+    for year in years:
+        for month in months:
+            for sector in sectors:
+                print(f'\nDownloading and extracting {sector} for {year}-{month}')
+                main_downloader.download_extract(sector,year,month)
+
+    #### Extra Download ####
+    # Below downloads the extra methane data. 
+    extra_id = 'methane'
+    for year in years:
+        for sector in sectors:
+            print(f'\nDownloading and extracting {sector} for {year} {extra_id}')
+            extra_downloader = Gra2pesDownloadExtra(config, extra_id, credentials_path=credentials_path)
+            extra_downloader.download_and_extract(sector,year)#,mvpath=tar_loc)
+            extra_organizer = OrganizeExtraDownload(config.base_path,extra_id)
+            extra_organizer.organize_extra()
+    
+    try:
+        good_compare = compare_base_and_extra(config.base_path,extra_id) # compare the base and extra directories to make sure they are the same structure
+    except ValueError as e:
+        print(f"Error comparing base and extra directories: {e}")
 
     t2 = time.time()
     print(f"Time taken: {round(t2-t1)} seconds")
