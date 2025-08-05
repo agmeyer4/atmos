@@ -25,12 +25,10 @@ in the command line from this directory.
 import os
 import subprocess
 import shutil
-import glob
 import filecmp
-import sys
 import time
-import gra2pes_config, gra2pes_utils
-sys.path.append(os.path.join(os.path.dirname(__file__),'../..'))
+import sys
+from configs.gra2pes import gra2pes_config
 from utils import gen_utils
 
 ##################################################################################################################################
@@ -430,13 +428,15 @@ def main():
     t1 = time.time() # start time
     print(f'Beginning GRA2PES base data download and organization at {t1}')
     config = gra2pes_config.Gra2pesConfig() #load the config file
+
+    # Check that the download path is empty so we don't overwrite anything
+    if os.listdir(config.parent_path): 
+        raise ValueError(f"Parent path {config.parent_path} is not empty. Please provide an empty directory in the yaml so we don't overwrite anything.")
+
     credentials_path = config.ftp_credentials_path #path to the credentials file
     data_source = config.data_source #data source (ftp or https)
     main_downloader = Gra2pesDownload(config, data_source=data_source,credentials_path=credentials_path) 
 
-    # Check that the download path is empty so we don't overwrite anything
-    if os.listdir(main_downloader.download_path): 
-        raise ValueError(f"Download path {main_downloader.download_path} is not empty. Please clear the download path before proceeding.")
 
     #### Test Download ####
     years = config.years

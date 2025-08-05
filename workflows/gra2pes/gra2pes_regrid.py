@@ -16,11 +16,8 @@ import sys
 import time
 import os
 import pickle
-sys.path.append(os.path.join(os.path.dirname(__file__),'.'))
-import gra2pes_utils 
-import gra2pes_config
-sys.path.append(os.path.join(os.path.dirname(__file__),'../..'))
-from utils import gen_utils
+from configs.gra2pes import gra2pes_config
+from utils import gen_utils, gra2pes_utils
 
 def create_regrid_subpath(regrid_config,year,month,day_type):
     """Create the subpath for the regridded data
