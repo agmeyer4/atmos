@@ -28,17 +28,21 @@ extra_id_details:
 
 # Regridding configuration
 regrid:
-  lat_spacing: 0.025             # Latitude resolution (degrees)
-  lon_spacing: 0.025             # Longitude resolution (degrees)
+  lat_spacing: 0.04             # Latitude resolution (degrees)
+  lon_spacing: 0.04             # Longitude resolution (degrees)
   lat_center_range: [18.95, 58.05]     # Latitude center extent
   lon_center_range: [-138.05, -58.95]  # Longitude center extent
   method: conservative           # Regridding interpolation method
   input_dims: ["south_north", "west_east"]  # Original dimension names in input files
   weights_file: create           # Option to generate or reuse weights file
 
-  # Optional NetCDF encoding settings (can be commented out if unused)
-  # encoding_details:
-  #   zlib: true
-  #   complevel: 1
-  #   shuffle: true
-  #   chunksizes: [24, 1, 100, 100]  # Example chunk size for (hour, vertical, lat, lon)
+  # Optional NetCDF encoding settings. Helps with file size and I/O performance.
+  encoding_details:
+    zlib: True         # Enable compression
+    complevel: 6       # Compression level (1-9)
+    shuffle: True      # Shuffle filter for better compression
+    chunksizes:        # Chunk sizes per dimension (can adapt dynamically to dataset)
+      utc_hour: 1      # Chunk along time
+      zlevel: 1        # Chunk along vertical (if exists)
+      lat: 100         # Chunk along latitude
+      lon: 100         # Chunk along longitude

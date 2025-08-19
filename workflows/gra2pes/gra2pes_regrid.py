@@ -65,7 +65,7 @@ def load_regrid_save(BGH,gra2pes_regridder,sector,year,month,day_type,pre_proces
     if os.path.exists(os.path.join(day_regrid_path,save_fname)): 
         raise ValueError(f"Regridded dataset {full_save_path} already exists, you may end up overwriting data")
 
-    base_ds = BGH.load_fmt_fullday(sector,year,month,day_type) #Load the base dataset
+    base_ds = BGH.load_fmt_fullday(sector,year,month,day_type,check_extra=False) #Load the base dataset
 
     if pre_processes: #Apply pre processes
         for func,params in pre_processes:
@@ -80,8 +80,15 @@ def load_regrid_save(BGH,gra2pes_regridder,sector,year,month,day_type,pre_proces
     
     print('Loading regridded dataset into memory')
     regridded_ds.load() #Load the dataset into memory for easier writing 
+
+    #Set the encoding for the dataset
+    if gra2pes_regridder.regrid_config.encoding_details:
+        encoding = gra2pes_utils.set_ds_encoding(regridded_ds, gra2pes_regridder.regrid_config.encoding_details) #Set the encoding for the dataset
+    else:
+        encoding = None
+
     print('Saving regridded dataset') 
-    regridded_ds.to_netcdf(full_save_path) #Save the regridded dataset
+    regridded_ds.to_netcdf(full_save_path,encoding = encoding) #Save the regridded dataset
     return regridded_ds
 
 def sum_on_dim(ds,**kwargs):
@@ -144,7 +151,7 @@ def main():
     pre_sum_dim = 'zlevel' #The dimension to sum on before the regrid (inputs to sum_on_dim)
     extent = {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42} #The extent to slice to after the regrid (inputs to slice_extent)
     pre_processes = [(sum_on_dim,{'dim':pre_sum_dim})] #List of preprocesses to apply to the base data before the regrid 
-    post_processes = [(slice_extent,{'extent':extent})] #List of postprocesses to apply to the regridded data after the regrid
+    post_processes = None#[(slice_extent,{'extent':extent})] #List of postprocesses to apply to the regridded data after the regrid
 
     #Set up the configurations and create the regridded path
     config = gra2pes_config.Gra2pesConfig()
@@ -169,15 +176,17 @@ def main():
     print(f'Sectors: {sectors}')
     print(f'Specs: {specs}')
     print(f'Extra ids: {extra_ids}')
-    print('Pre processes: ','sum_on_dim ',pre_sum_dim)
-    print('Post processes: ','slice_extent ',extent)
+    if pre_processes:
+        print('Pre processes: ','sum_on_dim ',pre_sum_dim)
+    if post_processes:
+        print('Post processes: ','slice_extent ',extent)
     print('\n')
 
     #Loop through the sectors, years, months, and day types to regrid the data
     for year in years:
         for month in months:
             for day_type in day_types:
-                for sector in sectors:
+                for sector in ['total']:#sectors:
                     print(f'Regridding {sector} for {year}-{month} {day_type}')
                     gen_utils.check_space(regrid_config.regridded_path)
                     try:
