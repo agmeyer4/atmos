@@ -186,7 +186,7 @@ def main():
     for year in years:
         for month in months:
             for day_type in day_types:
-                for sector in ['total']:#sectors:
+                for sector in sectors:
                     print(f'Regridding {sector} for {year}-{month} {day_type}')
                     gen_utils.check_space(regrid_config.regridded_path)
                     try:
