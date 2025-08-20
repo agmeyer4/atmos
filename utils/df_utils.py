@@ -184,3 +184,41 @@ def get_season_df(df,season,date_col = None, seasons = {'DJF': [12, 1, 2],'MAM':
     else:
         df['month'] = df.apply(lambda row: row[date_col].month,axis=1)
         return df.loc[df['month'].isin(season_months)]
+    
+def concat_dict_of_dfs(dict_of_dfs,drop_index=True):
+    """
+    Concatenate a dictionary of DataFrames into a single DataFrame.
+
+    Args:
+        dict_of_dfs (dict): Dictionary where keys are identifiers and values are DataFrames.
+        ignore_index (bool): Whether to ignore the index during concatenation.
+
+    Returns:
+        pd.DataFrame: A single DataFrame containing all data from the input dictionary.
+    """
+
+    df_concat = pd.concat(
+        [df.reset_index(drop=drop_index).assign(key=k) for k, df in dict_of_dfs.items()],
+        ignore_index=True
+    )
+
+    return df_concat
+
+def get_dict_from_df(df, key_col = 'key', index_col = None):
+    """
+    Convert a DataFrame into a dictionary where each key is a unique value from the specified key column,
+    and the value is the corresponding DataFrame.
+
+    Args:
+        df (pd.DataFrame): The DataFrame to convert.
+        key_col (str): The column to use as keys in the dictionary.
+        index_col (str or None): If specified, this column will be set as the index of the DataFrame before grouping.
+
+    Returns:
+        dict: A dictionary with keys from the specified column and values as DataFrames.
+    """
+
+    if index_col is not None:
+        df = df.set_index(index_col)
+        
+    return {k: v for k, v in df.groupby(key_col)}

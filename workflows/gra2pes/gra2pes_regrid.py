@@ -139,23 +139,27 @@ def main():
     """
     t1 = time.time() #Start the timer
 
-    #Data parameters (editable)
-    extra_ids = 'methane' # This is an extra id that is not in the base data, but is in another folder which we want to include in the regrid
-    specs = ['CO2','CO','HC01','HC02','HC14','NH3','NOX','SO2'] #These are the species we want to regrid
-    sectors = 'all' #The sectors to include in the 
-    months = [1,2,3,4,5,6,7,8,9,10,11,12] #The months to include in the regrid
-    years = [2021] #The years to include in the regrid
-    day_types = ['satdy','sundy','weekdy'] #The day types to include in the regrid
-
-    #Processing parameters (editable)
-    pre_sum_dim = 'zlevel' #The dimension to sum on before the regrid (inputs to sum_on_dim)
-    extent = {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42} #The extent to slice to after the regrid (inputs to slice_extent)
-    pre_processes = [(sum_on_dim,{'dim':pre_sum_dim})] #List of preprocesses to apply to the base data before the regrid 
-    post_processes = [(slice_extent,{'extent':extent})] #List of postprocesses to apply to the regridded data after the regrid
-
-    #Set up the configurations and create the regridded path
+    # ------------------------------------------------------------------
+    # Load unified config (from YAML via the Gra2pesConfig class)
+    # ------------------------------------------------------------------
     config = gra2pes_config.Gra2pesConfig()
     regrid_config = gra2pes_config.Gra2pesRegridConfig(config)
+
+    # Pull out top-level configs
+    extra_ids = regrid_config.extra_ids
+    specs = regrid_config.specs  
+    sectors = regrid_config.sectors if regrid_config.sectors != "all" else config.sectors
+    years = regrid_config.years
+    months = regrid_config.months
+    day_types = regrid_config.day_types
+    
+    # Processing settings
+    pre_sum_dim = regrid_config.processing['pre_sum_dim'] 
+    extent = regrid_config.processing['extent']
+    pre_processes = [(sum_on_dim, {"dim": pre_sum_dim})] if pre_sum_dim else None
+    post_processes = [(slice_extent, {"extent": extent})] if extent else None
+
+    # Create the regridded path if it doesn't exist
     if not os.path.exists(regrid_config.regridded_path):
         os.makedirs(regrid_config.regridded_path)
     if sectors == 'all':

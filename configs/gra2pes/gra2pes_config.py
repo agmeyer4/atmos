@@ -108,15 +108,27 @@ class Gra2pesRegridConfig:
         regrid = base_config.config['regrid']
         self.config = base_config
 
-        # Direct config values from YAML
-        self.lat_spacing = regrid['lat_spacing']
-        self.lon_spacing = regrid['lon_spacing']
-        self.lat_center_range = tuple(regrid['lat_center_range'])
-        self.lon_center_range = tuple(regrid['lon_center_range'])
-        self.method = regrid['method']
-        self.input_dims = tuple(regrid['input_dims'])
-        self.weights_file = regrid['weights_file']
-        self.encoding_details = regrid.get('encoding_details', {})
+        # Load all values as attributes
+        for key, value in regrid.items():
+            setattr(self, key, value)
+
+        # Ensure required attributes are present
+        required_attrs = ['lat_spacing', 'lon_spacing', 'lat_center_range',
+                          'lon_center_range', 'method', 'input_dims', 'weights_file']
+        for attr in required_attrs:
+            if not hasattr(self, attr):
+                raise ValueError(f"Missing required regrid attribute: {attr}")
+
+        if not hasattr(self,'encoding_details'):
+            self.encoding_details = None
+
+        # Apply tuple conversions for specific keys (if present)
+        if hasattr(self, "lat_center_range"):
+            self.lat_center_range = tuple(self.lat_center_range)
+        if hasattr(self, "lon_center_range"):
+            self.lon_center_range = tuple(self.lon_center_range)
+        if hasattr(self, "input_dims"):
+            self.input_dims = tuple(self.input_dims)
 
         # Derived config values
         if 'regrid_id_tag' in regrid.keys():
