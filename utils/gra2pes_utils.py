@@ -245,17 +245,11 @@ class BaseGra2pesHandler():
         Raises:
             AssertionError : if the extra dataset does not match the main dataset
         """
-        print('here')
         attrs_equal = main_ds.attrs == extra_ds.attrs # Check that the attributes are the same
-        print(attrs_equal)
         dims_equal = main_ds.dims == extra_ds.dims # Check that the dimensions are the same
         coord_keys_equal = main_ds.coords.keys() == extra_ds.coords.keys() # Check that the coordinate keys are the same
-        print('here2')
-        print(main_ds.coords.keys(), extra_ds.coords.keys())
         coord_values_equal = all([main_ds.coords[key].equals(extra_ds.coords[key]) for key in main_ds.coords.keys()]) # Check that the coordinate values are the same
-        print('here3')
         extra_vars = self.get_extra_vars(main_ds, extra_ds) # Get the extra variables
-        print(extra_vars)
         shared_vars = set(main_ds.variables) & set(extra_ds.variables) # Get the shared variables
         #xr.testing.assert_equal(main_ds[shared_vars], extra_ds[shared_vars]) # Check that the shared variables are equal
 

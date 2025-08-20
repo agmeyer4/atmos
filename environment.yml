@@ -1,4 +1,4 @@
-name: atmos
+name: atmos1
 channels:
   - conda-forge
   - defaults

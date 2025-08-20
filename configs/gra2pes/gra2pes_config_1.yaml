@@ -17,7 +17,7 @@ data_source: ftp  # Options: 'ftp' or 'https'
 ftp_credentials_path: /uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials2.txt
 
 # File storage configuration
-parent_path: /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES_2
+parent_path: /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES
 base_id: base_v1.0  # Used in naming and directory structure
 
 # Optional special-case configuration for extra data types (e.g., methane)
@@ -35,7 +35,6 @@ regrid:
   method: conservative           # Regridding interpolation method
   input_dims: ["south_north", "west_east"]  # Original dimension names in input files
   weights_file: create           # Option to generate or reuse weights file
-  regrid_id_tag: 'slv'      # Tag for regridded output in the path name
 
   # Optional NetCDF encoding settings. Helps with file size and I/O performance.
   encoding_details:

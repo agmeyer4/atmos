@@ -35,7 +35,6 @@ regrid:
   method: conservative           # Regridding interpolation method
   input_dims: ["south_north", "west_east"]  # Original dimension names in input files
   weights_file: create           # Option to generate or reuse weights file
-  regrid_id_tag: 'slv'      # Tag for regridded output in the path name
 
   # Optional NetCDF encoding settings. Helps with file size and I/O performance.
   encoding_details:

@@ -151,7 +151,7 @@ def main():
     pre_sum_dim = 'zlevel' #The dimension to sum on before the regrid (inputs to sum_on_dim)
     extent = {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42} #The extent to slice to after the regrid (inputs to slice_extent)
     pre_processes = [(sum_on_dim,{'dim':pre_sum_dim})] #List of preprocesses to apply to the base data before the regrid 
-    post_processes = None#[(slice_extent,{'extent':extent})] #List of postprocesses to apply to the regridded data after the regrid
+    post_processes = [(slice_extent,{'extent':extent})] #List of postprocesses to apply to the regridded data after the regrid
 
     #Set up the configurations and create the regridded path
     config = gra2pes_config.Gra2pesConfig()

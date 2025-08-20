@@ -119,7 +119,10 @@ class Gra2pesRegridConfig:
         self.encoding_details = regrid.get('encoding_details', {})
 
         # Derived config values
-        self.regrid_id = f"{self.lat_spacing}x{self.lon_spacing}"
+        if 'regrid_id_tag' in regrid.keys():
+            self.regrid_id = f"{self.lat_spacing}x{self.lon_spacing}_{regrid['regrid_id_tag']}"
+        else:
+            self.regrid_id = f"{self.lat_spacing}x{self.lon_spacing}"
         self.regridded_path = self.get_regridded_path()
         self.grid_out = self.get_grid_out()
 
