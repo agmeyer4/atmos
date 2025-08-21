@@ -204,7 +204,7 @@ def concat_dict_of_dfs(dict_of_dfs,drop_index=True):
 
     return df_concat
 
-def get_dict_from_df(df, key_col = 'key', index_col = None):
+def get_dict_from_df(df, key_col = 'key', index_col = None, delete_key = True):
     """
     Convert a DataFrame into a dictionary where each key is a unique value from the specified key column,
     and the value is the corresponding DataFrame.
@@ -220,5 +220,13 @@ def get_dict_from_df(df, key_col = 'key', index_col = None):
 
     if index_col is not None:
         df = df.set_index(index_col)
-        
-    return {k: v for k, v in df.groupby(key_col)}
+    
+    out_dict = {}
+    for k, v in df.groupby(key_col):
+        if delete_key:
+            v = v.drop(columns=[key_col])
+        else:
+            v = v.copy()
+        out_dict[k] = v
+
+    return out_dict
