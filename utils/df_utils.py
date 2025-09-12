@@ -99,7 +99,7 @@ def resample_with_stats(df, col_name, err_col_name, freq, min_obs=3,resample_kwa
 
     resampled = df[[col_name, err_col_name]].resample(freq,**resample_kwargs).apply(
         lambda g: pd.Series({
-            f'count': len(g),
+            f'{col_name}_count': g[[col_name, err_col_name]].dropna().shape[0],#drop the nas for counting
             f'{col_name}_mean': g[col_name].mean(),
             f'{col_name}_std': g[col_name].std(),
             f'{col_name}_wmean': weighted_mean(g[col_name], g[err_col_name]),
@@ -110,9 +110,9 @@ def resample_with_stats(df, col_name, err_col_name, freq, min_obs=3,resample_kwa
     )
 
     # Apply filtering based on min_obs
-    resampled = resampled[resampled['count'] >= min_obs]
+    resampled = resampled[resampled[f'{col_name}_count'] >= min_obs]
 
-    return resampled.drop(columns=['count'])
+    return resampled#.drop(columns=['count'])
 
 def subtract_quantile(df,col_names,quantile):
     """
