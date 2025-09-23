@@ -17,7 +17,7 @@ data_source: ftp  # Options: 'ftp' or 'https'
 ftp_credentials_path: /uufs/chpc.utah.edu/common/home/u0890904/credentials/ftp_gra2pes_credentials2.txt
 
 # File storage configuration
-parent_path: /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES_2
+parent_path: /uufs/chpc.utah.edu/common/home/lin-group9/agm/inventories/GRA2PES
 base_id: base_v1.0  # Used in naming and directory structure
 
 # Optional special-case configuration for extra data types (e.g., methane)
@@ -35,26 +35,14 @@ regrid:
   method: conservative           # Regridding interpolation method
   input_dims: ["south_north", "west_east"]  # Original dimension names in input files
   weights_file: create           # Option to generate or reuse weights file
-  regrid_id_tag: 'slv'      # Tag for regridded output in the path name
-
-  extra_ids: methane  # extra id not in base data, but in another folder to include in the regrid
-  specs: [CO2, CO, HC01, HC02, HC14, NH3, NOX, SO2]  # species to regrid
-  sectors: all  # sectors to include in the regrid
-  months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]  # months to include in the regrid
-  years: [2021]  # years to include in the regrid
-  day_types: [satdy, sundy, weekdy]  # day types to include in the regrid
-
-  processing:
-    pre_sum_dim: zlevel  # dimension to sum on before the regrid
-    extent: {lon_min: -113, lon_max: -111, lat_min: 40, lat_max: 42}  # slice extent after regrid
 
   # Optional NetCDF encoding settings. Helps with file size and I/O performance.
-  # encoding_details:
-  #   zlib: True         # Enable compression
-  #   complevel: 6       # Compression level (1-9)
-  #   shuffle: True      # Shuffle filter for better compression
-  #   chunksizes:        # Chunk sizes per dimension (can adapt dynamically to dataset)
-  #     utc_hour: 1      # Chunk along time
-  #     zlevel: 1        # Chunk along vertical (if exists)
-  #     lat: 100         # Chunk along latitude
-  #     lon: 100         # Chunk along longitude
+  encoding_details:
+    zlib: True         # Enable compression
+    complevel: 6       # Compression level (1-9)
+    shuffle: True      # Shuffle filter for better compression
+    chunksizes:        # Chunk sizes per dimension (can adapt dynamically to dataset)
+      utc_hour: 1      # Chunk along time
+      zlevel: 1        # Chunk along vertical (if exists)
+      lat: 100         # Chunk along latitude
+      lon: 100         # Chunk along longitude
