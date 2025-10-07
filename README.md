@@ -1,5 +1,5 @@
 # atmos
-The atmos package is a python module for working with atmospheric data. It includes utilities designed to help with managing datetimes, pandas dataframes, geospatial data with xarray, emissions inventories, meteorological data, statistical regressions, and plotting routines. 
+The atmos package is a python module for working with atmospheric data. It includes utilities designed to help with managing datetimes, pandas dataframes, geospatial data with xarray, emissions inventories, meteorological data, EM27/SUN data, statistical regressions, and plotting routines. 
 
 # Project Setup Instructions
 
@@ -41,7 +41,7 @@ The `atmos` package is organized into modular subdirectories, each serving a dis
   Includes SLURM job submission scripts and templates for running workflows on HPC clusters.
 
 # Demos
-The best way to get started with the atmos package is to run the Jupyter notebooks in the `atmos.ipynbs` directory. These notebooks provide examples of how to use the various functions and utilities provided by the package.
+The best way to get started with the atmos package is to run the Jupyter notebooks in the `atmos.ipynbs` directory. These notebooks provide examples of how to use some of the various functions and utilities provided by the package.
 
 # Contact and Acknowledgements
 This work is being carried out under the direction of Dr. John C. Lin in the Land-Atmosphere Interactions Research (LAIR) group at the University of Utah, Atmospheric Sciences Department. 
