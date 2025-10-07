@@ -21,13 +21,24 @@ then
 > conda activate atmos
 ```
 
-# Structure
-The atmos package is split into several subfolders, each with its own functionality. Below is a brief overview of each submodule and its purpose:
-- **atmos.configs**: Contains configuration files for the atmos package, including default settings and parameters used throughout the package.
-- **atmos.utils**: Contains utility functions for working with datetimes, pandas dataframes, xarray, meteorological data, and plotting routines.
-- **atmos.inventories**: Provides functions for working with emissions inventories including downloading, regridding, and plotting. Each inventory has its own submodule, such as `atmos.inventories.gra2pes`.
-- **atmos.ipynbs**: Contains Jupyter notebooks that demonstrate how to use the atmos package. These notebooks can be run in a Jupyter environment to explore the functionality of the package.
-- **atmos.slurm** : Contains utilities for running commonly used scripts on a SLURM cluster. 
+# Package Structure
+
+The `atmos` package is organized into modular subdirectories, each serving a distinct purpose within the project:
+
+- **`configs/`**  
+  Contains configuration files in both `.py` and `.yaml` formats. These define default parameters, file paths, and settings for workflows and utilities across the package.
+
+- **`utils/`**  
+  A collection of general-purpose utilities for working with datetimes, pandas DataFrames, xarray objects, meteorological data, and plotting. These modules are designed to be reusable across workflows.
+
+- **`workflows/`**  
+  Houses structured, modular workflows for processing data. Each subfolder corresponds to a specific domain or inventory (e.g., `gra2pes`) and may include scripts for downloading, processing, and regridding data. More detailed readme files are provided in each workflow subdirectory to explain their specific purpose and usage.
+
+- **`ipynbs/`**  
+  Contains Jupyter notebooks that demonstrate how to use various parts of the package. These are intended for interactive exploration and example use cases.
+
+- **`slurm/`**  
+  Includes SLURM job submission scripts and templates for running workflows on HPC clusters.
 
 # Demos
 The best way to get started with the atmos package is to run the Jupyter notebooks in the `atmos.ipynbs` directory. These notebooks provide examples of how to use the various functions and utilities provided by the package.

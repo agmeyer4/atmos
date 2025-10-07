@@ -1,25 +1,38 @@
-name: atmos
+name: atmos1
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.9
+  - python
   - numpy
   - pandas
   - scipy
   - matplotlib
   - seaborn
-  - jupyterlab
-  - ipython
-  - statsmodels
-  - xarray
-  - dask
-  - netcdf4
-  - xesmf
+  - geopandas
   - cartopy
-  - plotly
-  - gitpython
-  - cdo
+  - xarray
+  - scikit-learn
+  - statsmodels
+  - jupyterlab
+  - ipykernel
+  - ipython
+  - geographiclib
   - herbie-data
   - pynio
+  - pytz
+  - pysolar
+  - plotly
+  - netcdf4
+  - cdo
+  - python-cdo
+  - gitpython
+  - pyarrow
+  - dask
+  - xesmf
+  - boto3
   - pip
+  - pip:
+    - simplekml
+    - pylr2
+    - windrose

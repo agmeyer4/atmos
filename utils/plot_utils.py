@@ -9,8 +9,7 @@ import sys
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import cartopy.io.img_tiles as cimgt
-sys.path.append('.')
-from utils import regression_utils, gen_utils
+from . import regression_utils, gen_utils
 
 #Declare functions
 def plot_da_on_map(da,**kwargs):
@@ -439,105 +438,208 @@ class RegressionPlotter:
         
         return fig
         
+    # def plot_seasonal_details(
+    #     self,
+    #     seasonal_rolling_regr_details,
+    #     regr_label,
+    #     regr_type,
+    #     fig_id=None,
+    #     x_label=None,
+    #     y_label=None,
+    #     savefig=False,
+    #     showfig=True,
+    #     ylims=None,
+    #     grapes_season_ratios=None,
+    #     remove_x_ticks=False,
+    #     season_positions=None,
+    #     xlims=None
+    # ):
+    #     """
+    #     Plots the detailed statistics for each season and regression label.
+
+    #     Parameters:
+    #     - seasonal_rolling_regr_details (dict): The dictionary containing detailed statistics.
+    #     - regr_label (str): The regression label to plot.
+    #     - regr_type (str): The regression type to plot.
+    #     - fig_id (str): The figure ID for saving the plot.
+    #     - x_label (str): The label for the x-axis.
+    #     - y_label (str): The label for the y-axis.
+    #     - savefig (bool): Whether to save the figure.
+    #     - showfig (bool): Whether to show the figure.
+    #     - ylims (list): The y-axis limits.
+    #     - grapes_season_ratios (dict): The dictionary containing inventory ratios.
+    #     - season_positions (dict): Mapping of season names to specific x-axis positions.
+    #     - xlims (list): Limits for the x-axis.
+    #     """
+
+    #     # Get the regression label settings from regr_plot_dict
+    #     label_info = self.regr_plot_dict.get(regr_label, {})
+    #     x_label = x_label or label_info.get('x_label', 'Season')
+    #     y_label = y_label or label_info.get('y_label', 'Slope Value')
+    #     permil = label_info.get('permil', False)
+
+    #     # Get the styles from regr_plot_dict, with defaults
+    #     errorbar_style = label_info.get('errorbar_style', {"fmt": "o", "markersize": 0, "c": "grey", "zorder": 1, "linestyle": "none"})
+    #     inventory_style = label_info.get('inventory_style', {"fmt": "s", "markersize": 5, "c": "red", "zorder": 3})
+    #     scatter_style = label_info.get('scatter_style', {"s": 5, "c": "k", "zorder": 2})
+        
+    #     slope_column = f'{regr_label}_{regr_type}_slope'
+        
+    #     season_x = []
+    #     mean_values = []
+    #     std_values = []
+    #     inventory_values = []
+        
+    #     for season, details in seasonal_rolling_regr_details.items():
+    #         if regr_label in details and season in season_positions:
+    #             stats = details[regr_label]
+    #             mean_value = stats.loc['mean', slope_column]
+    #             std_value = stats.loc['std', slope_column]
+
+    #             season_x.append(season_positions[season])
+    #             mean_values.append(mean_value)
+    #             std_values.append(std_value)
+                
+    #             if grapes_season_ratios and season in grapes_season_ratios:
+    #                 inventory_values.append(grapes_season_ratios[season][regr_label])
+
+    #     fig, ax = plt.subplots(1, 1, figsize=self.figsize)
+
+    #     if permil:
+    #         mean_values = [value * 1000 for value in mean_values]
+    #         std_values = [value * 1000 for value in std_values]
+    #         inventory_values = [value * 1000 for value in inventory_values]
+
+    #     # Scatter plot for mean values
+    #     ax.scatter(season_x, mean_values, **scatter_style)
+
+    #     # Plot the mean and standard deviation of the slopes
+    #     ax.errorbar(season_x, mean_values, yerr=std_values, **errorbar_style)
+
+    #     # Plot the inventory ratios
+    #     if inventory_values:
+    #         ax.scatter(season_x, inventory_values, **inventory_style)
+
+    #     # Set y-axis limits
+    #     if ylims is not None:
+    #         ax.set_ylim(ylims)
+
+    #     # Set x-axis limits
+    #     if xlims is not None:
+    #         ax.set_xlim(xlims)
+
+    #     # Set labels and title
+    #     ax.set_xlabel(x_label, size=self.labsize)
+    #     ax.set_ylabel(y_label, size=self.labsize)
+    #     ax.tick_params(labelsize=self.labsize)
+
+    #     # Remove x-ticks if specified
+    #     if remove_x_ticks:
+    #         ax.set_xticks([])
+
+    #     # Save figure
+    #     if savefig:
+    #         fig_name = f"{fig_id}.png"
+    #         fig.savefig(os.path.join(self.figures_path, fig_name), dpi=500, bbox_inches="tight")
+
+    #     # Show figure
+    #     if showfig:
+    #         plt.show()
+    #     else:
+    #         plt.close()
     def plot_seasonal_details(
-        self,
-        seasonal_rolling_regr_details,
-        regr_label,
-        regr_type,
-        fig_id=None,
-        x_label=None,
-        y_label=None,
-        savefig=False,
-        showfig=True,
-        ylims=None,
-        grapes_season_ratios=None,
-        remove_x_ticks=False,
-        season_positions=None,
-        xlims=None
-    ):
+            self,
+            seasonal_rolling_regr_details,
+            regr_label,
+            regr_type,
+            fig_id=None,
+            x_label=None,
+            y_label=None,
+            savefig=False,
+            showfig=True,
+            ylims=None,
+            y_ticks=None,
+            grapes_season_ratios=None,
+            remove_x_ticks=False,
+            season_positions=None,
+            xlims=None,
+            mean_col='mean',
+            err_col = 'std',
+        ):
         """
         Plots the detailed statistics for each season and regression label.
-
+        
         Parameters:
-        - seasonal_rolling_regr_details (dict): The dictionary containing detailed statistics.
+        - seasonal_rolling_regr_details (dict): Dictionary containing only the values to plot:
+            {'season': {'regr_label': {'mean':..., 'std':..., 'weighted_mean':..., 'weighted_std':...}}}
         - regr_label (str): The regression label to plot.
         - regr_type (str): The regression type to plot.
-        - fig_id (str): The figure ID for saving the plot.
-        - x_label (str): The label for the x-axis.
-        - y_label (str): The label for the y-axis.
-        - savefig (bool): Whether to save the figure.
-        - showfig (bool): Whether to show the figure.
-        - ylims (list): The y-axis limits.
-        - grapes_season_ratios (dict): The dictionary containing inventory ratios.
-        - season_positions (dict): Mapping of season names to specific x-axis positions.
-        - xlims (list): Limits for the x-axis.
+        - weighted (bool): Whether to plot the weighted mean/std instead of unweighted.
+        Other parameters are the same as before.
         """
 
-        # Get the regression label settings from regr_plot_dict
+        # Get plotting settings from regr_plot_dict
         label_info = self.regr_plot_dict.get(regr_label, {})
         x_label = x_label or label_info.get('x_label', 'Season')
         y_label = y_label or label_info.get('y_label', 'Slope Value')
         permil = label_info.get('permil', False)
 
-        # Get the styles from regr_plot_dict, with defaults
         errorbar_style = label_info.get('errorbar_style', {"fmt": "o", "markersize": 0, "c": "grey", "zorder": 1, "linestyle": "none"})
         inventory_style = label_info.get('inventory_style', {"fmt": "s", "markersize": 5, "c": "red", "zorder": 3})
         scatter_style = label_info.get('scatter_style', {"s": 5, "c": "k", "zorder": 2})
-        
-        slope_column = f'{regr_label}_{regr_type}_slope'
-        
+
         season_x = []
         mean_values = []
         std_values = []
         inventory_values = []
-        
-        for season, details in seasonal_rolling_regr_details.items():
-            if regr_label in details and season in season_positions:
-                stats = details[regr_label]
-                mean_value = stats.loc['mean', slope_column]
-                std_value = stats.loc['std', slope_column]
 
+        # Loop over seasons
+        for season, stats_dict in seasonal_rolling_regr_details.items():
+            if regr_label in stats_dict and season in season_positions:
                 season_x.append(season_positions[season])
-                mean_values.append(mean_value)
-                std_values.append(std_value)
                 
+
+                mean_values.append(stats_dict[regr_label][mean_col])
+                std_values.append(stats_dict[regr_label][err_col])
+            
                 if grapes_season_ratios and season in grapes_season_ratios:
                     inventory_values.append(grapes_season_ratios[season][regr_label])
 
         fig, ax = plt.subplots(1, 1, figsize=self.figsize)
 
+        # Apply permil scaling if needed
         if permil:
-            mean_values = [value * 1000 for value in mean_values]
-            std_values = [value * 1000 for value in std_values]
-            inventory_values = [value * 1000 for value in inventory_values]
+            mean_values = [v * 1000 for v in mean_values]
+            std_values = [v * 1000 for v in std_values]
+            inventory_values = [v * 1000 for v in inventory_values]
 
         # Scatter plot for mean values
         ax.scatter(season_x, mean_values, **scatter_style)
 
-        # Plot the mean and standard deviation of the slopes
+        # Error bars
         ax.errorbar(season_x, mean_values, yerr=std_values, **errorbar_style)
 
-        # Plot the inventory ratios
+        # Inventory ratios
         if inventory_values:
             ax.scatter(season_x, inventory_values, **inventory_style)
 
-        # Set y-axis limits
+        # Axis limits
         if ylims is not None:
             ax.set_ylim(ylims)
-
-        # Set x-axis limits
         if xlims is not None:
             ax.set_xlim(xlims)
 
-        # Set labels and title
+        # Labels
         ax.set_xlabel(x_label, size=self.labsize)
         ax.set_ylabel(y_label, size=self.labsize)
         ax.tick_params(labelsize=self.labsize)
 
-        # Remove x-ticks if specified
+        # Optional: remove x-ticks
         if remove_x_ticks:
             ax.set_xticks([])
 
+        if y_ticks is not None:
+            ax.set_yticks(y_ticks)
         # Save figure
         if savefig:
             fig_name = f"{fig_id}.png"
@@ -600,7 +702,7 @@ class RollingRegressionPlotter:
         else:
             print(f"Error: Regression label '{regr_label}' not found in rolling_regr_plot_dict.")
 
-    def get_group_rolling_regression_details(self, df, regr_label, regr_type, x_name):
+    def get_group_rolling_regression_details(self, df, regr_label, regr_type, x_name,y_name,weighted=False):
         """
         Computes regression lines for each time-based group using York regression slope & intercept.
 
@@ -617,10 +719,19 @@ class RollingRegressionPlotter:
             if len(group_df) < 2:
                 continue  # Skip small groups
             
-            # Compute mean slope & intercept for the group
-            slope = group_df[f'{regr_label}_{regr_type}_slope'].mean()
-            intercept = group_df[f'{regr_label}_{regr_type}_intercept'].mean()
-
+            # # Compute mean slope & intercept for the group
+            if weighted:
+                # Use inverse-variance weighting for slope
+                slope_weights = 1 / (group_df[f'{regr_label}_{regr_type}_se_slope'] ** 2)
+                slope = (group_df[f'{regr_label}_{regr_type}_slope'] * slope_weights).sum() / slope_weights.sum()
+                
+                # Weighted intercept
+                intercept_weights = 1 / (group_df[f'{regr_label}_{regr_type}_se_slope'] ** 2)
+                intercept = (group_df[f'{regr_label}_{regr_type}_intercept'] * intercept_weights).sum() / intercept_weights.sum()
+            else:
+                slope = group_df[f'{regr_label}_{regr_type}_slope'].mean()
+                intercept = group_df[f'{regr_label}_{regr_type}_intercept'].mean()
+            
             # Define x range
             x_min, x_max = group_df[x_name].min(), group_df[x_name].max()
             x_values = np.linspace(x_min, x_max, 100)
@@ -635,7 +746,8 @@ class RollingRegressionPlotter:
 
     def plot(
         self, df, regr_label, regr_type, x_name, y_name, x_err_name=None, y_err_name=None, 
-        fig_id=None, savefig=False, showfig=True, x_label=None, y_label=None, xlim=None, ylim=None, line_xlim=None, legend_style=None,title=None
+        fig_id=None, savefig=False, showfig=True, x_label=None, y_label=None, xlim=None, ylim=None, line_xlim=None, legend_style=None,title=None,
+        weighted=False
     ):
         """
         Plots the rolling regression results with error bars, scatter points, and regression lines.
@@ -657,8 +769,10 @@ class RollingRegressionPlotter:
         # Filter the DataFrame to include only good groups
         good_df = df.loc[df[f'{regr_label}_good_group'].notnull()]
 
+
         # Get grouped regression lines
-        grouped_regression_lines = self.get_group_rolling_regression_details(df, regr_label, regr_type, x_name)
+        grouped_regression_lines = self.get_group_rolling_regression_details(good_df, regr_label, regr_type, x_name,y_name,weighted=weighted)
+
 
         # Plot error bars
         ax.errorbar(
@@ -678,6 +792,8 @@ class RollingRegressionPlotter:
 
         # Plot regression lines
         for line in grouped_regression_lines:
+            # if line['group']==171:
+            #     line['y'] = line['y']+.002
             ax.plot(line['x'], line['y'], **linestyle)
 
         # Axis labels

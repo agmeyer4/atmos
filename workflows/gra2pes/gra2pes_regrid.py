@@ -16,11 +16,8 @@ import sys
 import time
 import os
 import pickle
-sys.path.append(os.path.join(os.path.dirname(__file__),'.'))
-import gra2pes_utils 
-import gra2pes_config
-sys.path.append(os.path.join(os.path.dirname(__file__),'../..'))
-from utils import gen_utils
+from configs.gra2pes import gra2pes_config
+from utils import gen_utils, gra2pes_utils
 
 def create_regrid_subpath(regrid_config,year,month,day_type):
     """Create the subpath for the regridded data
@@ -68,7 +65,7 @@ def load_regrid_save(BGH,gra2pes_regridder,sector,year,month,day_type,pre_proces
     if os.path.exists(os.path.join(day_regrid_path,save_fname)): 
         raise ValueError(f"Regridded dataset {full_save_path} already exists, you may end up overwriting data")
 
-    base_ds = BGH.load_fmt_fullday(sector,year,month,day_type) #Load the base dataset
+    base_ds = BGH.load_fmt_fullday(sector,year,month,day_type,check_extra=False) #Load the base dataset
 
     if pre_processes: #Apply pre processes
         for func,params in pre_processes:
@@ -83,8 +80,15 @@ def load_regrid_save(BGH,gra2pes_regridder,sector,year,month,day_type,pre_proces
     
     print('Loading regridded dataset into memory')
     regridded_ds.load() #Load the dataset into memory for easier writing 
+
+    #Set the encoding for the dataset
+    if gra2pes_regridder.regrid_config.encoding_details:
+        encoding = gra2pes_utils.set_ds_encoding(regridded_ds, gra2pes_regridder.regrid_config.encoding_details) #Set the encoding for the dataset
+    else:
+        encoding = None
+
     print('Saving regridded dataset') 
-    regridded_ds.to_netcdf(full_save_path) #Save the regridded dataset
+    regridded_ds.to_netcdf(full_save_path,encoding = encoding) #Save the regridded dataset
     return regridded_ds
 
 def sum_on_dim(ds,**kwargs):
@@ -135,23 +139,27 @@ def main():
     """
     t1 = time.time() #Start the timer
 
-    #Data parameters (editable)
-    extra_ids = 'methane' # This is an extra id that is not in the base data, but is in another folder which we want to include in the regrid
-    specs = ['CO2','CO','HC01','HC02','HC14','NH3','NOX','SO2'] #These are the species we want to regrid
-    sectors = 'all' #The sectors to include in the 
-    months = [1,2,3,4,5,6,7,8,9,10,11,12] #The months to include in the regrid
-    years = [2021] #The years to include in the regrid
-    day_types = ['satdy','sundy','weekdy'] #The day types to include in the regrid
-
-    #Processing parameters (editable)
-    pre_sum_dim = 'zlevel' #The dimension to sum on before the regrid (inputs to sum_on_dim)
-    extent = {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42} #The extent to slice to after the regrid (inputs to slice_extent)
-    pre_processes = [(sum_on_dim,{'dim':pre_sum_dim})] #List of preprocesses to apply to the base data before the regrid 
-    post_processes = [(slice_extent,{'extent':extent})] #List of postprocesses to apply to the regridded data after the regrid
-
-    #Set up the configurations and create the regridded path
+    # ------------------------------------------------------------------
+    # Load unified config (from YAML via the Gra2pesConfig class)
+    # ------------------------------------------------------------------
     config = gra2pes_config.Gra2pesConfig()
     regrid_config = gra2pes_config.Gra2pesRegridConfig(config)
+
+    # Pull out top-level configs
+    extra_ids = regrid_config.extra_ids
+    specs = regrid_config.specs  
+    sectors = regrid_config.sectors if regrid_config.sectors != "all" else config.sectors
+    years = regrid_config.years
+    months = regrid_config.months
+    day_types = regrid_config.day_types
+    
+    # Processing settings
+    pre_sum_dim = regrid_config.processing['pre_sum_dim'] 
+    extent = regrid_config.processing['extent']
+    pre_processes = [(sum_on_dim, {"dim": pre_sum_dim})] if pre_sum_dim else None
+    post_processes = [(slice_extent, {"extent": extent})] if extent else None
+
+    # Create the regridded path if it doesn't exist
     if not os.path.exists(regrid_config.regridded_path):
         os.makedirs(regrid_config.regridded_path)
     if sectors == 'all':
@@ -172,8 +180,10 @@ def main():
     print(f'Sectors: {sectors}')
     print(f'Specs: {specs}')
     print(f'Extra ids: {extra_ids}')
-    print('Pre processes: ','sum_on_dim ',pre_sum_dim)
-    print('Post processes: ','slice_extent ',extent)
+    if pre_processes:
+        print('Pre processes: ','sum_on_dim ',pre_sum_dim)
+    if post_processes:
+        print('Post processes: ','slice_extent ',extent)
     print('\n')
 
     #Loop through the sectors, years, months, and day types to regrid the data

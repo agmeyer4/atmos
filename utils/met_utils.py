@@ -18,10 +18,57 @@ import pytz
 import re
 
 #Import local dependencies
-sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
-from utils import df_utils
-from utils import datetime_utils
+from . import df_utils, datetime_utils
 
+def wswd_to_uv(ws,wd):
+    '''Converts a wind speed and direction to u/v vector
+    Ref: http://colaweb.gmu.edu/dev/clim301/lectures/wind/wind-uv#:~:text=A%20positive%20u%20wind%20is,wind%20is%20from%20the%20north.
+
+    Args:
+    ws (float) : wind speed (magnitude of wind vector)
+    wd (float) : wind direction (in degrees, clockwise from north)
+
+    Returns:
+    u (float) : u component of wind vector (positive u wind is from west)
+    v (float) : v component of wind vector (positiv v wind is from south)
+    '''
+
+    wd_math_ref = 270-wd #get to mathematical direction from meteorological direction
+    if ws < 0.01: #with very low winds, just set to 0 so we dont get weird values
+        u=v=0
+        return u,v
+    u = ws*np.cos(np.deg2rad(wd_math_ref)) #u is the cosine 
+    v = ws*np.sin(np.deg2rad(wd_math_ref)) #v is the sine
+    return u,v
+
+def uv_to_wswd(u,v):
+    '''Converts a u,v wind vector to meteorological wind speed and direction
+    Ref: http://colaweb.gmu.edu/dev/clim301/lectures/wind/wind-uv#:~:text=A%20positive%20u%20wind%20is,wind%20is%20from%20the%20north.
+
+    Args:
+    u (float) : u component of wind vector (positive u wind is from west)
+    v (float) : v component of wind vector (positiv v wind is from south)
+
+    Returns:
+    ws (float) : wind speed (magnitude of wind vector)
+    wd (float) : wind direction (in degrees, clockwise from north)
+    '''    
+    ws = np.sqrt(u**2+v**2) #wind speed is just the magnitude
+    if ws <0.01: #deal with very low winds -- wind direction undefined at low winds
+        wd = np.nan
+        return ws,wd
+    wd_math_ref = np.rad2deg(np.arctan2(v,u)) #get the wind direciton
+    wd_met_ref = 270-wd_math_ref #shift to meteorological reference
+
+    if wd_met_ref<0: #the above returns values between -180 and 180, so add 360 to negative values to get output between 0 and 360
+        wd_met_ref = wd_met_ref+360
+    elif wd_met_ref > 360:
+        wd_met_ref = wd_met_ref-360
+    return ws,wd_met_ref
+
+####################################################################################################################################
+# Define Classes
+#####################################################################################################################################
 class MetConfig:
     """Configuration for met tools.
 

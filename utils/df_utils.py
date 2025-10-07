@@ -99,7 +99,7 @@ def resample_with_stats(df, col_name, err_col_name, freq, min_obs=3,resample_kwa
 
     resampled = df[[col_name, err_col_name]].resample(freq,**resample_kwargs).apply(
         lambda g: pd.Series({
-            f'count': len(g),
+            f'{col_name}_count': g[[col_name, err_col_name]].dropna().shape[0],#drop the nas for counting
             f'{col_name}_mean': g[col_name].mean(),
             f'{col_name}_std': g[col_name].std(),
             f'{col_name}_wmean': weighted_mean(g[col_name], g[err_col_name]),
@@ -110,9 +110,9 @@ def resample_with_stats(df, col_name, err_col_name, freq, min_obs=3,resample_kwa
     )
 
     # Apply filtering based on min_obs
-    resampled = resampled[resampled['count'] >= min_obs]
+    resampled = resampled[resampled[f'{col_name}_count'] >= min_obs]
 
-    return resampled.drop(columns=['count'])
+    return resampled#.drop(columns=['count'])
 
 def subtract_quantile(df,col_names,quantile):
     """
@@ -184,3 +184,112 @@ def get_season_df(df,season,date_col = None, seasons = {'DJF': [12, 1, 2],'MAM':
     else:
         df['month'] = df.apply(lambda row: row[date_col].month,axis=1)
         return df.loc[df['month'].isin(season_months)]
+    
+def concat_dict_of_dfs(dict_of_dfs,drop_index=True):
+    """
+    Concatenate a dictionary of DataFrames into a single DataFrame.
+
+    Args:
+        dict_of_dfs (dict): Dictionary where keys are identifiers and values are DataFrames.
+        ignore_index (bool): Whether to ignore the index during concatenation.
+
+    Returns:
+        pd.DataFrame: A single DataFrame containing all data from the input dictionary.
+    """
+
+    df_concat = pd.concat(
+        [df.reset_index(drop=drop_index).assign(key=k) for k, df in dict_of_dfs.items()],
+        ignore_index=True
+    )
+
+    return df_concat
+
+def get_dict_from_df(df, key_col = 'key', index_col = None, delete_key = True):
+    """
+    Convert a DataFrame into a dictionary where each key is a unique value from the specified key column,
+    and the value is the corresponding DataFrame.
+
+    Args:
+        df (pd.DataFrame): The DataFrame to convert.
+        key_col (str): The column to use as keys in the dictionary.
+        index_col (str or None): If specified, this column will be set as the index of the DataFrame before grouping.
+
+    Returns:
+        dict: A dictionary with keys from the specified column and values as DataFrames.
+    """
+
+    if index_col is not None:
+        df = df.set_index(index_col)
+    
+    out_dict = {}
+    for k, v in df.groupby(key_col):
+        if delete_key:
+            v = v.drop(columns=[key_col])
+        else:
+            v = v.copy()
+        out_dict[k] = v
+
+    return out_dict
+
+def pdcol_is_equal(pdcol):
+    '''Checks if all of the values in a column of a dataframe are equal to one another
+    
+    Args: 
+    pdcol (column of a pd dataframe)
+    
+    Returns:
+    (bool) : true if all of the values in a column are equal, false if any are different
+    '''
+
+    a = pdcol.to_numpy()
+    return (a[0]==a).all()
+
+def apply_filters(df, filter_dict):
+    """
+    Apply filters to a DataFrame using vectorized boolean masking.
+
+    Parameters:
+        df (pd.DataFrame): The DataFrame to filter.
+        filter_dict (dict): Dictionary with format {col: (condition, value)}.
+
+    Returns:
+        pd.DataFrame: Filtered DataFrame.
+    """
+    mask = pd.Series(True, index=df.index)
+
+    for col, (condition, val) in filter_dict.items():
+        if condition == '==':
+            mask &= df[col] == val
+        elif condition == '<':
+            mask &= df[col] < val
+        elif condition == '>':
+            mask &= df[col] > val
+        elif condition == '<=':
+            mask &= df[col] <= val
+        elif condition == '>=':
+            mask &= df[col] >= val
+        elif condition == '!=':
+            mask &= df[col] != val
+        else:
+            raise ValueError(f"Unsupported condition: {condition}")
+
+    return df[mask]
+
+def add_filter_cols(df, filters_dict):
+    """
+    Apply only filters (no grouping) to a DataFrame and mark pass/fail columns.
+
+    Parameters:
+        df (pd.DataFrame): Input DataFrame.
+        filters_dict (dict): Dictionary mapping regr_label -> filter_dict.
+
+    Returns:
+        pd.DataFrame: Copy of DataFrame with *_pass_filter columns.
+    """
+    working_df = df.copy()
+
+    for regr_label, filter_dict in filters_dict.items():
+        filtered_df = apply_filters(working_df, filter_dict)
+        working_df[f'{regr_label}_pass_filter'] = working_df.index.isin(filtered_df.index)
+
+    return working_df
