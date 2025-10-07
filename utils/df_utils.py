@@ -230,3 +230,66 @@ def get_dict_from_df(df, key_col = 'key', index_col = None, delete_key = True):
         out_dict[k] = v
 
     return out_dict
+
+def pdcol_is_equal(pdcol):
+    '''Checks if all of the values in a column of a dataframe are equal to one another
+    
+    Args: 
+    pdcol (column of a pd dataframe)
+    
+    Returns:
+    (bool) : true if all of the values in a column are equal, false if any are different
+    '''
+
+    a = pdcol.to_numpy()
+    return (a[0]==a).all()
+
+def apply_filters(df, filter_dict):
+    """
+    Apply filters to a DataFrame using vectorized boolean masking.
+
+    Parameters:
+        df (pd.DataFrame): The DataFrame to filter.
+        filter_dict (dict): Dictionary with format {col: (condition, value)}.
+
+    Returns:
+        pd.DataFrame: Filtered DataFrame.
+    """
+    mask = pd.Series(True, index=df.index)
+
+    for col, (condition, val) in filter_dict.items():
+        if condition == '==':
+            mask &= df[col] == val
+        elif condition == '<':
+            mask &= df[col] < val
+        elif condition == '>':
+            mask &= df[col] > val
+        elif condition == '<=':
+            mask &= df[col] <= val
+        elif condition == '>=':
+            mask &= df[col] >= val
+        elif condition == '!=':
+            mask &= df[col] != val
+        else:
+            raise ValueError(f"Unsupported condition: {condition}")
+
+    return df[mask]
+
+def add_filter_cols(df, filters_dict):
+    """
+    Apply only filters (no grouping) to a DataFrame and mark pass/fail columns.
+
+    Parameters:
+        df (pd.DataFrame): Input DataFrame.
+        filters_dict (dict): Dictionary mapping regr_label -> filter_dict.
+
+    Returns:
+        pd.DataFrame: Copy of DataFrame with *_pass_filter columns.
+    """
+    working_df = df.copy()
+
+    for regr_label, filter_dict in filters_dict.items():
+        filtered_df = apply_filters(working_df, filter_dict)
+        working_df[f'{regr_label}_pass_filter'] = working_df.index.isin(filtered_df.index)
+
+    return working_df

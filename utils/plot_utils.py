@@ -9,8 +9,7 @@ import sys
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import cartopy.io.img_tiles as cimgt
-sys.path.append('.')
-from utils import regression_utils, gen_utils
+from . import regression_utils, gen_utils
 
 #Declare functions
 def plot_da_on_map(da,**kwargs):
