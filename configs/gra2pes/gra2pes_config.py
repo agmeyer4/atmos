@@ -59,35 +59,40 @@ class Gra2pesConfig:
 
     # Path and filename templates used in the workflow
     base_path_structure = '{parent_path}/{base_id}'
-    base_fname_structure = '{year_str}{month_str}/{day_type}/GRA2PESv1.0_{sector}_{year_str}{month_str}_{day_type}_{hour_start}to{hour_end}Z.nc'
+    base_fname_structure = '{year_str}{month_str}/{day_type}/GRA2PES{version}_{sector}_{year_str}{month_str}_{day_type}_{hour_start}to{hour_end}Z.nc'
     regridded_path_structure = '{parent_path}/regridded{regrid_id}'
     regridded_day_subpath_structure = '{year_str}/{month_str}/{day_type}'
     regridded_fname_structure = '{sector}_regridded.nc'
 
-    def __init__(self, yaml_path=None):
+    def __init__(self, yaml_path=None, yaml_name='gra2pes_config.yaml'):
         """
         Load configuration from the YAML file and initialize key attributes.
         """
 
         if yaml_path is None:
-            yaml_path = os.path.join(os.path.dirname(__file__), 'gra2pes_config.yaml')
+            yaml_path = os.path.join(os.path.dirname(__file__))
+        yaml_fullpath = os.path.join(yaml_path, yaml_name)
+        if not os.path.isfile(yaml_fullpath):
+            raise FileNotFoundError(f"YAML configuration file not found: {yaml_fullpath}")
 
 
-        with open(yaml_path, "r") as f:
+
+        with open(yaml_fullpath, "r") as f:
             self.config = yaml.safe_load(f)
 
         # Load general GRA2PES settings
+        self.version = self.config['version']
         self.months = self.config['months']
         self.years = self.config['years']
         self.data_source = self.config['data_source']
         self.ftp_credentials_path = self.config['ftp_credentials_path']
         self.parent_path = self.config['parent_path']
-        self.base_id = self.config['base_id']
         self.extra_id_details = self.config.get('extra_id_details', {})
 
         # Set computed values
         self.day_types = list(self.day_type_details.keys())
         self.sectors = list(self.sector_details.keys())
+        self.base_id = f'base_{self.version}'
         self.base_path = self.base_path_structure.format(
             parent_path=self.parent_path, base_id=self.base_id
         )
