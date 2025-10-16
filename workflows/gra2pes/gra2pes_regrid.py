@@ -66,7 +66,6 @@ def load_regrid_save(BGH,gra2pes_regridder,sector,year,month,day_type,pre_proces
         raise ValueError(f"Regridded dataset {full_save_path} already exists, you may end up overwriting data")
 
     base_ds = BGH.load_fmt_fullday(sector,year,month,day_type,check_extra=False) #Load the base dataset
-
     if pre_processes: #Apply pre processes
         for func,params in pre_processes:
             base_ds = func(base_ds,**params)
@@ -146,16 +145,17 @@ def main():
     regrid_config = gra2pes_config.Gra2pesRegridConfig(config)
 
     # Pull out top-level configs
-    extra_ids = regrid_config.extra_ids
-    specs = regrid_config.specs  
-    sectors = regrid_config.sectors if regrid_config.sectors != "all" else config.sectors
-    years = regrid_config.years
-    months = regrid_config.months
-    day_types = regrid_config.day_types
+    extra_ids = getattr(regrid_config, 'extra_ids', None)
+    specs = getattr(regrid_config, 'specs', "all")
+    sectors = regrid_config.sectors if getattr(regrid_config, 'sectors', "all") != "all" else config.sectors
+    years = getattr(regrid_config, 'years', config.years)
+    months = getattr(regrid_config, 'months', config.months)
+    day_types = getattr(regrid_config, 'day_types', config.day_types)
     
-    # Processing settings
-    pre_sum_dim = regrid_config.processing['pre_sum_dim'] 
-    extent = regrid_config.processing['extent']
+    # Processing settings (optional, may not exist)
+    processing = getattr(regrid_config, 'processing', {})
+    pre_sum_dim = processing.get('pre_sum_dim', None)
+    extent = processing.get('extent', None)
     pre_processes = [(sum_on_dim, {"dim": pre_sum_dim})] if pre_sum_dim else None
     post_processes = [(slice_extent, {"extent": extent})] if extent else None
 

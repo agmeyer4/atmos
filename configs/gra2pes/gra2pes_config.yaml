@@ -10,8 +10,8 @@
 
 # Months and years to download or process
 version: v1.0
-months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-years: [2022,2023]
+months: [1] #, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+years: [2021]
 
 # Source and credentials for data download
 data_source: ftp  # Options: 'ftp' or 'https'
@@ -35,6 +35,15 @@ regrid:
   method: conservative           # Regridding interpolation method
   input_dims: ["south_north", "west_east"]  # Original dimension names in input files
   weights_file: create           # Option to generate or reuse weights file
+  regrid_id_tag: test1        # Identifier for this regridding setup
+  regridded_parent_path: /uufs/chpc.utah.edu/common/home/lin-group24/agm/test
+  specs : ['CO2']
+  sectors : ['AG']
+  processing : {
+    "pre_sum_dim": "zlevel",
+    "extent": {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
+  }
+
 
   # Optional NetCDF encoding settings. Helps with file size and I/O performance.
   encoding_details:
@@ -43,6 +52,6 @@ regrid:
     shuffle: True      # Shuffle filter for better compression
     chunksizes:        # Chunk sizes per dimension (can adapt dynamically to dataset)
       utc_hour: 1      # Chunk along time
-      zlevel: 1        # Chunk along vertical (if exists)
-      lat: 100         # Chunk along latitude
-      lon: 100         # Chunk along longitude
+      # zlevel: 1        # Chunk along vertical (if exists)
+      # lat: 100         # Chunk along latitude
+      # lon: 100         # Chunk along longitude

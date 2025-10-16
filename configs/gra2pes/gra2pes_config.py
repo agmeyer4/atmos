@@ -140,6 +140,10 @@ class Gra2pesRegridConfig:
             self.regrid_id = f"{self.lat_spacing}x{self.lon_spacing}_{regrid['regrid_id_tag']}"
         else:
             self.regrid_id = f"{self.lat_spacing}x{self.lon_spacing}"
+        
+        # Allow override of parent path for regridded output
+        self.regridded_parent_path = regrid.get('regridded_parent_path', self.config.parent_path)
+
         self.regridded_path = self.get_regridded_path()
         self.grid_out = self.get_grid_out()
 
@@ -148,7 +152,7 @@ class Gra2pesRegridConfig:
         Return the full path where regridded files should be saved.
         """
         return self.config.regridded_path_structure.format(
-            parent_path=self.config.parent_path,
+            parent_path=self.regridded_parent_path,
             regrid_id=self.regrid_id
         )
 

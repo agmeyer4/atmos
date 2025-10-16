@@ -218,7 +218,8 @@ class BaseGra2pesHandler():
             raise ValueError("hour_start must be '00' or '12'") 
         
         # Format the relative path file name using the information in the config
-        relpath_fname = self.config.base_fname_structure.format(year_str=year_str, month_str=month_str, day_type=day_type, sector=sector, hour_start=hour_start, hour_end=hour_end)
+        relpath_fname = self.config.base_fname_structure.format(version = self.config.config['version'], year_str=year_str, month_str=month_str, 
+                                                                day_type=day_type, sector=sector, hour_start=hour_start, hour_end=hour_end)
         return relpath_fname
     
     def get_extra_vars(self, main_ds, extra_ds):
