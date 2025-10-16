@@ -28,8 +28,8 @@ extra_id_details:
 
 # Regridding configuration
 regrid:
-  lat_spacing: 0.04             # Latitude resolution (degrees)
-  lon_spacing: 0.04             # Longitude resolution (degrees)
+  lat_spacing: 0.025             # Latitude resolution (degrees)
+  lon_spacing: 0.025             # Longitude resolution (degrees)
   lat_center_range: [18.95, 58.05]     # Latitude center extent
   lon_center_range: [-138.05, -58.95]  # Longitude center extent
   method: conservative           # Regridding interpolation method
