@@ -39,6 +39,7 @@ regrid:
   regridded_parent_path: /uufs/chpc.utah.edu/common/home/lin-group24/agm/test
   specs : ['CO2']
   sectors : ['AG']
+  day_types : ['weekdy']
   processing : {
     "pre_sum_dim": "zlevel",
     "extent": {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}

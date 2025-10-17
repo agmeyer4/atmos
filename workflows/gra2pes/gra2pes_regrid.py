@@ -18,6 +18,7 @@ import os
 import pickle
 from configs.gra2pes import gra2pes_config
 from utils import gen_utils, gra2pes_utils
+from utils.xr_utils import slice_extent
 
 def create_regrid_subpath(regrid_config,year,month,day_type):
     """Create the subpath for the regridded data
@@ -110,23 +111,23 @@ def sum_on_dim(ds,**kwargs):
         ds = ds.sum(dim=dim)
     return ds
 
-def slice_extent(ds,**kwargs):
-    """Slice the dataset to a specific extent
+# def slice_extent(ds,**kwargs):
+#     """Slice the dataset to a specific extent
     
-    A typical postprocess step to reduce the extent of the dataset after the regrid
+#     A typical postprocess step to reduce the extent of the dataset after the regrid
     
-    Args:
-        ds (xarray.Dataset): The dataset
-        **kwargs: extent (dict): The extent to slice to
+#     Args:
+#         ds (xarray.Dataset): The dataset
+#         **kwargs: extent (dict): The extent to slice to
         
-    Returns:
-        xarray.Dataset: The dataset sliced to the extent
-    """
+#     Returns:
+#         xarray.Dataset: The dataset sliced to the extent
+#     """
 
-    extent = kwargs['extent']
-    ds = ds.sel(lat=slice(extent['lat_min'], extent['lat_max']),
-                lon=slice(extent['lon_min'], extent['lon_max']))
-    return ds
+#     extent = kwargs['extent']
+#     ds = ds.sel(lat=slice(extent['lat_min'], extent['lat_max']),
+#                 lon=slice(extent['lon_min'], extent['lon_max']))
+#     return ds
 
 def main():
     """Main function to regrid the gra2pes data

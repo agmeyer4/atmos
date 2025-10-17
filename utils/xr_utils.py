@@ -7,6 +7,12 @@ def trim_ds_to_extent(ds,extent,lat_name='lat',lon_name='lon'):
                        lon_name: slice(extent['lon_min'], extent['lon_max'])})
     return out_ds
 
+def slice_extent(ds,extent,lat_name='lat',lon_name='lon'):
+    """Trim the dataset to the given extent."""
+    out_ds = ds.sel(**{lat_name: slice(extent['lat_min'], extent['lat_max']),
+                       lon_name: slice(extent['lon_min'], extent['lon_max'])})
+    return out_ds
+
 # Define classes
 class UnitConverter:
     def __init__(self):
