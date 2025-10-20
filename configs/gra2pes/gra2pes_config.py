@@ -169,6 +169,10 @@ class Gra2pesRegridConfig:
         else:
             raise ValueError("Invalid type for specs; must be 'all', str, or list.")
 
+        if self.encoding_details and 'chunksizes' in self.encoding_details:
+            self.chunks = self.encoding_details['chunksizes']
+        else:
+            self.chunks = None
 
 
     def get_regridded_path(self):

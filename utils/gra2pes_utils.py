@@ -9,7 +9,7 @@ import numpy as np
 import xarray as xr
 import pandas as pd
 sys.path.append(os.path.join(os.path.dirname(__file__),'../..'))
-from utils import datetime_utils
+from utils import datetime_utils, xr_utils
 
 # Suppress the specific FutureWarning
 warnings.filterwarnings("ignore", category=FutureWarning, message="The return type of `Dataset.dims` will be changed")
@@ -462,20 +462,29 @@ class Gra2pesRegridder():
         pass
 
 class RegriddedGra2pesHandler:
-    """This class is meant to handle the regridded GRA2PES .nc files in a specific directory structure created using gra2pes_regrid.py
-    
+    """
+    Handles regridded GRA2PES NetCDF files organized in a directory structure created by gra2pes_regrid.py.
+
     Attributes:
-        config (Gra2pesConfig) : the configuration object for the GRA2PES inventory
-        regrid_id (str) : the regrid id for the regridded files
-        regridded_path (str) : the path to the regridded files
-        
+        regrid_config (Gra2pesRegridConfig): Configuration object containing regridding parameters and paths.
+        regrid_id (str): Identifier for the regridding operation.
+        regridded_path (str): Base directory path for regridded files.
+
     Methods:
-        open_ds_inrange : open a dataset in a datetime range
-        open_ds_single : open a single dataset
-        rework_ds_dt : rework the datetime coordinates of a dataset
-        get_files_inrange : get the files in a datetime range
-        get_regridded_path : get the regridded path
-        get_relpath_fname : get the relative path file name for a given sector, year, month, and day type
+        get_files_inrange(dtr):
+            Returns a sorted list of file paths for all sectors and day types within a given datetime range.
+
+        get_day_subpath(year, month, day_type):
+            Constructs the subdirectory path for a specific year, month, and day type.
+
+        open_ds_inrange(dtr, slice_extent=None):
+            Loads and combines datasets for all sectors and day types in a datetime range, optionally spatially sliced.
+
+        open_ds_single(fname, slice_extent=None):
+            Loads a single regridded dataset from file and assigns coordinates.
+
+        rework_ds_dt(ds):
+            Converts separate year, month, day_type, and utc_hour coordinates into a single datetime coordinate.
     """
 
     def __init__(self,regrid_config):
@@ -493,7 +502,6 @@ class RegriddedGra2pesHandler:
         Returns:
             list : the list of files in the datetime range
         """
-
 
         inrange_list = get_inrange_list(dtr,self.regrid_config.config)  #get a list of dictionaries for the year, month, and day type representing the files we want
         files_inrange = []
@@ -523,12 +531,11 @@ class RegriddedGra2pesHandler:
         day_subpath = self.regrid_config.regridded_day_subpath_structure.format(year_str=year_str, month_str=month_str, day_type=day_type)
         return day_subpath
     
-    def open_ds_inrange(self,dtr,sectors = 'all',chunks = {}):
+    def open_ds_inrange(self, dtr, slice_extent = None):
         """Opens a dataset with values within the datetime range and optionally for specific sectors
         
         Args:
             dtr (DateTimeRange) : the datetime range object from utils.datetime_utils
-            sectors (str or list) : the sectors to get the files for. If 'all', all sectors will be used
             
         Returns:
             xr.Dataset : the dataset with values in the datetime range, nicely organized as a regridded_dataset with sectors as dimensions 
@@ -537,10 +544,11 @@ class RegriddedGra2pesHandler:
         files_inrange = self.get_files_inrange(dtr) #get the files in the datetime range
         ds_list = []
         for fname in files_inrange: 
-            ds = self.open_ds_single(fname) #open each file
+            ds = self.open_ds_single(fname, slice_extent) #open each file
             ds_list.append(ds) #add it to the list
         ds_combined = xr.combine_by_coords(ds_list,combine_attrs='drop_conflicts') #combine the datasets, dropping the conflicting attributes
         ds_combined = ds_combined.transpose('lat','lon','year','month','day_type','utc_hour','sector') #transpose the dataset 
+
         #below is a little unecessary, but it orders the coordinates in a way that makes sense when printing in jupyter or elsewhere
         ds_combined = ds_combined.assign_coords(
             lat=ds_combined['lat'],
@@ -553,7 +561,7 @@ class RegriddedGra2pesHandler:
         ) 
         return ds_combined
 
-    def open_ds_single(self,fname,chunks = {}):
+    def open_ds_single(self,fname,slice_extent = None):
         """Open a single dataset from a file
 
         Args:
@@ -563,12 +571,15 @@ class RegriddedGra2pesHandler:
         Returns:
             xr.Dataset : the opened dataset
         """
-
-        ds = xr.open_dataset(fname)
+        ds = xr.open_dataset(fname,chunks=self.regrid_config.chunks) #open the dataset with the specified chunks
         #assign the coordinates based on the attributes that were logged in each dataset during the regrid. 
         ds = ds.assign_coords(year=ds.attrs['year'], month=ds.attrs['month'], day_type=ds.attrs['day_type'],sector=ds.attrs['sector']) 
         ds = ds.expand_dims(dim=['year','month','day_type','sector'])
         
+        # Spatial slicing
+        if slice_extent is not None:
+            ds = xr_utils.slice_extent(ds, slice_extent)
+
         return ds
 
     def rework_ds_dt(self,ds):
