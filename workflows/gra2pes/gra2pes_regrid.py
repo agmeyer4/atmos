@@ -32,8 +32,8 @@ def parse_processes(process_list):
         func = PROCESS_REGISTRY.get(proc['func'])
         if func is None:
             raise ValueError(f"Unknown process function: {proc['func']}")
-        params = proc.get('params', {})
-        parsed.append((func, params))
+        args = proc.get('args', {})
+        parsed.append((func, args))
     return parsed
 
 def create_regrid_subpath(regrid_config,year,month,day_type):
@@ -50,7 +50,7 @@ def create_regrid_subpath(regrid_config,year,month,day_type):
     """
 
     #Get the path to the day type folder using the regrid config subpath structure
-    regrid_day_relpath = regrid_config.config.regridded_day_subpath_structure.format(year_str = f'{year:04d}', month_str = f'{month:02d}', day_type = day_type)
+    regrid_day_relpath = regrid_config.regridded_day_subpath_structure.format(year_str = f'{year:04d}', month_str = f'{month:02d}', day_type = day_type)
     regrid_subpath = os.path.join(regrid_config.regridded_path,regrid_day_relpath) #Join the regridded path with the day type folder
     os.makedirs(regrid_subpath,exist_ok=True) #Make the day type folder if it doesn't exist        
     return regrid_subpath
@@ -137,14 +137,8 @@ def main():
     
     # Processing settings (optional, may not exist)
     processing = getattr(regrid_config, 'processing', {})
-    pre_sum_dim = processing.get('pre_sum_dim', None)
-    extent = processing.get('extent', None)
-    pre_processes = [(sum_on_dim, {"dim": pre_sum_dim})] if pre_sum_dim else None
-    post_processes = [(slice_extent, {"extent": extent})] if extent else None
-
-
-
-
+    pre_processes = parse_processes(processing.get('pre_processes'))
+    post_processes = parse_processes(processing.get('post_processes'))
 
     #Create the base gra2pes handler and the regridder
     BGH = gra2pes_utils.BaseGra2pesHandler(config,specs = specs, extra_ids = extra_ids) 
@@ -162,9 +156,9 @@ def main():
     print(f'Specs: {specs}')
     print(f'Extra ids: {extra_ids}')
     if pre_processes:
-        print('Pre processes: ','sum_on_dim ',pre_sum_dim)
+        print('Pre processes: ', pre_processes)
     if post_processes:
-        print('Post processes: ','slice_extent ',extent)
+        print('Post processes: ', post_processes)
     print('\n')
 
     #Loop through the sectors, years, months, and day types to regrid the data
@@ -203,8 +197,8 @@ def main():
         f.write(f'Sectors: {sectors}\n')
         f.write(f'Specs: {specs}\n')
         f.write(f'Extra ids: {extra_ids}\n')
-        f.write(f'Pre processes: sum_on_dim {pre_sum_dim}\n')
-        f.write(f'Post processes: slice_extent {extent}\n')
+        f.write(f'Pre processes: {pre_processes}\n')
+        f.write(f'Post processes: {post_processes}\n')
     with open(os.path.join(details_path,'regrid_config.pkl'),'wb') as f:  #Save the regrid config to a pickle file
         pickle.dump(regrid_config,f)
     gra2pes_regridder.save_regrid_weights(details_path) #Save the regrid weights to the details path

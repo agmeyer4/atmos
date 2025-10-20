@@ -347,8 +347,13 @@ class Gra2pesRegridder():
         grid_out = self.regrid_config.grid_out #get the output grid from the regrid config
         method = self.regrid_config.method 
         input_dims = self.regrid_config.input_dims
-
-        regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims) #create the regridder
+        weights_file = getattr(self.regrid_config,'weights_file')
+        if weights_file == 'create': #if the user wants to create a new weights file
+            regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims) #create the regridder
+        elif os.path.exists(weights_file): #if the weights file exists, load it
+            regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims, filename=weights_file, reuse_weights=True)
+        else:
+            raise FileNotFoundError(f"Weights file {weights_file} not found. Enter 'create' to create a new weights file.")
 
         regridder.ds_attrs = ds.attrs #save the attributes of the dataset to the regridder
 
@@ -473,27 +478,12 @@ class RegriddedGra2pesHandler:
         get_relpath_fname : get the relative path file name for a given sector, year, month, and day type
     """
 
-    def __init__(self,config,regrid_id):
-        self.config = config
-        self.regrid_id = regrid_id
-        self.regridded_path = self.get_regridded_path()
+    def __init__(self,regrid_config):
+        self.regrid_config = regrid_config
+        self.regrid_id = regrid_config.regrid_id
+        self.regridded_path = regrid_config.regridded_path
 
-    def get_regridded_path(self):
-        """Gets the regridded path for the regridded data using the config
-
-        Returns:
-            str : the regridded path
-
-        Raise:
-            ValueError : if the regridded path does not exist
-        """
-
-        regridded_path = self.config.regridded_path_structure.format(parent_path=self.config.parent_path,regrid_id=self.regrid_id)
-        if not os.path.exists(regridded_path):
-            raise ValueError(f"Regridded path {regridded_path} does not exist.")
-        return regridded_path
-
-    def get_files_inrange(self,dtr,sectors = 'all'):
+    def get_files_inrange(self,dtr):
         """Get the files in a datetime range, optionally for specific sectors
 
         Args:
@@ -504,14 +494,13 @@ class RegriddedGra2pesHandler:
             list : the list of files in the datetime range
         """
 
-        if sectors == 'all':
-            sectors = self.config.sectors
-        inrange_list = get_inrange_list(dtr,self.config)  #get a list of dictionaries for the year, month, and day type representing the files we want
+
+        inrange_list = get_inrange_list(dtr,self.regrid_config.config)  #get a list of dictionaries for the year, month, and day type representing the files we want
         files_inrange = []
         for yr_mo_daytype in inrange_list: # Loop through the years, months, and daytypes 
-            for sector in sectors: #Loop through the sectors
+            for sector in self.regrid_config.sectors: #Loop through the sectors
                 day_subpath = self.get_day_subpath(yr_mo_daytype['year'],yr_mo_daytype['month'],yr_mo_daytype['day_type']) #get the subpath to that day
-                fname = self.config.regridded_fname_structure.format(sector=sector) #get the file name
+                fname = self.regrid_config.regridded_fname_structure.format(sector=sector) #get the file name
                 fullpath = os.path.join(self.regridded_path,day_subpath,fname) #define the full path
                 files_inrange.append(fullpath) #add the full path to the list
         return sorted(files_inrange) #return the list sorted
@@ -531,7 +520,7 @@ class RegriddedGra2pesHandler:
         year_str = f'{year:04d}'
         month_str = f'{month:02d}'
         #use the config to build the subpath
-        day_subpath = self.config.regridded_day_subpath_structure.format(year_str=year_str, month_str=month_str, day_type=day_type)
+        day_subpath = self.regrid_config.regridded_day_subpath_structure.format(year_str=year_str, month_str=month_str, day_type=day_type)
         return day_subpath
     
     def open_ds_inrange(self,dtr,sectors = 'all',chunks = {}):
@@ -545,7 +534,7 @@ class RegriddedGra2pesHandler:
             xr.Dataset : the dataset with values in the datetime range, nicely organized as a regridded_dataset with sectors as dimensions 
         """
 
-        files_inrange = self.get_files_inrange(dtr,sectors) #get the files in the datetime range
+        files_inrange = self.get_files_inrange(dtr) #get the files in the datetime range
         ds_list = []
         for fname in files_inrange: 
             ds = self.open_ds_single(fname) #open each file

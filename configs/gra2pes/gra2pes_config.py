@@ -60,9 +60,9 @@ class Gra2pesConfig:
     # Path and filename templates used in the workflow
     base_path_structure = '{parent_path}/{base_id}'
     base_fname_structure = '{year_str}{month_str}/{day_type}/GRA2PES{version}_{sector}_{year_str}{month_str}_{day_type}_{hour_start}to{hour_end}Z.nc'
-    regridded_path_structure = '{parent_path}/regridded{regrid_id}'
-    regridded_day_subpath_structure = '{year_str}/{month_str}/{day_type}'
-    regridded_fname_structure = '{sector}_regridded.nc'
+    # regridded_path_structure = '{parent_path}/regridded{regrid_id}'
+    # regridded_day_subpath_structure = '{year_str}/{month_str}/{day_type}'
+    # regridded_fname_structure = '{sector}_regridded.nc'
 
     def __init__(self, yaml_path=None, yaml_name='gra2pes_config.yaml'):
         """
@@ -74,8 +74,6 @@ class Gra2pesConfig:
         yaml_fullpath = os.path.join(yaml_path, yaml_name)
         if not os.path.isfile(yaml_fullpath):
             raise FileNotFoundError(f"YAML configuration file not found: {yaml_fullpath}")
-
-
 
         with open(yaml_fullpath, "r") as f:
             self.config = yaml.safe_load(f)
@@ -105,6 +103,10 @@ class Gra2pesRegridConfig:
     Initialized with a Gra2pesConfig instance to share values like
     `parent_path`. Provides logic for computing grid layout and file paths.
     """
+
+    regridded_path_structure = '{parent_path}/regridded{regrid_id}'
+    regridded_day_subpath_structure = '{year_str}/{month_str}/{day_type}'
+    regridded_fname_structure = '{sector}_regridded.nc'
 
     def __init__(self, base_config: Gra2pesConfig):
         """
@@ -148,7 +150,7 @@ class Gra2pesRegridConfig:
         # Deal with sectors: either from regrid config or base config, or default 'all' and handle strings
         sectors = getattr(self, 'sectors', getattr(self.config, 'sectors', 'all')) # from regrid config, else base config, else all sectors
         if sectors == 'all':
-            self.sectors = self.config.sector_details.keys()
+            self.sectors = list(self.config.sector_details.keys())
         elif isinstance(sectors, str):
             self.sectors = [sectors] # single sector as list
         elif isinstance(sectors, list):
@@ -173,7 +175,7 @@ class Gra2pesRegridConfig:
         """
         Return the full path where regridded files should be saved.
         """
-        return self.config.regridded_path_structure.format(
+        return self.regridded_path_structure.format(
             parent_path=self.regridded_parent_path,
             regrid_id=self.regrid_id
         )
