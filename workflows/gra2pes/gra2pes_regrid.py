@@ -18,7 +18,23 @@ import os
 import pickle
 from configs.gra2pes import gra2pes_config
 from utils import gen_utils, gra2pes_utils
-from utils.xr_utils import slice_extent
+from utils.xr_utils import slice_extent, sum_on_dim
+
+PROCESS_REGISTRY = {
+    "sum_on_dim": sum_on_dim,
+    "slice_extent": slice_extent,
+    # add more as needed
+}
+
+def parse_processes(process_list):
+    parsed = []
+    for proc in process_list or []:
+        func = PROCESS_REGISTRY.get(proc['func'])
+        if func is None:
+            raise ValueError(f"Unknown process function: {proc['func']}")
+        params = proc.get('params', {})
+        parsed.append((func, params))
+    return parsed
 
 def create_regrid_subpath(regrid_config,year,month,day_type):
     """Create the subpath for the regridded data
@@ -91,44 +107,6 @@ def load_regrid_save(BGH,gra2pes_regridder,sector,year,month,day_type,pre_proces
     regridded_ds.to_netcdf(full_save_path,encoding = encoding) #Save the regridded dataset
     return regridded_ds
 
-def sum_on_dim(ds,**kwargs):
-    """Sum the dataset on a dimension
-    
-    A typical preprocess step to reduce the dimensionality of the dataset before the regrid
-    
-    Args:
-        ds (xarray.Dataset): The dataset
-        **kwargs: dim (str): The dimension to sum on
-        
-    Returns:
-        xarray.Dataset: The dataset summed on the dimension
-    """
-
-    dim = kwargs['dim']
-    if dim == 'zlevel': # Should probably handle this case by case for the different dimensions. For zlevel, the attributes don't matter as much for the actual species. This may be a problem later
-        ds = ds.sum(dim=dim,keep_attrs = True)
-    else:
-        ds = ds.sum(dim=dim)
-    return ds
-
-# def slice_extent(ds,**kwargs):
-#     """Slice the dataset to a specific extent
-    
-#     A typical postprocess step to reduce the extent of the dataset after the regrid
-    
-#     Args:
-#         ds (xarray.Dataset): The dataset
-#         **kwargs: extent (dict): The extent to slice to
-        
-#     Returns:
-#         xarray.Dataset: The dataset sliced to the extent
-#     """
-
-#     extent = kwargs['extent']
-#     ds = ds.sel(lat=slice(extent['lat_min'], extent['lat_max']),
-#                 lon=slice(extent['lon_min'], extent['lon_max']))
-#     return ds
-
 def main():
     """Main function to regrid the gra2pes data
 
@@ -145,13 +123,17 @@ def main():
     config = gra2pes_config.Gra2pesConfig()
     regrid_config = gra2pes_config.Gra2pesRegridConfig(config)
 
+    # Create the regridded path if it doesn't exist
+    if not os.path.exists(regrid_config.regridded_path):
+        os.makedirs(regrid_config.regridded_path)
+
     # Pull out top-level configs
-    extra_ids = getattr(regrid_config, 'extra_ids', None)
-    specs = getattr(regrid_config, 'specs', "all")
-    sectors = regrid_config.sectors if getattr(regrid_config, 'sectors', "all") != "all" else config.sectors
-    years = getattr(regrid_config, 'years', config.years)
-    months = getattr(regrid_config, 'months', config.months)
-    day_types = getattr(regrid_config, 'day_types', config.day_types)
+    extra_ids = regrid_config.extra_ids
+    specs = regrid_config.specs
+    sectors = regrid_config.sectors
+    years = regrid_config.years
+    months = regrid_config.months
+    day_types = regrid_config.day_types
     
     # Processing settings (optional, may not exist)
     processing = getattr(regrid_config, 'processing', {})
@@ -160,11 +142,9 @@ def main():
     pre_processes = [(sum_on_dim, {"dim": pre_sum_dim})] if pre_sum_dim else None
     post_processes = [(slice_extent, {"extent": extent})] if extent else None
 
-    # Create the regridded path if it doesn't exist
-    if not os.path.exists(regrid_config.regridded_path):
-        os.makedirs(regrid_config.regridded_path)
-    if sectors == 'all':
-        sectors = config.sectors
+
+
+
 
     #Create the base gra2pes handler and the regridder
     BGH = gra2pes_utils.BaseGra2pesHandler(config,specs = specs, extra_ids = extra_ids) 

@@ -13,6 +13,26 @@ def slice_extent(ds,extent,lat_name='lat',lon_name='lon'):
                        lon_name: slice(extent['lon_min'], extent['lon_max'])})
     return out_ds
 
+def sum_on_dim(ds,**kwargs):
+    """Sum the dataset on a dimension
+    
+    A typical preprocess step to reduce the dimensionality of the dataset before the regrid
+    
+    Args:
+        ds (xarray.Dataset): The dataset
+        **kwargs: dim (str): The dimension to sum on
+        
+    Returns:
+        xarray.Dataset: The dataset summed on the dimension
+    """
+
+    dim = kwargs['dim']
+    if dim == 'zlevel': # Should probably handle this case by case for the different dimensions. For zlevel, the attributes don't matter as much for the actual species. This may be a problem later
+        ds = ds.sum(dim=dim,keep_attrs = True)
+    else:
+        ds = ds.sum(dim=dim)
+    return ds
+
 # Define classes
 class UnitConverter:
     def __init__(self):

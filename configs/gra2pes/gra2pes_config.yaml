@@ -25,6 +25,7 @@ extra_id_details:
   methane:
     folder_name: v1_methane_beta
     years: [2021]
+    spec : HC01
 
 # Regridding configuration
 regrid:
@@ -37,14 +38,19 @@ regrid:
   weights_file: create           # Option to generate or reuse weights file
   regrid_id_tag: test1        # Identifier for this regridding setup
   regridded_parent_path: /uufs/chpc.utah.edu/common/home/lin-group24/agm/test
-  specs : ['CO2']
+  extra_ids : methane
+  specs : ['CO2','HC01']
   sectors : ['AG']
   day_types : ['weekdy']
-  processing : {
-    "pre_sum_dim": "zlevel",
-    "extent": {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
-  }
-
+  processing:
+    pre_processes:
+      - func: sum_on_dim
+        args:
+          dim: zlevel
+    post_processes:
+      - func: slice_extent
+        args:
+          extent: {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
 
   # Optional NetCDF encoding settings. Helps with file size and I/O performance.
   encoding_details:
