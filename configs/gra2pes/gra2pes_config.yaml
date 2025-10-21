@@ -11,7 +11,7 @@
 # Months and years to download or process
 version: v1.0
 months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-years: [2021]
+years: [2021, 2022, 2023]
 
 # Source and credentials for data download
 data_source: ftp  # Options: 'ftp' or 'https'
@@ -37,7 +37,7 @@ regrid:
   input_dims: ["south_north", "west_east"]  # Original dimension names in input files
   weights_file:  create           # Option to generate or reuse weights file
   regrid_id_tag: CO2        # Identifier for this regridding setup
-  regridded_parent_path: /uufs/chpc.utah.edu/common/home/lin-group24/agm/test
+  #regridded_parent_path: /uufs/chpc.utah.edu/common/home/lin-group24/agm/test
   #extra_ids : methane
   specs : ['CO2'] 
   sectors : all #['ONROAD_GAS']
@@ -62,3 +62,20 @@ regrid:
       # zlevel: 1        # Chunk along vertical (if exists)
       lat: 100         # Chunk along latitude
       lon: 100         # Chunk along longitude
+
+
+slice_retime:
+  multi_slice_list_file : /uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/configs/gra2pes/multi_slice_list.txt
+  output_path : /uufs/chpc.utah.edu/common/home/lin-group24/agm/test/multi_slice_output
+  start_dt : 2021-01-01 00:00:00
+  end_dt : 2023-12-31 23:59:59
+  timezone : UTC
+  encoding_details:
+    zlib: True         # Enable compression
+    complevel: 4       # Compression level (1-9)
+    shuffle: True      # Shuffle filter for better compression
+    chunksizes:        # Chunk sizes per dimension (can adapt dynamically to dataset)
+      datetime: 1000      # Chunk along time
+      lat: 40         # Chunk along latitude
+      lon: 40         # Chunk along longitude
+      sector: 1      # Chunk along sectors

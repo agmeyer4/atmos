@@ -17,7 +17,7 @@ Author: Aaron G. Meyer
 import os
 import yaml
 import numpy as np
-
+import pandas as pd
 
 class Gra2pesConfig:
     """
@@ -203,3 +203,30 @@ class Gra2pesRegridConfig:
                 self.lon_spacing
             )
         }
+
+class Gra2pesSliceRetimeConfig:
+    """
+    Configuration class for slicing and re-timing GRA2PES emission data.
+
+    Initialized with a Gra2pesConfig instance to share values like
+    `parent_path`. Provides logic for computing grid layout and file paths.
+    """
+
+    def __init__(self, base_config: Gra2pesConfig):
+        """
+        Load regridding settings from the YAML file (under key 'regrid').
+        """
+        slice_retime = base_config.config['slice_retime']
+        self.config = base_config
+
+        # Load all values as attributes
+        for key, value in slice_retime.items():
+            setattr(self, key, value)
+
+        # Read the multi-slice list file if provided
+        multi_slice_list_file = getattr(self, 'multi_slice_list_file', None)
+        if multi_slice_list_file and os.path.isfile(multi_slice_list_file):
+            slice_df = pd.read_csv(multi_slice_list_file, sep='\s+')
+            self.slices = {row['ID']: row.drop('ID').to_dict() for _, row in slice_df.iterrows()}
+        else:
+            self.slices = {}

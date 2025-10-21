@@ -602,9 +602,9 @@ class RegriddedGra2pesHandler:
 
                 #find the dates that are in each day type
                 dates_by_day_type = {
-                    'weekdy':[date for date in dates_in_month if date.weekday() in self.config.day_type_details['weekdy']],
-                    'satdy':[date for date in dates_in_month if date.weekday() in self.config.day_type_details['satdy']],
-                    'sundy':[date for date in dates_in_month if date.weekday()  in self.config.day_type_details['sundy']]
+                    'weekdy':[date for date in dates_in_month if date.weekday() in self.regrid_config.config.day_type_details['weekdy']],
+                    'satdy':[date for date in dates_in_month if date.weekday() in self.regrid_config.config.day_type_details['satdy']],
+                    'sundy':[date for date in dates_in_month if date.weekday()  in self.regrid_config.config.day_type_details['sundy']]
                 }        
 
                 #select the current month from the ds
@@ -631,6 +631,14 @@ class RegriddedGra2pesHandler:
                 combined_ds_list.append(new_month_ds)
 
         #concatenate the datasets for all the months        
-        combined_ds = xr.concat(combined_ds_list,dim='datetime').sortby('datetime')
+        combined_ds = xr.concat(combined_ds_list, dim='datetime').sortby('datetime')
+
+        # Assign timezone as an attribute of the datetime coordinate
+        combined_ds['datetime'].attrs['timezone'] = 'UTC'
 
         return combined_ds
+
+    def get_full_gca(self):
+        """ Get the grid cell area for the full regridded grid from the details saved with the regrid"""
+
+        return xr.open_dataset(os.path.join(self.regridded_path,'details','grid_out_area.nc'))['cell_area']
