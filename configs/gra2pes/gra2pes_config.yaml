@@ -66,7 +66,7 @@ regrid:
 
 slice_retime:
   multi_slice_list_file : /uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/configs/gra2pes/multi_slice_list.txt
-  output_path : /uufs/chpc.utah.edu/common/home/lin-group24/agm/test/multi_slice_output
+  output_path : /uufs/chpc.utah.edu/common/home/lin-group9/agm/test/
   start_dt : 2021-01-01 00:00:00
   end_dt : 2023-12-31 23:59:59
   timezone : UTC
