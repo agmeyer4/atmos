@@ -47,10 +47,6 @@ regrid:
       - func: sum_on_dim
         args:
           dim: zlevel
-    # post_processes:
-    #   - func: slice_extent
-    #     args:
-    #       extent: {'lon_min': -113, 'lon_max': -111, 'lat_min': 40, 'lat_max': 42}
 
   # Optional NetCDF encoding settings. Helps with file size and I/O performance.
   encoding_details:
@@ -66,13 +62,13 @@ regrid:
 
 slice_retime:
   multi_slice_list_file : /uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/configs/gra2pes/multi_slice_list.txt
-  output_path : /uufs/chpc.utah.edu/common/home/lin-group9/agm/test/
+  output_path : /scratch/general/vast/u0890904/GRA2PES_slices
   start_dt : 2021-01-01 00:00:00
   end_dt : 2023-12-31 23:59:59
   timezone : UTC
   encoding_details:
     zlib: True         # Enable compression
-    complevel: 4       # Compression level (1-9)
+    complevel: 3       # Compression level (1-9)
     shuffle: True      # Shuffle filter for better compression
     chunksizes:        # Chunk sizes per dimension (can adapt dynamically to dataset)
       datetime: 1000      # Chunk along time

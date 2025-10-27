@@ -1,0 +1,16 @@
+name: atmos2
+channels:
+  - conda-forge
+dependencies:
+  - scikit-learn
+  - geographiclib
+  - pynio
+  - pytz
+  - pysolar
+  - plotly
+  - netcdf4
+  - gitpython
+  - dask
+  # - cdo
+  # - python-cdo
+  # - herbie-data

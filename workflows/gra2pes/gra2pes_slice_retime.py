@@ -60,12 +60,11 @@ def main():
 
     # Loop through the slices and process each one
     for slice_id, extent in slice_retime_config.slices.items():
-        if slice_id != 'SaltLakeCity':
-            continue
         output_fullpath = os.path.join(slice_retime_config.output_path,f'{slice_id}.nc')
         print(f'Processing slice {slice_id} with extent {extent}. Saving to {output_fullpath}.')
 
         # Load, retime, and save the sliced dataset
+        print('Loading and retiming dataset...')
         ds = open_slice_retime(rgh, dtr, full_gca, extent)
 
         # Ensure the dataset is chunked appropriately for saving
@@ -75,7 +74,8 @@ def main():
         encoding = gra2pes_utils.set_ds_encoding(ds, slice_retime_config.encoding_details)
 
         # Save the dataset to netCDF
-        ds.to_netcdf(output_fullpath, encoding=encoding)
+        print('Saving dataset to netCDF...')
+        ds.to_netcdf(output_fullpath, encoding=encoding, compute = True)
 
     #Stop the timer and print some final stuff
     t2 = time.time()
