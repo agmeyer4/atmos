@@ -17,7 +17,7 @@ Author: Aaron G. Meyer
 import os
 import yaml
 import numpy as np
-
+import pandas as pd
 
 class Gra2pesConfig:
     """
@@ -60,9 +60,9 @@ class Gra2pesConfig:
     # Path and filename templates used in the workflow
     base_path_structure = '{parent_path}/{base_id}'
     base_fname_structure = '{year_str}{month_str}/{day_type}/GRA2PES{version}_{sector}_{year_str}{month_str}_{day_type}_{hour_start}to{hour_end}Z.nc'
-    regridded_path_structure = '{parent_path}/regridded{regrid_id}'
-    regridded_day_subpath_structure = '{year_str}/{month_str}/{day_type}'
-    regridded_fname_structure = '{sector}_regridded.nc'
+    # regridded_path_structure = '{parent_path}/regridded{regrid_id}'
+    # regridded_day_subpath_structure = '{year_str}/{month_str}/{day_type}'
+    # regridded_fname_structure = '{sector}_regridded.nc'
 
     def __init__(self, yaml_path=None, yaml_name='gra2pes_config.yaml'):
         """
@@ -74,8 +74,6 @@ class Gra2pesConfig:
         yaml_fullpath = os.path.join(yaml_path, yaml_name)
         if not os.path.isfile(yaml_fullpath):
             raise FileNotFoundError(f"YAML configuration file not found: {yaml_fullpath}")
-
-
 
         with open(yaml_fullpath, "r") as f:
             self.config = yaml.safe_load(f)
@@ -106,6 +104,10 @@ class Gra2pesRegridConfig:
     `parent_path`. Provides logic for computing grid layout and file paths.
     """
 
+    regridded_path_structure = '{parent_path}/regridded{regrid_id}'
+    regridded_day_subpath_structure = '{year_str}/{month_str}/{day_type}'
+    regridded_fname_structure = '{sector}_regridded.nc'
+
     def __init__(self, base_config: Gra2pesConfig):
         """
         Load regridding settings from the YAML file (under key 'regrid').
@@ -127,28 +129,58 @@ class Gra2pesRegridConfig:
         if not hasattr(self,'encoding_details'):
             self.encoding_details = None
 
-        # Apply tuple conversions for specific keys (if present)
-        if hasattr(self, "lat_center_range"):
-            self.lat_center_range = tuple(self.lat_center_range)
-        if hasattr(self, "lon_center_range"):
-            self.lon_center_range = tuple(self.lon_center_range)
-        if hasattr(self, "input_dims"):
-            self.input_dims = tuple(self.input_dims)
+        # Apply tuple conversions for specific keys
+        self.lat_center_range = tuple(self.lat_center_range)
+        self.lon_center_range = tuple(self.lon_center_range)
+        self.input_dims = tuple(self.input_dims)
 
-        # Derived config values
-        if 'regrid_id_tag' in regrid.keys():
-            self.regrid_id = f"{self.lat_spacing}x{self.lon_spacing}_{regrid['regrid_id_tag']}"
-        else:
-            self.regrid_id = f"{self.lat_spacing}x{self.lon_spacing}"
+        # Derived path and grid values
+        self.regrid_id = f"{self.lat_spacing}x{self.lon_spacing}_{regrid.get('regrid_id_tag','')}".rstrip('_') # set the regrid_id with optional tag, if no tag just use spacing
+        self.regridded_parent_path = regrid.get('regridded_parent_path', self.config.parent_path)
         self.regridded_path = self.get_regridded_path()
         self.grid_out = self.get_grid_out()
+
+        # Get the other regrid configs and save to this class if they exist, and use defaults if not
+        self.extra_id_details = getattr(self.config, 'extra_id_details', None) # from base config, default None
+        self.extra_ids = getattr(self, 'extra_ids', None) # from regrid config, default None
+        self.years = getattr(self, 'years', self.config.years) # from base config, default all years
+        self.months = getattr(self, 'months', self.config.months) # from base config, default all months
+        self.day_types = getattr(self, 'day_types', self.config.day_types) # from base config, default all day types
+
+        # Deal with sectors: either from regrid config or base config, or default 'all' and handle strings
+        sectors = getattr(self, 'sectors', getattr(self.config, 'sectors', 'all')) # from regrid config, else base config, else all sectors
+        if sectors == 'all':
+            self.sectors = list(self.config.sector_details.keys())
+        elif isinstance(sectors, str):
+            self.sectors = [sectors] # single sector as list
+        elif isinstance(sectors, list):
+            self.sectors = sectors # list of sectors
+        else:
+            raise ValueError("Invalid type for sectors; must be 'all', str, or list.")
+        
+        # Deal with species: either from regrid config or default to all
+        specs = getattr(self, 'specs', getattr(self.config,'specs','all')) # from regrid config, else base config, else all species
+        if specs == 'all':
+            self.specs = specs
+        elif isinstance(specs, str):
+            self.specs = [specs] # single species as list
+        elif isinstance(specs, list):
+            self.specs = specs # list of species
+        else:
+            raise ValueError("Invalid type for specs; must be 'all', str, or list.")
+
+        if self.encoding_details and 'chunksizes' in self.encoding_details:
+            self.chunks = self.encoding_details['chunksizes']
+        else:
+            self.chunks = None
+
 
     def get_regridded_path(self):
         """
         Return the full path where regridded files should be saved.
         """
-        return self.config.regridded_path_structure.format(
-            parent_path=self.config.parent_path,
+        return self.regridded_path_structure.format(
+            parent_path=self.regridded_parent_path,
             regrid_id=self.regrid_id
         )
 
@@ -171,3 +203,30 @@ class Gra2pesRegridConfig:
                 self.lon_spacing
             )
         }
+
+class Gra2pesSliceRetimeConfig:
+    """
+    Configuration class for slicing and re-timing GRA2PES emission data.
+
+    Initialized with a Gra2pesConfig instance to share values like
+    `parent_path`. Provides logic for computing grid layout and file paths.
+    """
+
+    def __init__(self, base_config: Gra2pesConfig):
+        """
+        Load regridding settings from the YAML file (under key 'regrid').
+        """
+        slice_retime = base_config.config['slice_retime']
+        self.config = base_config
+
+        # Load all values as attributes
+        for key, value in slice_retime.items():
+            setattr(self, key, value)
+
+        # Read the multi-slice list file if provided
+        multi_slice_list_file = getattr(self, 'multi_slice_list_file', None)
+        if multi_slice_list_file and os.path.isfile(multi_slice_list_file):
+            slice_df = pd.read_csv(multi_slice_list_file, sep='\s+')
+            self.slices = {row['ID']: row.drop('ID').to_dict() for _, row in slice_df.iterrows()}
+        else:
+            self.slices = {}

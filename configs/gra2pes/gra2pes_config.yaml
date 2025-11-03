@@ -11,7 +11,7 @@
 # Months and years to download or process
 version: v1.0
 months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-years: [2022,2023]
+years: [2021, 2022, 2023]
 
 # Source and credentials for data download
 data_source: ftp  # Options: 'ftp' or 'https'
@@ -25,6 +25,7 @@ extra_id_details:
   methane:
     folder_name: v1_methane_beta
     years: [2021]
+    spec : HC01
 
 # Regridding configuration
 regrid:
@@ -34,7 +35,18 @@ regrid:
   lon_center_range: [-138.05, -58.95]  # Longitude center extent
   method: conservative           # Regridding interpolation method
   input_dims: ["south_north", "west_east"]  # Original dimension names in input files
-  weights_file: create           # Option to generate or reuse weights file
+  weights_file:  create           # Option to generate or reuse weights file
+  regrid_id_tag: CO2        # Identifier for this regridding setup
+  #regridded_parent_path: /uufs/chpc.utah.edu/common/home/lin-group24/agm/test
+  #extra_ids : methane
+  specs : ['CO2'] 
+  sectors : all #['ONROAD_GAS']
+  #day_types : ['weekdy']
+  processing:
+    pre_processes:
+      - func: sum_on_dim
+        args:
+          dim: zlevel
 
   # Optional NetCDF encoding settings. Helps with file size and I/O performance.
   encoding_details:
@@ -43,6 +55,23 @@ regrid:
     shuffle: True      # Shuffle filter for better compression
     chunksizes:        # Chunk sizes per dimension (can adapt dynamically to dataset)
       utc_hour: 1      # Chunk along time
-      zlevel: 1        # Chunk along vertical (if exists)
+      # zlevel: 1        # Chunk along vertical (if exists)
       lat: 100         # Chunk along latitude
       lon: 100         # Chunk along longitude
+
+
+slice_retime:
+  multi_slice_list_file : /uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/configs/gra2pes/multi_slice_list.txt
+  output_path : /scratch/general/vast/u0890904/GRA2PES_slices
+  start_dt : 2021-01-01 00:00:00
+  end_dt : 2023-12-31 23:59:59
+  timezone : UTC
+  encoding_details:
+    zlib: True         # Enable compression
+    complevel: 3       # Compression level (1-9)
+    shuffle: True      # Shuffle filter for better compression
+    chunksizes:        # Chunk sizes per dimension (can adapt dynamically to dataset)
+      datetime: 1000      # Chunk along time
+      lat: 40         # Chunk along latitude
+      lon: 40         # Chunk along longitude
+      sector: 1      # Chunk along sectors

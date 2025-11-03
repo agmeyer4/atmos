@@ -18,6 +18,23 @@ import os
 import pickle
 from configs.gra2pes import gra2pes_config
 from utils import gen_utils, gra2pes_utils
+from utils.xr_utils import slice_extent, sum_on_dim
+
+PROCESS_REGISTRY = {
+    "sum_on_dim": sum_on_dim,
+    "slice_extent": slice_extent,
+    # add more as needed
+}
+
+def parse_processes(process_list):
+    parsed = []
+    for proc in process_list or []:
+        func = PROCESS_REGISTRY.get(proc['func'])
+        if func is None:
+            raise ValueError(f"Unknown process function: {proc['func']}")
+        args = proc.get('args', {})
+        parsed.append((func, args))
+    return parsed
 
 def create_regrid_subpath(regrid_config,year,month,day_type):
     """Create the subpath for the regridded data
@@ -33,7 +50,7 @@ def create_regrid_subpath(regrid_config,year,month,day_type):
     """
 
     #Get the path to the day type folder using the regrid config subpath structure
-    regrid_day_relpath = regrid_config.config.regridded_day_subpath_structure.format(year_str = f'{year:04d}', month_str = f'{month:02d}', day_type = day_type)
+    regrid_day_relpath = regrid_config.regridded_day_subpath_structure.format(year_str = f'{year:04d}', month_str = f'{month:02d}', day_type = day_type)
     regrid_subpath = os.path.join(regrid_config.regridded_path,regrid_day_relpath) #Join the regridded path with the day type folder
     os.makedirs(regrid_subpath,exist_ok=True) #Make the day type folder if it doesn't exist        
     return regrid_subpath
@@ -66,7 +83,6 @@ def load_regrid_save(BGH,gra2pes_regridder,sector,year,month,day_type,pre_proces
         raise ValueError(f"Regridded dataset {full_save_path} already exists, you may end up overwriting data")
 
     base_ds = BGH.load_fmt_fullday(sector,year,month,day_type,check_extra=False) #Load the base dataset
-
     if pre_processes: #Apply pre processes
         for func,params in pre_processes:
             base_ds = func(base_ds,**params)
@@ -91,44 +107,6 @@ def load_regrid_save(BGH,gra2pes_regridder,sector,year,month,day_type,pre_proces
     regridded_ds.to_netcdf(full_save_path,encoding = encoding) #Save the regridded dataset
     return regridded_ds
 
-def sum_on_dim(ds,**kwargs):
-    """Sum the dataset on a dimension
-    
-    A typical preprocess step to reduce the dimensionality of the dataset before the regrid
-    
-    Args:
-        ds (xarray.Dataset): The dataset
-        **kwargs: dim (str): The dimension to sum on
-        
-    Returns:
-        xarray.Dataset: The dataset summed on the dimension
-    """
-
-    dim = kwargs['dim']
-    if dim == 'zlevel': # Should probably handle this case by case for the different dimensions. For zlevel, the attributes don't matter as much for the actual species. This may be a problem later
-        ds = ds.sum(dim=dim,keep_attrs = True)
-    else:
-        ds = ds.sum(dim=dim)
-    return ds
-
-def slice_extent(ds,**kwargs):
-    """Slice the dataset to a specific extent
-    
-    A typical postprocess step to reduce the extent of the dataset after the regrid
-    
-    Args:
-        ds (xarray.Dataset): The dataset
-        **kwargs: extent (dict): The extent to slice to
-        
-    Returns:
-        xarray.Dataset: The dataset sliced to the extent
-    """
-
-    extent = kwargs['extent']
-    ds = ds.sel(lat=slice(extent['lat_min'], extent['lat_max']),
-                lon=slice(extent['lon_min'], extent['lon_max']))
-    return ds
-
 def main():
     """Main function to regrid the gra2pes data
 
@@ -145,25 +123,22 @@ def main():
     config = gra2pes_config.Gra2pesConfig()
     regrid_config = gra2pes_config.Gra2pesRegridConfig(config)
 
+    # Create the regridded path if it doesn't exist
+    if not os.path.exists(regrid_config.regridded_path):
+        os.makedirs(regrid_config.regridded_path)
+
     # Pull out top-level configs
     extra_ids = regrid_config.extra_ids
-    specs = regrid_config.specs  
-    sectors = regrid_config.sectors if regrid_config.sectors != "all" else config.sectors
+    specs = regrid_config.specs
+    sectors = regrid_config.sectors
     years = regrid_config.years
     months = regrid_config.months
     day_types = regrid_config.day_types
     
-    # Processing settings
-    pre_sum_dim = regrid_config.processing['pre_sum_dim'] 
-    extent = regrid_config.processing['extent']
-    pre_processes = [(sum_on_dim, {"dim": pre_sum_dim})] if pre_sum_dim else None
-    post_processes = [(slice_extent, {"extent": extent})] if extent else None
-
-    # Create the regridded path if it doesn't exist
-    if not os.path.exists(regrid_config.regridded_path):
-        os.makedirs(regrid_config.regridded_path)
-    if sectors == 'all':
-        sectors = config.sectors
+    # Processing settings (optional, may not exist)
+    processing = getattr(regrid_config, 'processing', {})
+    pre_processes = parse_processes(processing.get('pre_processes'))
+    post_processes = parse_processes(processing.get('post_processes'))
 
     #Create the base gra2pes handler and the regridder
     BGH = gra2pes_utils.BaseGra2pesHandler(config,specs = specs, extra_ids = extra_ids) 
@@ -181,9 +156,9 @@ def main():
     print(f'Specs: {specs}')
     print(f'Extra ids: {extra_ids}')
     if pre_processes:
-        print('Pre processes: ','sum_on_dim ',pre_sum_dim)
+        print('Pre processes: ', pre_processes)
     if post_processes:
-        print('Post processes: ','slice_extent ',extent)
+        print('Post processes: ', post_processes)
     print('\n')
 
     #Loop through the sectors, years, months, and day types to regrid the data
@@ -222,8 +197,8 @@ def main():
         f.write(f'Sectors: {sectors}\n')
         f.write(f'Specs: {specs}\n')
         f.write(f'Extra ids: {extra_ids}\n')
-        f.write(f'Pre processes: sum_on_dim {pre_sum_dim}\n')
-        f.write(f'Post processes: slice_extent {extent}\n')
+        f.write(f'Pre processes: {pre_processes}\n')
+        f.write(f'Post processes: {post_processes}\n')
     with open(os.path.join(details_path,'regrid_config.pkl'),'wb') as f:  #Save the regrid config to a pickle file
         pickle.dump(regrid_config,f)
     gra2pes_regridder.save_regrid_weights(details_path) #Save the regrid weights to the details path

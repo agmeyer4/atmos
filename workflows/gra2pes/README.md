@@ -6,6 +6,7 @@ This module contains scripts to download and regrid the GRA2PES emissions invent
 
 - `gra2pes_base_creator.py` — Downloads raw GRA2PES emissions data and organizes it into a structured directory hierarchy.
 - `gra2pes_regrid.py` — Regrids the downloaded GRA2PES files to a specified spatial resolution and grid.
+- `gra2pes_slice_retime.py` — Slices and retimes the regridded data for specific analysis needs.
 
 ## Requirements
 
@@ -25,6 +26,7 @@ Run these scripts from the root of the `atmos` repository using Python’s modul
 ```bash
 python -m workflows.inventories.gra2pes.gra2pes_base_creator
 python -m workflows.inventories.gra2pes.gra2pes_regrid
+python -m workflows.inventories.gra2pes.gra2pes_slice_retime
 ```
 
 This ensures that imports work correctly with the package structure.

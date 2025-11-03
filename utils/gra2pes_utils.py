@@ -9,7 +9,7 @@ import numpy as np
 import xarray as xr
 import pandas as pd
 sys.path.append(os.path.join(os.path.dirname(__file__),'../..'))
-from utils import datetime_utils
+from utils import datetime_utils, xr_utils
 
 # Suppress the specific FutureWarning
 warnings.filterwarnings("ignore", category=FutureWarning, message="The return type of `Dataset.dims` will be changed")
@@ -218,7 +218,8 @@ class BaseGra2pesHandler():
             raise ValueError("hour_start must be '00' or '12'") 
         
         # Format the relative path file name using the information in the config
-        relpath_fname = self.config.base_fname_structure.format(year_str=year_str, month_str=month_str, day_type=day_type, sector=sector, hour_start=hour_start, hour_end=hour_end)
+        relpath_fname = self.config.base_fname_structure.format(version = self.config.config['version'], year_str=year_str, month_str=month_str, 
+                                                                day_type=day_type, sector=sector, hour_start=hour_start, hour_end=hour_end)
         return relpath_fname
     
     def get_extra_vars(self, main_ds, extra_ds):
@@ -346,8 +347,13 @@ class Gra2pesRegridder():
         grid_out = self.regrid_config.grid_out #get the output grid from the regrid config
         method = self.regrid_config.method 
         input_dims = self.regrid_config.input_dims
-
-        regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims) #create the regridder
+        weights_file = getattr(self.regrid_config,'weights_file')
+        if weights_file == 'create': #if the user wants to create a new weights file
+            regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims) #create the regridder
+        elif os.path.exists(weights_file): #if the weights file exists, load it
+            regridder = xe.Regridder(grid_in, grid_out, method, input_dims = input_dims, filename=weights_file, reuse_weights=True)
+        else:
+            raise FileNotFoundError(f"Weights file {weights_file} not found. Enter 'create' to create a new weights file.")
 
         regridder.ds_attrs = ds.attrs #save the attributes of the dataset to the regridder
 
@@ -456,43 +462,37 @@ class Gra2pesRegridder():
         pass
 
 class RegriddedGra2pesHandler:
-    """This class is meant to handle the regridded GRA2PES .nc files in a specific directory structure created using gra2pes_regrid.py
-    
+    """
+    Handles regridded GRA2PES NetCDF files organized in a directory structure created by gra2pes_regrid.py.
+
     Attributes:
-        config (Gra2pesConfig) : the configuration object for the GRA2PES inventory
-        regrid_id (str) : the regrid id for the regridded files
-        regridded_path (str) : the path to the regridded files
-        
+        regrid_config (Gra2pesRegridConfig): Configuration object containing regridding parameters and paths.
+        regrid_id (str): Identifier for the regridding operation.
+        regridded_path (str): Base directory path for regridded files.
+
     Methods:
-        open_ds_inrange : open a dataset in a datetime range
-        open_ds_single : open a single dataset
-        rework_ds_dt : rework the datetime coordinates of a dataset
-        get_files_inrange : get the files in a datetime range
-        get_regridded_path : get the regridded path
-        get_relpath_fname : get the relative path file name for a given sector, year, month, and day type
+        get_files_inrange(dtr):
+            Returns a sorted list of file paths for all sectors and day types within a given datetime range.
+
+        get_day_subpath(year, month, day_type):
+            Constructs the subdirectory path for a specific year, month, and day type.
+
+        open_ds_inrange(dtr, slice_extent=None):
+            Loads and combines datasets for all sectors and day types in a datetime range, optionally spatially sliced.
+
+        open_ds_single(fname, slice_extent=None):
+            Loads a single regridded dataset from file and assigns coordinates.
+
+        rework_ds_dt(ds):
+            Converts separate year, month, day_type, and utc_hour coordinates into a single datetime coordinate.
     """
 
-    def __init__(self,config,regrid_id):
-        self.config = config
-        self.regrid_id = regrid_id
-        self.regridded_path = self.get_regridded_path()
+    def __init__(self,regrid_config):
+        self.regrid_config = regrid_config
+        self.regrid_id = regrid_config.regrid_id
+        self.regridded_path = regrid_config.regridded_path
 
-    def get_regridded_path(self):
-        """Gets the regridded path for the regridded data using the config
-
-        Returns:
-            str : the regridded path
-
-        Raise:
-            ValueError : if the regridded path does not exist
-        """
-
-        regridded_path = self.config.regridded_path_structure.format(parent_path=self.config.parent_path,regrid_id=self.regrid_id)
-        if not os.path.exists(regridded_path):
-            raise ValueError(f"Regridded path {regridded_path} does not exist.")
-        return regridded_path
-
-    def get_files_inrange(self,dtr,sectors = 'all'):
+    def get_files_inrange(self,dtr):
         """Get the files in a datetime range, optionally for specific sectors
 
         Args:
@@ -503,14 +503,12 @@ class RegriddedGra2pesHandler:
             list : the list of files in the datetime range
         """
 
-        if sectors == 'all':
-            sectors = self.config.sectors
-        inrange_list = get_inrange_list(dtr,self.config)  #get a list of dictionaries for the year, month, and day type representing the files we want
+        inrange_list = get_inrange_list(dtr,self.regrid_config.config)  #get a list of dictionaries for the year, month, and day type representing the files we want
         files_inrange = []
         for yr_mo_daytype in inrange_list: # Loop through the years, months, and daytypes 
-            for sector in sectors: #Loop through the sectors
+            for sector in self.regrid_config.sectors: #Loop through the sectors
                 day_subpath = self.get_day_subpath(yr_mo_daytype['year'],yr_mo_daytype['month'],yr_mo_daytype['day_type']) #get the subpath to that day
-                fname = self.config.regridded_fname_structure.format(sector=sector) #get the file name
+                fname = self.regrid_config.regridded_fname_structure.format(sector=sector) #get the file name
                 fullpath = os.path.join(self.regridded_path,day_subpath,fname) #define the full path
                 files_inrange.append(fullpath) #add the full path to the list
         return sorted(files_inrange) #return the list sorted
@@ -530,27 +528,27 @@ class RegriddedGra2pesHandler:
         year_str = f'{year:04d}'
         month_str = f'{month:02d}'
         #use the config to build the subpath
-        day_subpath = self.config.regridded_day_subpath_structure.format(year_str=year_str, month_str=month_str, day_type=day_type)
+        day_subpath = self.regrid_config.regridded_day_subpath_structure.format(year_str=year_str, month_str=month_str, day_type=day_type)
         return day_subpath
     
-    def open_ds_inrange(self,dtr,sectors = 'all',chunks = {}):
+    def open_ds_inrange(self, dtr, slice_extent = None):
         """Opens a dataset with values within the datetime range and optionally for specific sectors
         
         Args:
             dtr (DateTimeRange) : the datetime range object from utils.datetime_utils
-            sectors (str or list) : the sectors to get the files for. If 'all', all sectors will be used
             
         Returns:
             xr.Dataset : the dataset with values in the datetime range, nicely organized as a regridded_dataset with sectors as dimensions 
         """
 
-        files_inrange = self.get_files_inrange(dtr,sectors) #get the files in the datetime range
+        files_inrange = self.get_files_inrange(dtr) #get the files in the datetime range
         ds_list = []
         for fname in files_inrange: 
-            ds = self.open_ds_single(fname) #open each file
+            ds = self.open_ds_single(fname, slice_extent) #open each file
             ds_list.append(ds) #add it to the list
         ds_combined = xr.combine_by_coords(ds_list,combine_attrs='drop_conflicts') #combine the datasets, dropping the conflicting attributes
         ds_combined = ds_combined.transpose('lat','lon','year','month','day_type','utc_hour','sector') #transpose the dataset 
+
         #below is a little unecessary, but it orders the coordinates in a way that makes sense when printing in jupyter or elsewhere
         ds_combined = ds_combined.assign_coords(
             lat=ds_combined['lat'],
@@ -563,7 +561,7 @@ class RegriddedGra2pesHandler:
         ) 
         return ds_combined
 
-    def open_ds_single(self,fname,chunks = {}):
+    def open_ds_single(self,fname,slice_extent = None):
         """Open a single dataset from a file
 
         Args:
@@ -573,12 +571,15 @@ class RegriddedGra2pesHandler:
         Returns:
             xr.Dataset : the opened dataset
         """
-
-        ds = xr.open_dataset(fname)
+        ds = xr.open_dataset(fname,chunks=self.regrid_config.chunks) #open the dataset with the specified chunks
         #assign the coordinates based on the attributes that were logged in each dataset during the regrid. 
         ds = ds.assign_coords(year=ds.attrs['year'], month=ds.attrs['month'], day_type=ds.attrs['day_type'],sector=ds.attrs['sector']) 
         ds = ds.expand_dims(dim=['year','month','day_type','sector'])
         
+        # Spatial slicing
+        if slice_extent is not None:
+            ds = xr_utils.slice_extent(ds, slice_extent)
+
         return ds
 
     def rework_ds_dt(self,ds):
@@ -601,9 +602,9 @@ class RegriddedGra2pesHandler:
 
                 #find the dates that are in each day type
                 dates_by_day_type = {
-                    'weekdy':[date for date in dates_in_month if date.weekday() in self.config.day_type_details['weekdy']],
-                    'satdy':[date for date in dates_in_month if date.weekday() in self.config.day_type_details['satdy']],
-                    'sundy':[date for date in dates_in_month if date.weekday()  in self.config.day_type_details['sundy']]
+                    'weekdy':[date for date in dates_in_month if date.weekday() in self.regrid_config.config.day_type_details['weekdy']],
+                    'satdy':[date for date in dates_in_month if date.weekday() in self.regrid_config.config.day_type_details['satdy']],
+                    'sundy':[date for date in dates_in_month if date.weekday()  in self.regrid_config.config.day_type_details['sundy']]
                 }        
 
                 #select the current month from the ds
@@ -630,6 +631,14 @@ class RegriddedGra2pesHandler:
                 combined_ds_list.append(new_month_ds)
 
         #concatenate the datasets for all the months        
-        combined_ds = xr.concat(combined_ds_list,dim='datetime').sortby('datetime')
+        combined_ds = xr.concat(combined_ds_list, dim='datetime').sortby('datetime')
+
+        # Assign timezone as an attribute of the datetime coordinate
+        combined_ds['datetime'].attrs['timezone'] = 'UTC'
 
         return combined_ds
+
+    def get_full_gca(self):
+        """ Get the grid cell area for the full regridded grid from the details saved with the regrid"""
+
+        return xr.open_dataset(os.path.join(self.regridded_path,'details','grid_out_area.nc'))['cell_area']
