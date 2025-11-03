@@ -6,4 +6,6 @@
 
 source activate atmos1
 cd /uufs/chpc.utah.edu/common/home/u0890904/LAIR_1/atmos/
+
+# Run the gra2pes_slice_retime module, filtering out HDF5 diagnostic messages
 python -u -m workflows.gra2pes.gra2pes_slice_retime 2> >(awk '/HDF5-DIAG:/ {inblock=1} inblock && /^$/ {inblock=0; next} !inblock' >&2)
