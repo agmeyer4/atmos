@@ -60,8 +60,6 @@ def main():
 
     # Loop through the slices and process each one
     for slice_id, extent in slice_retime_config.slices.items():
-        if slice_id == 'Austin':
-            continue
         output_fullpath = os.path.join(slice_retime_config.output_path,f'{slice_id}.nc')
         print(f'Processing slice {slice_id} with extent {extent}. Saving to {output_fullpath}.')
 
