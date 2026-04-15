@@ -2,6 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --account=carbon-kp
 #SBATCH --partition=carbon-kp
+#SBATCH --time=10:00:00
 #SBATCH -o ./logs/gra2pes_slice_retime_%A.out
 
 source activate atmos1
